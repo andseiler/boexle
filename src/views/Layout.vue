@@ -89,7 +89,9 @@
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
+//@ts-ignore
 import 'swiper/css';
+//@ts-ignore
 import 'swiper/css/pagination';
 import SwiperCore from 'swiper';
 import { Autoplay, Pagination } from 'swiper/modules';
