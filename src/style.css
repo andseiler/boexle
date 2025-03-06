@@ -2,17 +2,17 @@
 @import "./styles/main.scss";
 
 @theme {
-    --color-primarycontrast-50: #e2ebf3;
-    --color-primarycontrast-100: #c1d6e6;
-    --color-primarycontrast-200: #83acce;
-    --color-primarycontrast-300: #4885b7;
-    --color-primarycontrast-400: #305879;
-    --color-primarycontrast-500: #172a3a;
-    --color-primarycontrast-600: #13232f;
-    --color-primarycontrast-700: #0e1b25;
-    --color-primarycontrast-800: #091016;
-    --color-primarycontrast-900: #04080b;
-    --color-primarycontrast-950: #030507;
+    --color-primarycontrast-50: #dbeffa;
+    --color-primarycontrast-100: #b7dff6;
+    --color-primarycontrast-200: #6abceb;
+    --color-primarycontrast-300: #229ce2;
+    --color-primarycontrast-400: #156c9e;
+    --color-primarycontrast-500: #0b3954;
+    --color-primarycontrast-600: #092e44;
+    --color-primarycontrast-700: #072232;
+    --color-primarycontrast-800: #041620;
+    --color-primarycontrast-900: #020c12;
+    --color-primarycontrast-950: #010609;
 }
 
 @theme {
@@ -30,31 +30,20 @@
 }
 
 @theme {
-    --color-red-50: #fbede9;
-    --color-red-100: #f7dad4;
-    --color-red-200: #efb6a9;
-    --color-red-300: #e8917d;
-    --color-red-400: #e06c52;
-    --color-red-500: #d84727;
-    --color-red-600: #ad391f;
-    --color-red-700: #822b17;
-    --color-red-800: #561d10;
-    --color-red-900: #2b0e08;
-    --color-red-950: #160704;
+    --color-primary-50: #f6faea;
+    --color-primary-100: #ecf6d5;
+    --color-primary-200: #daecac;
+    --color-primary-300: #c6e27e;
+    --color-primary-400: #b3d954;
+    --color-primary-500: #9fcc2e;
+    --color-primary-600: #7fa225;
+    --color-primary-700: #5e791b;
+    --color-primary-800: #415313;
+    --color-primary-900: #202a09;
+    --color-primary-950: #101505;
 }
 
 @theme {
-    --color-primary-50:  #e8f4ef;
-    --color-primary-100: #d1e9df;
-    --color-primary-200: #a3d3bf;
-    --color-primary-300: #76bd9e;
-    --color-primary-400: #589f85;
-    --color-primary-500: #4f9d78; /* Base color */
-    --color-primary-600: #468b6b;
-    --color-primary-700: #3d795e;
-    --color-primary-800: #346751;
-    --color-primary-900: #2b5544;
-
     --color-gray-50:  #f2f3f5;
     --color-gray-100: #e2e3e6;
     --color-gray-200: #c5c7cb;

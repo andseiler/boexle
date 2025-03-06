@@ -1,15 +1,15 @@
 <template>
-  <div class="bg-tertiary-200 ">
+  <div class="bg-tertiary-200  bg-red-500">
     <!-- Header bleibt unverändert -->
     <header class="bg-primarycontrast-500 sticky z-50" :class="{'shadow-xl': isScrolled}">
       <div class="container mx-auto px-4 py-2 flex items-center justify-between max-w-screen-lg">
         <div class="text-2xl font-bold text-primary-500 flex flex-col justify-center">
           <img class="h-20" src="/images/pocketledge-logo-v2-green.svg" alt="">
         </div>
-        <nav class="space-x-8">
-          <a href="#features" class="text-gray-50 hover:text-primary-500">Preise</a>
-          <a href="#features" class="text-gray-50 hover:text-primary-500">FAQ</a>
-          <a href="#kontakt" class="text-gray-50 hover:text-primary-500">Kontakt</a>
+        <nav class="flex gap-6">
+          <a href="#features" class="text-gray-50 hover:text-primary-500 flex gap-1"><currency-euro-icon class="w-6"></currency-euro-icon><span>Preise</span></a>
+          <a href="#features" class="text-gray-50 hover:text-primary-500 flex gap-1"><question-mark-circle-icon class="w-6"></question-mark-circle-icon><span>FAQ</span></a>
+          <a href="#kontakt" class="text-gray-50 hover:text-primary-500 flex gap-1"><chat-bubble-oval-left-ellipsis-icon class="w-6"></chat-bubble-oval-left-ellipsis-icon><span>Kontakt</span></a>
         </nav>
       </div>
     </header>
@@ -23,31 +23,31 @@
           :slides-per-view="1"
           :loop="true"
           :autoplay="{ delay: 3000 }"
-          class="h-[650px]"
+          class="h-[700px]"
       >
         <SwiperSlide>
-          <img src="/images/bs-blunt-art.jpg" alt="Slide 1" class="object-cover w-full h-full" />
+          <img src="/images/bg.png" alt="Slide 1" class="object-cover w-full h-full" />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/fs-blunt-art.jpg" alt="Slide 2" class="object-cover w-full h-full" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/bs-crooks-art.jpg" alt="Slide 3" class="object-cover w-full h-full" />
-        </SwiperSlide>
+<!--        <SwiperSlide>-->
+<!--          <img src="/images/fs-blunt-art.jpg" alt="Slide 2" class="object-cover w-full h-full" />-->
+<!--        </SwiperSlide>-->
+<!--        <SwiperSlide>-->
+<!--          <img src="/images/bs-crooks-art.jpg" alt="Slide 3" class="object-cover w-full h-full" />-->
+<!--        </SwiperSlide>-->
         <div class="swiper-pagination"></div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black opacity-60 px-4 z-40">
+        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black opacity-0 px-4 z-40">
 
         </div>
       </Swiper>
       <div class=" absolute inset-0 flex flex-col items-center justify-center px-4 z-20 ">
-        <h1 class="fade-in text-4xl md:text-6xl font-extrabold mb-4 text-white">
+        <h1 class="fade-in text-4xl md:text-6xl font-extrabold mb-4 text-gray-50">
           <span class="gloria-hallelujah-regular custom-text-shadow">POCKETLEDGE</span>
         </h1>
-        <p class="text-lg md:text-2xl mb-8 text-white text-center custom-text-shadow">
+        <p class="text-lg md:text-2xl mb-8 text-gray-50 text-center custom-text-shadow">
           Extrem stabil, in 1 Minute auf- und abgebaut, <br>passt perfekt in eine Eurobox (60x40x30 cm).
         </p>
-        <a href="#mehr-erfahren" class="gradient-button">
-          Jetzt bestellen
+        <a href="#mehr-erfahren" class="gradient-button rounded-2xl bg-linear-to-r from-primary-500 to-primary-600 text-white p-4 flex gap-2">
+          <shopping-cart-icon class="w-6"></shopping-cart-icon><span>Jetzt bestellen</span>
         </a>
       </div>
     </section>
@@ -85,10 +85,19 @@
           </div>
 
         </div>
-        <div class="text-center mt-12">
-          <a href="https://your-video-link.com" target="_blank" class="gradient-button">
-            <span>Aufbau in Aktion ansehen</span>
-          </a>
+        <div class="flex justify-center mt-12">
+          <div @click="showModal = true" class=" w-fit cursor-pointer gradient-button rounded-2xl bg-linear-to-r from-primary-500 to-primary-600 text-white p-4 flex gap-2">
+            <PlayPauseIcon class="w-6"></PlayPauseIcon><span>Aufbau in Aktion ansehen</span>
+          </div>
+          <ModalComponent :isVisible="showModal" @close="showModal = false">
+            <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/VIDEO_ID"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+          </ModalComponent>
         </div>
       </section>
     </div>
@@ -193,10 +202,13 @@ import 'swiper/css/pagination';
 import SwiperCore from 'swiper';
 import { Autoplay, Pagination } from 'swiper/modules';
 import {onMounted, onUnmounted, ref} from "vue";
+import { PlayPauseIcon, ShoppingCartIcon, CurrencyEuroIcon, QuestionMarkCircleIcon, ChatBubbleOvalLeftEllipsisIcon} from '@heroicons/vue/24/solid'
+import ModalComponent from "../components/ModalComponent.vue";
 
 // Initialisiere Swiper Plugins
 SwiperCore.use([Pagination, Autoplay]);
 
+const showModal = ref(false);
 const isScrolled = ref(false);
 
 const handleScroll = () => {
@@ -207,7 +219,7 @@ onMounted(() => window.addEventListener("scroll", handleScroll));
 onUnmounted(() => window.removeEventListener("scroll", handleScroll));
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -218,19 +230,11 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
 }
 
 .gradient-button {
-  background: linear-gradient(135deg, #468b6b 0%, #2b5544 100%);
-  color: white;
-  padding: 14px 28px; /* Increased padding */
-  border-radius: 50px;
-  font-weight: bold;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .gradient-button:hover {
-  background: linear-gradient(135deg, #5fb88a 0%, #2d634c 100%); /* Lighter gradient */
   transform: scale(1.05);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .custom-text {
