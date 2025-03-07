@@ -10,8 +10,8 @@
 <script setup>
 import { ref } from "vue";
 
-const TELEGRAM_BOT_TOKEN = "";
-const TELEGRAM_CHAT_ID = ""; // Deine Telegram Chat-ID
+const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
 const message = ref("");
 const responseMessage = ref("");

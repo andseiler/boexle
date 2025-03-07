@@ -3,35 +3,29 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust if needed
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🔧 Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: 📦 Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: 🔑 Create .env File with GitHub Secrets
-        run: |
-          echo "VITE_TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}" > .env
-          echo "VITE_TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}" >> .env
-
-      - name: 🏗 Build Project
+      - name: Build project
+        env:
+          VITE_TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          VITE_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: npm run build
 
-      - name: 🚀 Deploy to GitHub Pages
-        run: |
-          export VITE_TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
-          export VITE_TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}
-          npm run deploy
-
+      - name: Deploy to GitHub Pages
+        run: npm run deploy
