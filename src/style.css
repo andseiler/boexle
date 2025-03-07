@@ -1,6 +1,24 @@
 @import "tailwindcss";
 @import "./styles/main.scss";
 
+.gradient-button:not(.gradient-button-outline) {
+    transition: all 0.3s ease-in-out;
+    @apply cursor-pointer rounded-2xl bg-linear-to-r text-white p-4 flex gap-2 justify-center;
+}
+
+.gradient-button:not(.custom-color){
+    @apply from-primary-500 to-primary-600;
+}
+
+.gradient-button:hover {
+    transform: scale(1.05);
+}
+
+.gradient-button.gradient-button-outline {
+    transition: all 0.3s ease-in-out;
+    @apply cursor-pointer rounded-2xl bg-transparent border-2 text-primary-500 border-primary-500 p-4 flex gap-2 justify-center;
+}
+
 @theme {
     --color-primarycontrast-50: #dbeffa;
     --color-primarycontrast-100: #b7dff6;
@@ -54,6 +72,20 @@
     --color-gray-700: #393c41;
     --color-gray-800: #2f3235;
     --color-gray-900: #25272a;
+}
+
+@theme {
+    --color-secondary-50: #dbfff7;
+    --color-secondary-100: #b8ffee;
+    --color-secondary-200: #6bffdc;
+    --color-secondary-300: #24ffcc;
+    --color-secondary-400: #00dba8;
+    --color-secondary-500: #00916e;
+    --color-secondary-600: #00755a;
+    --color-secondary-700: #005742;
+    --color-secondary-800: #00382b;
+    --color-secondary-900: #001f17;
+    --color-secondary-950: #000f0c;
 }
 
 

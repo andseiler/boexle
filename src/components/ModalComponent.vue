@@ -1,26 +1,28 @@
 <!-- ModalComponent.vue -->
 <template>
-  <div v-if="isVisible" class="modal-overlay" @click.self="closeModal">
+  <div v-if="props.isVisible" class="modal-overlay" @click.self="closeModal">
     <div class="modal-content">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200">
+        <div class="w-20"></div>
+        <div class="flex-1 flex justify-center">{{props.title}}</div>
+        <div class="w-20 flex justify-end cursor-pointer" @click="closeModal"><XCircleIcon class="w-6"></XCircleIcon></div>
+      </div>
       <slot></slot>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    isVisible: {
-      type: Boolean,
-      required: true,
-    },
-  },
-  methods: {
-    closeModal() {
-      this.$emit('close');
-    },
-  },
-};
+<script setup lang="ts">
+import { XCircleIcon}from '@heroicons/vue/24/outline'
+
+const props = defineProps({
+  isVisible: {type: Boolean, required: true},
+  title: {type: String}
+})
+
+const emit = defineEmits(['close'])
+
+const closeModal = () =>{emit('close')}
 </script>
 
 <style scoped>
