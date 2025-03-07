@@ -11,15 +11,15 @@
         </div>
         <nav class="flex gap-6">
           <a @click.prevent="scrollToSection('price')"
-             class="cursor-pointer text-gray-50 hover:text-primary-500 hover:border-primary-500 border-2 border-gray-50 p-1 rounded-xl flex gap-1 ">
+             class="cursor-pointer text-gray-50 hover:text-primary-500 hover:border-primary-500 border-2 border-gray-50 py-1 px-2 rounded-xl flex gap-1 ">
             <currency-euro-icon class="w-6"></currency-euro-icon>
             <span class="hidden sm:inline">Preise</span>
           </a>
           <a @click.prevent="scrollToSection('faq')"
-             class="cursor-pointer text-gray-50 hover:text-primary-500 flex gap-1 hover:border-primary-500 border-2 border-gray-50 p-1 rounded-xl">
+             class="cursor-pointer text-gray-50 hover:text-primary-500 flex gap-1 hover:border-primary-500 border-2 border-gray-50 py-1 px-2 rounded-xl">
             <question-mark-circle-icon class="w-6"></question-mark-circle-icon>
             <span class="hidden sm:inline">FAQ</span></a>
-          <a @click="showContactModal = true" class="cursor-pointer text-gray-50 hover:text-primary-500 flex gap-1 hover:border-primary-500 border-2 border-gray-50 p-1 rounded-xl">
+          <a @click="showContactModal = true" class="cursor-pointer text-gray-50 hover:text-primary-500 flex gap-1 hover:border-primary-500 border-2 border-gray-50 py-1 px-2 rounded-xl">
             <chat-bubble-oval-left-ellipsis-icon class="w-6"></chat-bubble-oval-left-ellipsis-icon>
             <span class="hidden sm:inline">Kontakt</span></a>
           <ModalComponent :isVisible="showContactModal" @close="showContactModal = false" title="Kontakt">

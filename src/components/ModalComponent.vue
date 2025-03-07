@@ -2,10 +2,10 @@
 <template>
   <div v-if="props.isVisible" class="modal-overlay" @click.self="closeModal">
     <div class="modal-content">
-      <div class="flex items-center justify-between pb-4 border-b border-gray-200">
+      <div class="flex items-center justify-between pb-4 border-b border-gray-200 text-textdark">
         <div class="w-20"></div>
-        <div class="flex-1 flex justify-center">{{props.title}}</div>
-        <div class="w-20 flex justify-end cursor-pointer" @click="closeModal"><XCircleIcon class="w-6"></XCircleIcon></div>
+        <div class="flex-1 flex justify-center font-bold text-xl ">{{props.title}}</div>
+        <div class="w-20 flex items-center justify-end cursor-pointer" @click="closeModal"><XCircleIcon class="w-6"></XCircleIcon></div>
       </div>
       <slot></slot>
     </div>

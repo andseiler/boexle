@@ -1,11 +1,10 @@
 <template>
-  <section id="contact" class="contact-section w-96">
+  <section id="contact" class="contact-section w-96 px-4 py-4 text-center">
     <div class="flex flex-col gap-2">
       <TelegramChat></TelegramChat>
       <div class="border-b border-gray-200 pb-4 mb-4"></div>
-      <a :href="emailLink" class="gradient-button custom-color from-gray-500 to-gray-600 ">Email</a>
-      <a :href="emailLink" class="gradient-button custom-color from-green-500 to-green-600">Whatsapp</a>
-      <a :href="emailLink" class="gradient-button custom-color from-violet-500 to-violet-600">Instagram</a>
+      <a :href="emailLink" class="gradient-button custom-color from-gray-500 to-gray-600">Per Email</a>
+      <a :href="emailLink" class="gradient-button custom-color from-violet-500 to-violet-600">Auf Instagram</a>
     </div>
   </section>
 </template>
@@ -39,10 +38,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.contact-section {
-  text-align: center;
-  padding: 2rem;
-}
-</style>

@@ -1,9 +1,10 @@
 <template>
-  <div class="chat-container flex flex-col gap-4">
-    <h2>Schreib uns eine Nachricht!</h2>
-    <textarea rows="6" class="rounded-sm border-gray-200 p-4 border shadow" v-model="message" placeholder="Deine Nachricht"></textarea>
+  <div class="chat-container flex flex-col gap-4 ">
+    <div class="text-lg font-bold text-primary-500">Schreib uns eine Nachricht!</div>
+    <input type="email" placeholder="Deine Email" class="form-input">
+    <textarea rows="6" class="form-input" v-model="message" placeholder="Deine Nachricht"></textarea>
     <button @click="sendMessage" class="gradient-button">Senden</button>
-    <p v-if="responseMessage">{{ responseMessage }}</p>
+    <p v-if="responseMessage" class="font-bold text-primary-500" :class="{'text-red-700': isError}">{{ responseMessage }}</p>
   </div>
 </template>
 
@@ -13,11 +14,13 @@ import { ref } from "vue";
 const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
+const email = ref("");
 const message = ref("");
 const responseMessage = ref("");
+const isError = ref(false);
 
 const sendMessage = async () => {
-  if (!message.value) return;
+  if (!message.value || !email.value) return;
 
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
   const payload = {
@@ -37,9 +40,16 @@ const sendMessage = async () => {
       message.value = "";
     } else {
       responseMessage.value = "Fehler beim Senden!";
+      isError.value = true;
     }
   } catch (error) {
     responseMessage.value = "Verbindungsfehler!";
+    isError.value = true;
   }
+
+  setTimeout(()=>{
+    responseMessage.value = "";
+    isError.value = false;
+  },3000)
 };
 </script>

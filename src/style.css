@@ -19,6 +19,14 @@
     @apply cursor-pointer rounded-2xl bg-transparent border-2 text-primary-500 border-primary-500 p-4 flex gap-2 justify-center;
 }
 
+.form-input{
+    @apply text-textdark rounded-sm border-primary-500 p-4 border shadow focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:outline-none;
+}
+
+@theme {
+    --color-textdark: #2f3235;
+}
+
 @theme {
     --color-primarycontrast-50: #dbeffa;
     --color-primarycontrast-100: #b7dff6;
