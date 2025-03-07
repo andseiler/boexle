@@ -28,7 +28,7 @@
         </nav>
       </div>
     </header>
-    <!-- Hero-Bereich als Bilder-Slider mit zentralem Overlay -->
+
     <section class="relative bg-linear-to-b from-tertiary-500 to-tertiary-200 ">
       <Swiper
           :slides-per-view="1"
@@ -155,7 +155,6 @@
           Perfekte Verarbeitung, langlebig und extrem stabil – in nur einer Minute aufgebaut!
         </p>
 
-        <!-- Price Card -->
         <div
             class="max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center justify-center">
           <h3 class="ont-bold text-primary-500 mb-4 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
