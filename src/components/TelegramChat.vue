@@ -9,10 +9,10 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import {computed, ref} from "vue";
 
-const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+const TELEGRAM_BOT_TOKEN = computed(()=>import.meta.env.VITE_TELEGRAM_BOT_TOKEN);
+const TELEGRAM_CHAT_ID = computed(()=>import.meta.env.VITE_TELEGRAM_CHAT_ID);
 
 const email = ref("");
 const message = ref("");
@@ -22,9 +22,9 @@ const isError = ref(false);
 const sendMessage = async () => {
   if (!message.value || !email.value) return;
 
-  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN.value}/sendMessage`;
   const payload = {
-    chat_id: TELEGRAM_CHAT_ID,
+    chat_id: TELEGRAM_CHAT_ID.value,
     text: message.value,
   };
 
