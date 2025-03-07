@@ -10,8 +10,8 @@
 <script setup>
 import { ref } from "vue";
 
-const TELEGRAM_BOT_TOKEN = "7980399720:AAEVEm6QfVLNc2QKUXug8qX5fUmJjIh6Npk"; // Token von BotFather
-const TELEGRAM_CHAT_ID = "93860740"; // Deine Telegram Chat-ID
+const TELEGRAM_BOT_TOKEN = "";
+const TELEGRAM_CHAT_ID = ""; // Deine Telegram Chat-ID
 
 const message = ref("");
 const responseMessage = ref("");
