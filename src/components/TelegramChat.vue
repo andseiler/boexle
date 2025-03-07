@@ -22,7 +22,7 @@ const isError = ref(false);
 const sendMessage = async () => {
   if (!message.value || !email.value) return;
 
-  console.log(TELEGRAM_CHAT_ID)
+  console.log(TELEGRAM_CHAT_ID.value)
 
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN.value}/sendMessage`;
   const payload = {
