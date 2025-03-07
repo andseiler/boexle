@@ -1,7 +1,7 @@
 <template>
   <div class="chat-container flex flex-col gap-4 ">
     <div class="text-lg font-bold text-primary-500">Schreib uns eine Nachricht!</div>
-    <input type="email" placeholder="Deine Email" class="form-input">
+    <input type="email" v-model="email" placeholder="Deine Email" class="form-input">
     <textarea rows="6" class="form-input" v-model="message" placeholder="Deine Nachricht"></textarea>
     <button @click="sendMessage" class="gradient-button">Senden</button>
     <p v-if="responseMessage" class="font-bold text-primary-500" :class="{'text-red-700': isError}">{{ responseMessage }}</p>
