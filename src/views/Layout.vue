@@ -218,8 +218,7 @@
 
           <div class="bg-white rounded-lg shadow p-6">
             <h3 class="font-bold text-primary-500">Wie stabil ist PocketLedge?</h3>
-            <p class="text-gray-700 mt-2">PocketLedge besteht aus hochwertigem Stahl und bleibt stabil, egal ob du
-              Street- oder Park-Tricks machst.</p>
+            <p class="text-gray-700 mt-2">PocketLedge besteht aus hochwertigem Stahl und bleibt stabil, egal bei welchem Grind oder Slide.</p>
           </div>
 
           <div class="bg-white rounded-lg shadow p-6">
