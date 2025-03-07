@@ -43,6 +43,8 @@ const closeModal = () =>{emit('close')}
   padding: 20px;
   border-radius: 8px;
   position: relative;
+  max-height: 90vh; /* sets maximum height relative to the viewport */
+  overflow-y: auto; /* enables scrolling if content exceeds the max height */
 }
 .close-button {
   position: absolute;

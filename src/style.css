@@ -20,11 +20,20 @@
 }
 
 .form-input{
-    @apply text-textdark rounded-sm border-primary-500 p-4 border shadow focus:border-primary-500 focus:ring-2 focus:ring-primary-500 focus:outline-none;
+    @apply rounded-sm  p-4 border shadow  focus:ring-2  focus:outline-none;
+}
+
+.form-input:not(.error){
+    @apply text-textdark border-primary-500 focus:border-primary-500 focus:ring-primary-500
+}
+
+.form-input.error{
+    @apply text-textdark border-red-500 focus:border-red-500 focus:ring-red-500
 }
 
 @theme {
     --color-textdark: #2f3235;
+    --color-textbright: #e2e3e6;
 }
 
 @theme {

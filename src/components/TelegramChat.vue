@@ -1,10 +1,18 @@
 <template>
   <div class="chat-container flex flex-col gap-4 ">
     <div class="text-lg font-bold text-primary-500">Schreib uns eine Nachricht!</div>
-    <input type="email" v-model="email" placeholder="Deine Email" class="form-input">
-    <textarea rows="6" class="form-input" v-model="message" placeholder="Deine Nachricht"></textarea>
+    <div class="flex flex-col text-left">
+      <input type="email" v-model="email" :class="{'error': validate && !email}" placeholder="Deine Email" class="form-input">
+      <span class="text-red-500 text-sm pl-1" v-if="validate && !email">Email ist ein Pflichtfeld</span>
+    </div>
+
+    <div class="flex flex-col text-left">
+      <textarea rows="6" class="form-input" v-model="message" :class="{'error': validate && !message}" placeholder="Deine Nachricht"></textarea>
+      <span class="text-red-500 text-sm pl-1" v-if="validate && !message">Nachricht ist ein Pflichtfeld</span>
+    </div>
+
     <button @click="sendMessage" class="gradient-button">Senden</button>
-    <p v-if="responseMessage" class="font-bold text-primary-500" :class="{'text-red-700': isError}">{{ responseMessage }}</p>
+    <p v-if="responseMessage" class="font-bold text-primary-500" :class="{'text-red-500': isError}">{{ responseMessage }}</p>
   </div>
 </template>
 
@@ -18,16 +26,18 @@ const email = ref("");
 const message = ref("");
 const responseMessage = ref("");
 const isError = ref(false);
+const validate = ref(false);
 
 const sendMessage = async () => {
-  if (!message.value || !email.value) return;
-
-  console.log(TELEGRAM_CHAT_ID.value)
+  if (!message.value || !email.value) {
+    validate.value = true;
+    return
+  }
 
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN.value}/sendMessage`;
   const payload = {
     chat_id: TELEGRAM_CHAT_ID.value,
-    text: message.value,
+    text: email.value + ' - ' + message.value,
   };
 
   try {
@@ -39,6 +49,7 @@ const sendMessage = async () => {
 
     if (response.ok) {
       responseMessage.value = "Nachricht gesendet!";
+      email.value = "";
       message.value = "";
     } else {
       responseMessage.value = "Fehler beim Senden!";
