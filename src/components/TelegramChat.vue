@@ -1,6 +1,6 @@
 <template>
   <div class="chat-container flex flex-col gap-4 ">
-    <div class="text-lg font-bold text-primary-500">Schreib uns eine Nachricht!!</div>
+    <div class="text-lg font-bold text-primary-500">Schreib uns eine Nachricht!</div>
     <div class="flex flex-col text-left">
       <input type="email" v-model="email" :class="{'error': validate && !email}" placeholder="Deine Email" class="form-input">
       <span class="text-red-500 text-sm pl-1" v-if="validate && !email">Email ist ein Pflichtfeld</span>
