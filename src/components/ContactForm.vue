@@ -9,7 +9,7 @@
         <div class="border-b border-textdark flex-1 pb-4 mb-4"></div>
       </div>
       <a :href="emailLink" class="gradient-button custom-color from-gray-500 to-gray-600 w-full mb-4">Per Email</a>
-      <a :href="emailLink" class="gradient-button custom-color from-violet-500 to-violet-600 w-full">Auf Instagram</a>
+<!--      <a :href="emailLink" class="gradient-button custom-color from-violet-500 to-violet-600 w-full">Auf Instagram</a>-->
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
   components: {TelegramChat},
   data() {
     return {
-      emailAddress: 'your-email@example.com',
+      emailAddress: 'mail@pocketledge.de',
       telegramUsername: 'yourTelegramUsername',
       whatsappNumber: '1234567890', // Include country code, e.g., '1234567890' for +1 234-567-890
       instagramUsername: 'yourInstagramUsername',
