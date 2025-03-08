@@ -1,19 +1,23 @@
 <!-- ModalComponent.vue -->
 <template>
-  <div v-if="props.isVisible" class="modal-overlay" @click.self="closeModal">
-    <div class="modal-content">
-      <div class="flex items-center justify-between pb-4 border-b border-gray-200 text-textdark">
+  <div v-if="props.isVisible" class="modal-overlay flex items-end sm:items-center" @click.self="closeModal">
+    <div class="modal-content w-full sm:max-w-[600px] sm:mx-auto rounded-t-xl sm:rounded-xl">
+      <div class="sticky top-0 z-10 shadow-lg flex items-center justify-between p-4 border-b border-gray-200 text-textdark bg-tertiary-200">
         <div class="w-20"></div>
-        <div class="flex-1 flex justify-center font-bold text-xl ">{{props.title}}</div>
-        <div class="w-20 flex items-center justify-end cursor-pointer" @click="closeModal"><XCircleIcon class="w-6"></XCircleIcon></div>
+        <div class="flex-1 flex justify-center font-bold text-xl">{{props.title}}</div>
+        <div class="w-20 flex items-center justify-end cursor-pointer" @click="closeModal"><XCircleIcon class="w-8"></XCircleIcon></div>
       </div>
-      <slot></slot>
+      <div class="w-full sm:min-w-[600px] overflow-y-auto max-h-[calc(95vh-70px)]">
+        <slot></slot>
+      </div>
+
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { XCircleIcon}from '@heroicons/vue/24/outline'
+import {onUnmounted, watch} from "vue";
 
 const props = defineProps({
   isVisible: {type: Boolean, required: true},
@@ -23,6 +27,24 @@ const props = defineProps({
 const emit = defineEmits(['close'])
 
 const closeModal = () =>{emit('close')}
+
+// Watch for changes to the modal visibility and update body overflow accordingly
+watch(
+    () => props.isVisible,
+    (newVal) => {
+      if (newVal) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    },
+    { immediate: true }
+);
+
+// Clean up on component unmount
+onUnmounted(() => {
+  document.body.style.overflow = '';
+});
 </script>
 
 <style scoped>
@@ -34,16 +56,13 @@ const closeModal = () =>{emit('close')}
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1000;
 }
 .modal-content {
+  scrollbar-gutter: stable;
   background: white;
-  padding: 20px;
-  border-radius: 8px;
   position: relative;
-  max-height: 90vh; /* sets maximum height relative to the viewport */
+  max-height: 95vh; /* sets maximum height relative to the viewport */
   overflow-y: auto; /* enables scrolling if content exceeds the max height */
 }
 .close-button {

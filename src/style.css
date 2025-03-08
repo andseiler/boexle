@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "./styles/main.scss";
 
+.gradient-button {
+    @apply font-bold
+}
+
 .gradient-button:not(.gradient-button-outline) {
     transition: all 0.3s ease-in-out;
     @apply cursor-pointer rounded-2xl bg-linear-to-r text-white p-4 flex gap-2 justify-center;
@@ -19,6 +23,14 @@
     @apply cursor-pointer rounded-2xl bg-transparent border-2 text-primary-500 border-primary-500 p-4 flex gap-2 justify-center;
 }
 
+.form-group{
+    @apply w-full mb-4 flex flex-col
+}
+
+.form-label{
+    @apply block text-primary-500 font-bold mb-1
+}
+
 .form-input{
     @apply rounded-sm  p-4 border shadow  focus:ring-2  focus:outline-none;
 }
@@ -29,6 +41,34 @@
 
 .form-input.error{
     @apply text-textdark border-red-500 focus:border-red-500 focus:ring-red-500
+}
+
+.outline-button{
+    @apply cursor-pointer text-gray-50 hover:text-primary-500 flex gap-1 hover:border-primary-500 border-2 border-gray-50 py-1 px-2 rounded-xl;
+}
+
+.custom-radio {
+    @apply w-4 h-4 border-2 border-textdark rounded-full appearance-none;
+}
+
+.custom-radio:checked {
+    @apply bg-textdark border-textdark;
+}
+
+.custom-radio:focus {
+    @apply ring-0;
+}
+
+.contact-container{
+    @apply w-full p-4 bg-primarycontrast-500 py-8;
+}
+
+.contact-header{
+    @apply text-3xl font-extrabold text-textbright mb-8 text-center;
+}
+
+.contact-card{
+    @apply max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center text-textdark;
 }
 
 @theme {

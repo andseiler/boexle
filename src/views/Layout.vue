@@ -1,5 +1,19 @@
 <template>
   <div class="bg-tertiary-200" id="home">
+    <ModalComponent :isVisible="showContactModal" @close="showContactModal = false">
+      <ContactForm></ContactForm>
+    </ModalComponent>
+    <ModalComponent :isVisible="showOrderModal" @close="showOrderModal = false">
+      <OrderForm></OrderForm>
+    </ModalComponent>
+    <ModalComponent :isVisible="showModal" @close="showModal = false" :title="$t('Aufbau')">
+      <iframe
+          class="w-96 h-64"
+          src="https://www.youtube.com/embed/VIDEO_ID"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+      ></iframe>
+    </ModalComponent>
     <!-- Header bleibt unverändert -->
     <header class="bg-primarycontrast-500 sticky z-50 transition-all duration-300"
             :class="{'shadow-xl': isScrolled, '-top-full': !showHeader, 'top-0': showHeader}">
@@ -11,20 +25,21 @@
         </div>
         <nav class="flex gap-6">
           <a @click.prevent="scrollToSection('price')"
-             class="cursor-pointer text-gray-50 hover:text-primary-500 hover:border-primary-500 border-2 border-gray-50 py-1 px-2 rounded-xl flex gap-1 ">
+             class="outline-button ">
             <currency-euro-icon class="w-6"></currency-euro-icon>
             <span class="hidden sm:inline">Preise</span>
           </a>
           <a @click.prevent="scrollToSection('faq')"
-             class="cursor-pointer text-gray-50 hover:text-primary-500 flex gap-1 hover:border-primary-500 border-2 border-gray-50 py-1 px-2 rounded-xl">
+             class="outline-button">
             <question-mark-circle-icon class="w-6"></question-mark-circle-icon>
             <span class="hidden sm:inline">FAQ</span></a>
-          <a @click="showContactModal = true" class="cursor-pointer text-gray-50 hover:text-primary-500 flex gap-1 hover:border-primary-500 border-2 border-gray-50 py-1 px-2 rounded-xl">
+          <a @click="showContactModal = true" class="outline-button">
             <chat-bubble-oval-left-ellipsis-icon class="w-6"></chat-bubble-oval-left-ellipsis-icon>
             <span class="hidden sm:inline">Kontakt</span></a>
-          <ModalComponent :isVisible="showContactModal" @close="showContactModal = false" title="Kontakt">
-            <ContactForm class="w-80"></ContactForm>
-          </ModalComponent>
+          <button @click="toggleLanguage"
+                  class="outline-button">
+            {{ locale === 'en' ? 'DE' : 'EN' }}
+          </button>
         </nav>
       </div>
     </header>
@@ -34,7 +49,7 @@
           :slides-per-view="1"
           :loop="true"
           :autoplay="{ delay: 3000 }"
-          class="h-[700px]"
+          class="h-[700px] 2xl:h-[850px]"
       >
         <SwiperSlide>
           <img src="/images/bg.png" alt="Slide 1" class="object-cover w-full h-full"/>
@@ -51,21 +66,21 @@
         </div>
       </Swiper>
       <div class=" absolute inset-0 flex flex-col items-center justify-center px-4 z-20 ">
-        <h1 class="fade-in text-4xl md:text-6xl font-extrabold mb-4 text-gray-50">
+        <h1 class="fade-in text-6xl font-extrabold mb-4 text-gray-50">
           <!--          <img src="/images/pocketledge-logo-v2-white.svg" alt="">-->
           <span class="gloria-hallelujah-regular custom-text-shadow">POCKETLEDGE</span>
         </h1>
-        <p class="text-lg md:text-2xl mb-8 text-gray-50 text-center custom-text-shadow">
-          Extrem stabil, in 1 Minute auf- und abgebaut, <br>passt perfekt in eine Eurobox (60x40x30 cm).
+        <p class="text-xl sm:text-2xl mb-8 text-gray-50 text-center custom-text-shadow max-w-[33rem]">
+          {{ $t('Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm).')}}
         </p>
-        <div @click="showContactModal = true" class="gradient-button mb-8">
+        <div @click="showOrderModal = true" class="gradient-button mb-8">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span>Jetzt bestellen</span>
+          <span>{{ $t('Jetzt bestellen') }}</span>
         </div>
         <div @click="showModal = true"
              class=" w-fit gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 ">
           <PlayPauseIcon class="w-6"></PlayPauseIcon>
-          <span>Aufbau in Aktion ansehen</span>
+          <span>{{ $t('Aufbau in Aktion ansehen') }}</span>
         </div>
       </div>
     </section>
@@ -73,13 +88,13 @@
     <div class="bg-primarycontrast-500 w-full">
       <section id="features" class="container mx-auto px-4 py-16 max-w-screen-xl">
         <h2 class="text-center text-white text-2xl font-bold mb-8">
-          Aufbau in nur 1 Minute!
+          {{ $t('Aufbau in nur 1 Minute!') }}
         </h2>
         <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
 
           <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-80">
             <img src="/images/box-zusammen.webp" alt="Box zusammengeklappt">
-            <p class="mt-2 text-center text-gray-800 font-semibold">Transportmodus</p>
+            <p class="mt-2 text-center text-gray-800 font-semibold">{{ $t('Transportmodus') }}</p>
           </div>
 
           <div class="text-white text-3xl font-bold">
@@ -89,7 +104,7 @@
 
           <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-80">
             <img src="/images/box-aufbau.webp" alt="Box im Aufbau">
-            <p class="mt-2 text-center text-gray-800 font-semibold">Aufklappen & Verriegeln</p>
+            <p class="mt-2 text-center text-gray-800 font-semibold">{{ $t('Aufklappen & Verriegeln') }}</p>
           </div>
 
           <div class="text-white text-3xl font-bold">
@@ -99,23 +114,15 @@
 
           <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-80">
             <img src="/images/box-komplett.webp" alt="Komplette Box bereit zum Skaten">
-            <p class="mt-2 text-center text-gray-800 font-semibold">Skaten!</p>
+            <p class="mt-2 text-center text-gray-800 font-semibold">{{ $t('Skaten!') }}</p>
           </div>
 
         </div>
         <div class="flex justify-center mt-12">
           <div @click="showModal = true" class=" w-fit gradient-button gradient-button-outline ">
             <PlayPauseIcon class="w-6"></PlayPauseIcon>
-            <span>Aufbau in Aktion ansehen</span>
+            <span>{{ $t('Aufbau in Aktion ansehen') }}</span>
           </div>
-          <ModalComponent :isVisible="showModal" @close="showModal = false" title="Aufbau">
-            <iframe
-                class="w-96 h-64"
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            ></iframe>
-          </ModalComponent>
         </div>
       </section>
     </div>
@@ -123,7 +130,7 @@
 
     <div class="bg-tertiary-200">
       <section id="testimonials" class="container mx-auto px-4 py-16 max-w-screen-xl">
-        <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">Was unsere Kunden sagen</h2>
+        <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Was unsere Kunden sagen') }}</h2>
         <div class="grid md:grid-cols-3 gap-8">
 
           <div class="bg-white rounded-lg shadow p-6 text-center">
@@ -181,7 +188,7 @@
           </ul>
 
           <!-- Order Button -->
-          <div @click="showContactModal=true"
+          <div @click="showOrderModal=true"
                class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
             <shopping-cart-icon class="w-6"></shopping-cart-icon>
             Jetzt bestellen
@@ -318,19 +325,29 @@ import {
 import {CheckBadgeIcon} from '@heroicons/vue/24/solid'
 import ModalComponent from "../components/ModalComponent.vue";
 import ContactForm from "../components/ContactForm.vue"
+import {useI18n} from "vue-i18n";
+import OrderForm from "../components/OrderForm.vue";
 
 // Initialisiere Swiper Plugins
 SwiperCore.use([Pagination, Autoplay]);
 
 const showModal = ref(false);
 const showContactModal = ref(false);
+const showOrderModal = ref(false);
 const isScrolled = ref(false);
 const showHeader = ref(true);
 const lastScrollPosition = ref(0);
 const scrollOffset = 0;
 
+// Use vue-i18n for localization
+const { locale } = useI18n();
+
+// Function to toggle language between English ('en') and German ('de')
+const toggleLanguage = () => {
+  locale.value = locale.value === 'en' ? 'de' : 'en';
+};
+
 const scrollToSection = (id: string) => {
-  console.log('scroll')
   const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({behavior: "smooth"});

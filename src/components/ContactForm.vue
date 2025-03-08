@@ -1,12 +1,17 @@
 <template>
-  <section id="contact" class="contact-section w-96 px-4 py-4 text-center">
-    <div class="flex flex-col gap-2">
+  <div class="contact-container">
+    <div class="contact-header">Kontakt</div>
+    <div class="contact-card">
       <TelegramChat></TelegramChat>
-      <div class="border-b border-gray-200 pb-4 mb-4"></div>
-      <a :href="emailLink" class="gradient-button custom-color from-gray-500 to-gray-600">Per Email</a>
-      <a :href="emailLink" class="gradient-button custom-color from-violet-500 to-violet-600">Auf Instagram</a>
+      <div class="flex items-center w-full gap-2 my-4 text-textdark">
+        <div class="border-b border-textdark flex-1 pb-4 mb-4"></div>
+        <div>oder</div>
+        <div class="border-b border-textdark flex-1 pb-4 mb-4"></div>
+      </div>
+      <a :href="emailLink" class="gradient-button custom-color from-gray-500 to-gray-600 w-full mb-4">Per Email</a>
+      <a :href="emailLink" class="gradient-button custom-color from-violet-500 to-violet-600 w-full">Auf Instagram</a>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
