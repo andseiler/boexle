@@ -19,9 +19,6 @@
 <script setup>
 import {computed, ref} from "vue";
 
-const TELEGRAM_BOT_TOKEN = computed(()=>import.meta.env.VITE_TELEGRAM_BOT_TOKEN);
-const TELEGRAM_CHAT_ID = computed(()=>import.meta.env.VITE_TELEGRAM_CHAT_ID);
-
 const email = ref("");
 const message = ref("");
 const responseMessage = ref("");
@@ -34,23 +31,20 @@ const sendMessage = async () => {
     return
   }
 
-  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN.value}/sendMessage`;
-  const payload = {
-    chat_id: TELEGRAM_CHAT_ID.value,
-    text: email.value + ' - ' + message.value,
-  };
-
   try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+    const response = await fetch('/.netlify/functions/sendTelegramMessage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message: email.value + ' - ' + message.value })
     });
 
     if (response.ok) {
       responseMessage.value = "Nachricht gesendet!";
       email.value = "";
       message.value = "";
+      validate.value = false;
     } else {
       responseMessage.value = "Fehler beim Senden!";
       isError.value = true;
