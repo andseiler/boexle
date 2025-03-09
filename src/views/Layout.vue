@@ -6,6 +6,9 @@
     <ModalComponent :isVisible="showOrderModal" @close="showOrderModal = false">
       <OrderForm></OrderForm>
     </ModalComponent>
+    <ModalComponent :isVisible="showCartModal" @close="showCartModal = false">
+      <CartForm></CartForm>
+    </ModalComponent>
     <ModalComponent :isVisible="showModal" @close="showModal = false" :title="$t('Aufbau')">
       <iframe
           class="w-96 h-64"
@@ -18,12 +21,12 @@
     <header class="bg-primarycontrast-500 sticky z-50 transition-all duration-300"
             :class="{'shadow-xl': isScrolled, '-top-full': !showHeader, 'top-0': showHeader}">
       <div class="container mx-auto px-4 py-2 flex items-center justify-between max-w-screen-lg">
-        <div class="text-2xl font-bold text-primary-500 flex flex-col justify-center cursor-pointer"
+        <div class="text-xl sm:text-2xl font-bold text-primary-500 flex flex-col justify-center cursor-pointer"
              @click.prevent="scrollToSection('home')">
           <!--          <img class="h-20" src="/images/pocketledge-logo-v2-green.svg" alt="">-->
           <span class="gloria-hallelujah-regular py-4">POCKETLEDGE</span>
         </div>
-        <nav class="flex gap-6">
+        <nav class="flex gap-2">
           <a @click.prevent="scrollToSection('price')"
              class="outline-button ">
             <currency-euro-icon class="w-6"></currency-euro-icon>
@@ -40,6 +43,10 @@
                   class="outline-button">
             {{ locale === 'en' ? 'DE' : 'EN' }}
           </button>
+          <a @click="showCartModal = true"
+             class="outline-button">
+            <shopping-cart-icon class="w-6"></shopping-cart-icon>
+          </a>
         </nav>
       </div>
     </header>
@@ -66,7 +73,7 @@
         </div>
       </Swiper>
       <div class=" absolute inset-0 flex flex-col items-center justify-center px-4 z-20 ">
-        <h1 class="fade-in text-6xl font-extrabold mb-4 text-gray-50">
+        <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-4 text-gray-50">
           <!--          <img src="/images/pocketledge-logo-v2-white.svg" alt="">-->
           <span class="gloria-hallelujah-regular custom-text-shadow">POCKETLEDGE</span>
         </h1>
@@ -326,7 +333,8 @@ import {CheckBadgeIcon} from '@heroicons/vue/24/solid'
 import ModalComponent from "../components/ModalComponent.vue";
 import ContactForm from "../components/ContactForm.vue"
 import {useI18n} from "vue-i18n";
-import OrderForm from "../components/OrderForm.vue";
+import CartForm from "../components/CartForm.vue";
+import OrderForm  from "../components/OrderForm.vue";
 
 // Initialisiere Swiper Plugins
 SwiperCore.use([Pagination, Autoplay]);
@@ -334,6 +342,7 @@ SwiperCore.use([Pagination, Autoplay]);
 const showModal = ref(false);
 const showContactModal = ref(false);
 const showOrderModal = ref(false);
+const showCartModal = ref(false);
 const isScrolled = ref(false);
 const showHeader = ref(true);
 const lastScrollPosition = ref(0);
