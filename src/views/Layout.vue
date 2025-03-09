@@ -1,15 +1,15 @@
 <template>
   <div class="bg-tertiary-200" id="home">
-    <ModalComponent :isVisible="showContactModal" @close="showContactModal = false">
+    <ModalComponent :isVisible="showContactModal" @close="closeModals">
       <ContactForm></ContactForm>
     </ModalComponent>
-    <ModalComponent :isVisible="showOrderModal" @close="showOrderModal = false">
-      <OrderForm></OrderForm>
+    <ModalComponent :isVisible="showOrderModal" @close="closeModals">
+      <OrderForm @close="closeModals" @order="cartFromOrderForm"></OrderForm>
     </ModalComponent>
-    <ModalComponent :isVisible="showCartModal" @close="showCartModal = false">
-      <CartForm></CartForm>
+    <ModalComponent :isVisible="showCartModal" @close="closeModals">
+      <CartForm @order="orderFromCart"></CartForm>
     </ModalComponent>
-    <ModalComponent :isVisible="showModal" @close="showModal = false" :title="$t('Aufbau')">
+    <ModalComponent :isVisible="showModal" @close="closeModals" :title="$t('Aufbau')">
       <iframe
           class="w-96 h-64"
           src="https://www.youtube.com/embed/VIDEO_ID"
@@ -21,7 +21,7 @@
     <header class="bg-primarycontrast-500 sticky z-50 transition-all duration-300"
             :class="{'shadow-xl': isScrolled, '-top-full': !showHeader, 'top-0': showHeader}">
       <div class="container mx-auto px-4 py-2 flex items-center justify-between max-w-screen-lg">
-        <div class="text-xl sm:text-2xl font-bold text-primary-500 flex flex-col justify-center cursor-pointer"
+        <div class="text-xl sm:text-3xl font-bold text-primary-500 flex flex-col justify-center cursor-pointer"
              @click.prevent="scrollToSection('home')">
           <!--          <img class="h-20" src="/images/pocketledge-logo-v2-green.svg" alt="">-->
           <span class="gloria-hallelujah-regular py-4">POCKETLEDGE</span>
@@ -43,10 +43,16 @@
                   class="outline-button">
             {{ locale === 'en' ? 'DE' : 'EN' }}
           </button>
-          <a @click="showCartModal = true"
-             class="outline-button">
-            <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          </a>
+          <div class="relative">
+            <div v-if="cartItem" class="absolute top-[-0.5rem] right-[-0.5rem] text-textdark z-10 rounded-full w-5 h-5 bg-primary-500 flex items-center justify-center font-bold">
+              {{cartItem.quantity}}
+            </div>
+            <a @click="showCartModal = true"
+               class="outline-button">
+              <shopping-cart-icon class="w-6"></shopping-cart-icon>
+            </a>
+          </div>
+
         </nav>
       </div>
     </header>
@@ -335,9 +341,12 @@ import ContactForm from "../components/ContactForm.vue"
 import {useI18n} from "vue-i18n";
 import CartForm from "../components/CartForm.vue";
 import OrderForm  from "../components/OrderForm.vue";
+import useCartStore from "../store/cartStore.ts";
 
 // Initialisiere Swiper Plugins
 SwiperCore.use([Pagination, Autoplay]);
+
+const {cartItem} = useCartStore();
 
 const showModal = ref(false);
 const showContactModal = ref(false);
@@ -348,8 +357,25 @@ const showHeader = ref(true);
 const lastScrollPosition = ref(0);
 const scrollOffset = 0;
 
+const closeModals = () => {
+  showModal.value = false;
+  showContactModal.value = false;
+  showOrderModal.value = false;
+  showCartModal.value = false;
+}
+
 // Use vue-i18n for localization
 const { locale } = useI18n();
+
+const cartFromOrderForm = ()=>{
+  closeModals();
+  showCartModal.value = true;
+}
+
+const orderFromCart = () =>{
+  closeModals();
+  showOrderModal.value = true;
+}
 
 // Function to toggle language between English ('en') and German ('de')
 const toggleLanguage = () => {

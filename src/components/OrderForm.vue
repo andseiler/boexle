@@ -88,23 +88,27 @@
         <!-- Hier ein Button "Direkt bezahlen" -->
         <button @click="directPay" class="gradient-button custom-color from-primary-500 to-primary-600 flex-1 py-3 text-lg flex items-center justify-center">
           <CreditCardIcon class="w-6 h-6 mr-2" />
-          Direkt bezahlen
+          Direkt bestellen
         </button>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import { ChevronLeftIcon, ChevronRightIcon, ShoppingCartIcon, CreditCardIcon } from '@heroicons/vue/24/outline';
+import useCartStore, {CartItem} from "../store/cartStore.js";
 
+const cartStore = useCartStore();
 // Produktdaten
 const price = 280; // Einzelpreis in €
 const quantity = ref(1);
 const total = computed(() => price * quantity.value);
+
+const emit = defineEmits(['close', 'order'])
 
 // Bilder für den Slider
 const images = ref([
@@ -144,14 +148,15 @@ const addToCart = () => {
     validate.value = true;
     return;
   }
-  const cartItem = {
+  const cartItem: CartItem = {
     product: 'POCKETLEDGE',
     price: price,
     quantity: quantity.value,
     color: selectedColor.value,
     total: total.value
   };
-  sessionStorage.setItem('cartItem', JSON.stringify(cartItem));
+  cartStore.set(cartItem);
+  emit('close')
 };
 
 // Direkt bezahlen: Simuliere die Weiterleitung zur Zahlungsabwicklung.
@@ -161,8 +166,7 @@ const directPay = () => {
     return;
   }
   addToCart();
-  alert('Weiterleitung zur Zahlungsabwicklung...');
-  // Hier könntest Du beispielsweise mit Router.push() zur Zahlungsseite navigieren.
+  emit('order')
 };
 </script>
 

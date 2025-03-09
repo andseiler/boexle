@@ -44,7 +44,15 @@
 }
 
 .outline-button{
-    @apply cursor-pointer text-gray-50 hover:text-primary-500 flex gap-1 hover:border-primary-500 border-2 border-gray-50 py-1 px-2 rounded-xl;
+    @apply cursor-pointer  flex gap-1   border-2 py-1 px-2 rounded-xl;
+}
+
+.outline-button:not(.dark){
+    @apply text-gray-50 border-gray-50 hover:text-primary-500 hover:border-primary-500;
+}
+
+.outline-button.dark{
+    @apply text-textdark border-textdark hover:text-primary-500 hover:border-primary-500;
 }
 
 .custom-radio {
