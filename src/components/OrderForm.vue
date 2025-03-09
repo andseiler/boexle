@@ -98,9 +98,13 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
+//@ts-ignore
 import 'swiper/css';
+//@ts-ignore
+import 'swiper/css/pagination';
 import { ChevronLeftIcon, ChevronRightIcon, ShoppingCartIcon, CreditCardIcon } from '@heroicons/vue/24/outline';
-import useCartStore, {CartItem} from "../store/cartStore.js";
+import useCartStore from "../store/cartStore.js";
+import type {CartItem} from "../store/cartStore.js";
 
 const cartStore = useCartStore();
 // Produktdaten
@@ -126,19 +130,21 @@ const validate = ref(false);
 const validQuantity = computed(() => Number.isInteger(quantity.value) && quantity.value > 0);
 
 // Formatierung der Währung
-const formatCurrency = (amount) => {
+const formatCurrency = (amount: number) => {
   return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(amount);
 };
 
 // Swiper-Instanz
 const swiperInstance = ref(null);
-const onSwiper = (swiper) => {
+const onSwiper = (swiper: any) => {
   swiperInstance.value = swiper;
 };
 const slidePrev = () => {
+  //@ts-ignore
   if (swiperInstance.value) swiperInstance.value.slidePrev();
 };
 const slideNext = () => {
+  //@ts-ignore
   if (swiperInstance.value) swiperInstance.value.slideNext();
 };
 

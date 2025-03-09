@@ -164,13 +164,12 @@
 </template>
 
 <script setup lang="ts">
-import {ref, computed, onMounted, onUnmounted} from 'vue';
+import {ref, computed} from 'vue';
 import useCartStore from "../store/cartStore.js";
 import {CreditCardIcon} from "@heroicons/vue/24/outline";
 
 // Produkt- und Preis-Definition (statisch, da One-Product-Shop)
 const price = 280; // Bruttopreis pro Einheit in €
-const vatRate = 0.19;
 
 const emit = defineEmits(['order'])
 
@@ -182,8 +181,6 @@ const clearCart = ()=>{cartStore.reset();}
 // Bestellung und Berechnungen (unabhängig von cartItem, da statisch und via Checkout-Form abrufbar)
 const quantity = ref(cartItem.value ? cartItem.value.quantity : 1);
 const subtotal = computed(() => price * quantity.value);
-const netSubtotal = computed(() => subtotal.value / (1 + vatRate));
-const vatAmount = computed(() => subtotal.value - netSubtotal.value);
 
 const deliveryMethod = ref('Lieferung');
 const customerName = ref('');
@@ -208,7 +205,7 @@ const shippingCost = computed(() => {
 });
 const total = computed(() => subtotal.value + shippingCost.value);
 
-const formatCurrency = (amount) => {
+const formatCurrency = (amount: number) => {
   return new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}).format(amount);
 };
 
