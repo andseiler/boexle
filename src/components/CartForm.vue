@@ -3,14 +3,14 @@
     <!-- Falls der Warenkorb leer ist -->
     <div v-if="!cartItem">
       <h1 class="contact-header">
-        Dein Warenkorb
+        {{ $t('Dein Warenkorb')}}
       </h1>
       <div class="contact-card">
-        <p class="text-2xl text-center mb-4">Dein Warenkorb ist leer</p>
+        <p class="text-2xl text-center mb-4">{{ $t('Dein Warenkorb ist leer') }}</p>
         <div class="text-center">
           <button @click="goToShop"
                   class="gradient-button w-full py-3 text-lg">
-            Jetzt bestellen
+            {{ $t('Jetzt bestellen') }}
           </button>
         </div>
       </div>
@@ -19,7 +19,7 @@
     <!-- Falls der Warenkorb einen Artikel enthält -->
     <div v-else>
       <h1 class="contact-header">
-        Dein Warenkorb
+        {{ $t('Dein Warenkorb') }}
       </h1>
       <div class="contact-card">
         <div class="grid grid-cols-3 gap-4 w-full mb-6">
@@ -31,14 +31,14 @@
               POCKETLEDGE
             </div>
             <div>
-              in {{cartItem.color.name}}
+              in {{$t(cartItem.color.val)}}
             </div>
           </div>
 
           <div class="flex justify-end"><div class="w-10 h-10 items-center justify-center outline-button dark font-bold" @click="clearCart"><TrashIcon class="font-bold"></TrashIcon></div></div>
           <div class="font-bold flex flex-col items-start justify-end">
             <span>{{ formatCurrency(subtotal) }}</span>
-            <span class="font-normal text-xs">Davon MwSt: {{ formatCurrency(vatAmount) }}</span>
+            <span class="font-normal text-xs">{{ $t('Davon MwSt: ') }}{{ formatCurrency(vatAmount) }}</span>
           </div>
           <div class="flex justify-end items-end">
             <QuantityInput :model-value="quantity" @update:model-value="updateQuantity"></QuantityInput>
@@ -67,92 +67,91 @@
 <!--        </div>-->
         <!-- Kundeninformationen -->
         <div class="form-group w-full mb-4">
-          <label for="name" class="form-label block text-primary-500 font-bold mb-1">Name:</label>
+          <label for="name" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Name:') }}</label>
           <input
               id="name"
               type="text"
               v-model="customerName"
               :class="['form-input', { error: validate && !customerName }]"
-              placeholder="Dein Name"
+              :placeholder="$t('Dein Name')"
           />
-          <span v-if="validate && !customerName" class="text-red-500 text-sm pl-1">Name ist ein Pflichtfeld</span>
+          <span v-if="validate && !customerName" class="text-red-500 text-sm pl-1">{{ $t('Name ist ein Pflichtfeld') }}</span>
         </div>
         <div class="form-group w-full mb-4">
-          <label for="email" class="form-label block text-primary-500 font-bold mb-1">E-Mail:</label>
+          <label for="email" class="form-label block text-primary-500 font-bold mb-1">{{ $t('E-Mail:') }}</label>
           <input
               id="email"
               type="email"
               v-model="customerEmail"
               :class="['form-input', { error: validate && !validEmail }]"
-              placeholder="Deine E-Mail"
+              :placeholder="$t('Deine E-Mail')"
           />
-          <span v-if="validate && !validEmail" class="text-red-500 text-sm pl-1">Bitte eine gültige E-Mail-Adresse eingeben</span>
+          <span v-if="validate && !validEmail" class="text-red-500 text-sm pl-1">{{ $t('Bitte eine gültige E-Mail-Adresse eingeben') }}</span>
         </div>
         <div class="form-group w-full mb-4">
-          <label for="address" class="form-label block text-primary-500 font-bold mb-1">Adresse:</label>
+          <label for="address" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Adresse:') }}</label>
           <textarea
               id="address"
               v-model="customerAddress"
               :class="['form-input', { error: validate && !customerAddress }]"
               rows="3"
-              placeholder="Deine Adresse"
+              :placeholder="$t('Deine Adresse')"
           ></textarea>
-          <span v-if="validate && !customerAddress" class="text-red-500 text-sm pl-1">Adresse ist ein Pflichtfeld</span>
+          <span v-if="validate && !customerAddress" class="text-red-500 text-sm pl-1">{{ $t('Adresse ist ein Pflichtfeld') }}</span>
         </div>
         <div class="form-group w-full mb-4">
-          <label for="country" class="form-label block text-primary-500 font-bold mb-1">Land:</label>
+          <label for="country" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Land:') }}</label>
           <select id="country" v-model="customerCountry" class="form-input w-full text-textdark">
-            <option>Österreich</option>
-            <option>Deutschland</option>
-            <option>Schweiz</option>
+            <option value="at">{{ $t('Österreich') }}</option>
+            <option value="de">{{ $t('Deutschland') }}</option>
+            <option value="ch">{{ $t('Schweiz') }}</option>
           </select>
         </div>
 
         <!-- Versandart Auswahl -->
         <div class="form-group w-full mb-4">
-          <p class="text-primary-500 font-bold mb-1">Versandart:</p>
+          <p class="text-primary-500 font-bold mb-1">{{ $t('Versandart:') }}</p>
           <div class="flex gap-4">
             <label class="flex items-center">
-              <input type="radio" value="Lieferung" v-model="deliveryMethod" class="custom-radio mr-2"/>
-              <span>Lieferung</span>
+              <input type="radio" value="delivery" v-model="deliveryMethod" class="custom-radio mr-2"/>
+              <span>{{ $t('Lieferung') }}</span>
             </label>
             <label class="flex items-center">
-              <input type="radio" value="Selbstabholung" v-model="deliveryMethod" class="custom-radio mr-2"/>
-              <span>Selbstabholung in Innsbruck</span>
+              <input type="radio" value="pickup" v-model="deliveryMethod" class="custom-radio mr-2"/>
+              <span>{{ $t('Selbstabholung in Innsbruck') }}</span>
             </label>
           </div>
         </div>
 
         <!-- Bestellinformationen -->
-        <div class="form-group w-full mb-4" v-if="deliveryMethod === 'Lieferung'">
-          <p class="text-primary-500 font-bold">Versandkosten:</p>
+        <div class="form-group w-full mb-4" v-if="deliveryMethod === 'delivery'">
+          <p class="text-primary-500 font-bold">{{ $t('Versandkosten:') }}</p>
           <p class="text-textdark text-xl">{{ formatCurrency(shippingCost) }}</p>
         </div>
         <div class="form-group w-full mb-4">
-          <p class="text-primary-500 font-bold">Gesamtsumme:</p>
+          <p class="text-primary-500 font-bold">{{ $t('Gesamtsumme:') }}</p>
           <p class="text-textdark text-2xl font-extrabold">{{ formatCurrency(total) }}</p>
         </div>
 
         <!-- Kommentarfeld -->
         <div class="form-group w-full mb-4">
-          <label for="comment" class="form-label block text-primary-500 font-bold mb-1">Kommentar:</label>
+          <label for="comment" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Kommentar:') }}</label>
           <textarea
               id="comment"
               v-model="customerComment"
               class="form-input w-full"
               rows="3"
-              placeholder="Optionaler Kommentar"
+              :placeholder="$t('Optionaler Kommentar')"
           ></textarea>
         </div>
 
         <!-- Hinweis zur Bestätigung -->
         <div class="w-full flex flex-col gap-4 mt-1">
           <p class="text-sm text-textdark text-center font-bold">
-            Unsere Produkte werden erst nach Eingang Deiner Bestellung gefertigt. Aufgrund der aktuellen hohen Nachfrage
-            kann der Versand bis zu mehreren Tagen dauern.
+            {{ $t('Unsere Produkte werden erst nach Eingang Deiner Bestellung gefertigt. Aufgrund der aktuellen hohen Nachfrage kann der Versand bis zu mehreren Tagen dauern.') }}
           </p>
           <p class="text-sm text-textdark text-center">
-            Auftragsbestätigung mit den Zahlungshinweisen erfolgt per E-Mail.
+            {{ $t('Auftragsbestätigung mit den Zahlungshinweisen erfolgt per E-Mail.') }}
           </p>
         </div>
 
@@ -160,7 +159,7 @@
         <div class="w-full mt-6 flex flex-col gap-2">
           <button @click="checkout" class="gradient-button w-full py-3 text-lg items-center">
             <CreditCardIcon class="w-6 h-6 mr-2" />
-            Zahlungspflichtig bestellen
+            {{ $t('Zahlungspflichtig bestellen') }}
           </button>
           <p v-if="responseMessage" class="font-bold mt-2"
              :class="{'text-red-500': isError, 'text-primary-500': !isError}">
@@ -177,6 +176,7 @@ import {ref, computed} from 'vue';
 import useCartStore from "../store/cartStore.js";
 import {CreditCardIcon, TrashIcon} from "@heroicons/vue/24/outline";
 import QuantityInput from "./QuantityInput.vue";
+import {i18n} from "../main.ts";
 
 // Produkt- und Preis-Definition (statisch, da One-Product-Shop)
 const price = 280; // Bruttopreis pro Einheit in €
@@ -186,7 +186,7 @@ const emit = defineEmits(['order', 'close'])
 // Reaktive Variable für den Warenkorb (aus sessionStorage)
 const cartStore = useCartStore();
 const cartItem = cartStore.cartItem;
-const clearCart = ()=>{cartStore.reset();}
+const clearCart = ()=>{cartStore.reset(); emit('close')}
 const quantity = computed(() => cartStore.cartItem.value.quantity)
 const updateQuantity = (newQuantity: number)=>{
   if(newQuantity <= 0){
@@ -202,11 +202,11 @@ const vatRate = 0.2;
 const netSubtotal = computed(() => subtotal.value / (1 + vatRate));
 const vatAmount = computed(() => subtotal.value - netSubtotal.value);
 
-const deliveryMethod = ref('Lieferung');
+const deliveryMethod = ref('delivery');
 const customerName = ref('');
 const customerEmail = ref('');
 const customerAddress = ref('');
-const customerCountry = ref('Österreich');
+const customerCountry = ref('at');
 const customerComment = ref('');
 
 const validate = ref(false);
@@ -217,10 +217,10 @@ const validEmail = computed(() => {
 const validQuantity = computed(() => Number.isInteger(quantity.value) && quantity.value > 0);
 
 const shippingCost = computed(() => {
-  if (deliveryMethod.value === 'Selbstabholung') return 0;
-  if (customerCountry.value === 'Österreich') return 18;
-  if (customerCountry.value === 'Deutschland') return 20;
-  if (customerCountry.value === 'Schweiz') return 40;
+  if (deliveryMethod.value === 'pickup') return 0;
+  if (customerCountry.value === 'at') return 18;
+  if (customerCountry.value === 'de') return 20;
+  if (customerCountry.value === 'ch') return 40;
   return 0;
 });
 const total = computed(() => subtotal.value + shippingCost.value);
@@ -235,7 +235,7 @@ const isError = ref(false);
 const checkout = async () => {
   if (!customerName.value || !customerEmail.value || !customerAddress.value || !validQuantity.value || !validEmail.value) {
     validate.value = true;
-    responseMessage.value = "Bitte fülle alle Pflichtfelder korrekt aus.";
+    responseMessage.value = i18n.global.t("Bitte fülle alle Pflichtfelder korrekt aus.");
     isError.value = true;
     return;
   }
@@ -259,12 +259,12 @@ Auftragsbestätigung erfolgt per E-Mail mit den Zahlungshinweisen.`;
       body: JSON.stringify({message: messageText})
     });
     if (response.ok) {
-      responseMessage.value = "Bestellung erfolgreich gesendet! Auftragsbestätigung erfolgt per E-Mail.";
+      responseMessage.value = i18n.global.t("Bestellung erfolgreich gesendet! Auftragsbestätigung erfolgt per E-Mail.");
       customerName.value = "";
       customerEmail.value = "";
       customerAddress.value = "";
-      customerCountry.value = "Österreich";
-      deliveryMethod.value = "Lieferung";
+      customerCountry.value = 'at';
+      deliveryMethod.value = 'pickup';
       customerComment.value = "";
       validate.value = false;
       isError.value = false;
@@ -274,11 +274,11 @@ Auftragsbestätigung erfolgt per E-Mail mit den Zahlungshinweisen.`;
       },3000)
 
     } else {
-      responseMessage.value = "Fehler beim Senden der Bestellung!";
+      responseMessage.value = i18n.global.t("Fehler beim Senden der Bestellung!");
       isError.value = true;
     }
   } catch (error) {
-    responseMessage.value = "Verbindungsfehler!";
+    responseMessage.value = i18n.global.t("Verbindungsfehler!");
     isError.value = true;
   }
   setTimeout(() => {

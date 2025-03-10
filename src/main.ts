@@ -3,19 +3,24 @@ import './style.css'
 import App from './App.vue'
 import {createI18n} from "vue-i18n";
 import useCartStore from "./store/cartStore.ts";
+import deKeys from './translations/keys-de.json';
+import enKeys from './translations/keys-en.json';
 
-const i18n = createI18n({
-    locale: 'de',
+const browserLanguage = navigator.language.split('-')[0];
+
+// Supported locales for your app
+const supportedLocales = ['en', 'de'];
+
+// If the browser language is supported, use it; otherwise, default to 'de'
+const initialLocale = supportedLocales.includes(browserLanguage) ? browserLanguage : 'de';
+
+
+export const i18n = createI18n({
+    locale: initialLocale,
     fallbackLocale: 'en',
     messages: {
-        en: {
-            'Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm).': 'Extremely sturdy, assembled and disassembled in 1 minute, fits in a Eurobox (60x40x30 cm)',
-            'Jetzt bestellen': 'Order now'
-        },
-        de: {
-            'Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm).': 'Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm)',
-            'Jetzt bestellen': 'Jetzt bestellen'
-        }
+        en: {...enKeys},
+        de: {...deKeys}
     }
 })
 

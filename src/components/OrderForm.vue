@@ -2,7 +2,7 @@
 <template>
   <div class="cart-component container mx-auto p-4 bg-primarycontrast-500 pb-8">
     <h1 class="contact-header text-3xl font-extrabold text-textbright mb-8 text-center">
-      Jetzt bestellen
+      {{ $t('Jetzt bestellen') }}
     </h1>
     <div class="contact-card max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center">
 
@@ -36,17 +36,17 @@
       <!-- Produktinformationen -->
       <h3 class="font-bold text-primary-500 mb-4 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
       <p class="text-4xl font-extrabold text-textdark mb-2">{{ formatCurrency(price) }}</p>
-      <p class="text-sm text-textdark mb-6">(inkl. gesetzlicher MwSt)</p>
+      <p class="text-sm text-textdark mb-6">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
 
       <!-- Hier eine schöne Farbauswahl, schwarz ist default -->
       <div class="form-group w-full mb-4">
-        <p class="text-primary-500 font-bold mb-1">Farbe:</p>
+        <p class="text-primary-500 font-bold mb-1">{{ $t('Farbe:') }}</p>
         <div class="flex gap-4">
           <label v-for="(item, index) in colors" :key="index" class="flex items-center">
             <div class="cursor-pointer flex gap-1 py-1 px-2 rounded-xl h-10 w-10 hover:scale-105 shadow ease-in-out duration-300"
                  @click="selectedColor = item"
                  :class="[item.bgClass]">
-              <CheckIcon class="font-bold text-textbright" v-if="selectedColor.name == item.name"></CheckIcon>
+              <CheckIcon class="font-bold text-textbright" v-if="selectedColor.val == item.val"></CheckIcon>
             </div>
           </label>
         </div>
@@ -54,19 +54,19 @@
 
       <!-- Hier die Eingabe der Menge -->
       <div class="form-group w-full mb-4">
-        <label for="quantity" class="form-label block text-primary-500 font-bold mb-1">Menge:</label>
+        <label for="quantity" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Menge:') }}</label>
         <QuantityInput v-model="quantity"></QuantityInput>
       </div>
 
       <!-- Hier der Gesamtpreis -->
       <div class="form-group w-full mb-4">
-        <p class="text-primary-500 font-bold">Gesamtpreis:</p>
+        <p class="text-primary-500 font-bold">{{ $t('Gesamtpreis:') }}</p>
         <p class="text-textdark text-2xl font-extrabold">{{ formatCurrency(total) }}</p>
       </div>
 
       <div class="w-full flex flex-col gap-4 mt-1">
         <p class="text-sm text-textdark text-center">
-          Unsere Produkte werden erst nach Eingang Deiner Bestellung gefertigt. Aufgrund der aktuellen hohen Nachfrage kann der Versand bis zu zwei Wochen dauern.
+          {{ $t('Unsere Produkte werden erst nach Eingang Deiner Bestellung gefertigt. Aufgrund der aktuellen hohen Nachfrage kann der Versand bis zu zwei Wochen dauern.') }}
         </p>
       </div>
 
@@ -74,12 +74,12 @@
       <div class="w-full mt-6 flex flex-col gap-4">
         <button @click="addToCart" class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 flex-1 py-3 text-lg flex items-center justify-center">
           <ShoppingCartIcon class="w-6 h-6 mr-2" />
-          In den Warenkorb
+          {{ $t('In den Warenkorb') }}
         </button>
         <!-- Hier ein Button "Direkt bezahlen" -->
         <button @click="directPay" class="gradient-button custom-color from-primary-500 to-primary-600 flex-1 py-3 text-lg flex items-center justify-center">
           <CreditCardIcon class="w-6 h-6 mr-2" />
-          Direkt bestellen
+          {{ $t('Direkt bestellen') }}
         </button>
       </div>
     </div>
@@ -98,6 +98,7 @@ import { CheckIcon} from '@heroicons/vue/24/solid';
 import useCartStore from "../store/cartStore.js";
 import type {CartItem} from "../store/cartStore.js";
 import QuantityInput from "./QuantityInput.vue";
+import {i18n} from "../main.ts";
 
 const cartStore = useCartStore();
 // Produktdaten
@@ -116,13 +117,13 @@ const images = ref([
 
 // Farbauswahl
 const colors = computed(()=>[
-  {name: 'Schwarz', bgClass: 'bg-black', textClass: 'text-black'},
-  {name: 'Dunkelblau', bgClass: 'bg-boxblue', textClass: 'text-boxblue'},
-  {name: 'Grün', bgClass: 'bg-boxgreen', textClass: 'text-boxgreen'},
-  {name: 'Rot', bgClass: 'bg-boxred', textClass: 'text-boxred'},
-  {name: 'Gelb', bgClass: 'bg-boxyellow', textClass: 'text-boxyellow'}
+  {val:'black', name: i18n.global.t('black'), bgClass: 'bg-black', textClass: 'text-black'},
+  {val:'darkblue', name: i18n.global.t('darkblue'), bgClass: 'bg-boxblue', textClass: 'text-boxblue'},
+  {val:'green', name: i18n.global.t('green'), bgClass: 'bg-boxgreen', textClass: 'text-boxgreen'},
+  {val:'red', name: i18n.global.t('red'), bgClass: 'bg-boxred', textClass: 'text-boxred'},
+  {val:'yellow', name: i18n.global.t('yellow'), bgClass: 'bg-boxyellow', textClass: 'text-boxyellow'}
 ]);
-const selectedColor = ref({name: 'Schwarz', bgClass: 'bg-black', textClass: 'text-black'});
+const selectedColor = ref({val:'black', name: i18n.global.t('black'), bgClass: 'bg-black', textClass: 'text-black'});
 
 // Validierung der Menge: Nur ganze Zahlen > 0
 const validate = ref(false);

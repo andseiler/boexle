@@ -1,6 +1,6 @@
 <template>
   <div class="contact-container">
-    <div class="contact-header">Kontakt</div>
+    <div class="contact-header">{{ $t('Kontakt') }}</div>
     <div class="contact-card">
       <TelegramChat @close="emit('close')"></TelegramChat>
       <div class="flex items-center w-full gap-2 my-4 text-textdark">
@@ -9,13 +9,13 @@
         <div class="border-b border-textdark flex-1 pb-4 mb-2"></div>
       </div>
       <div class="form-group">
-        <label for="" class="form-label">Per Email</label>
+        <label for="" class="form-label">{{ $t('Per Email') }}</label>
         <div class="flex-1 relative">
           <span class="absolute right-4 top-4 text-textdark cursor-pointer hover:text-primary-500" @click="copyEmailToClipboard"><ClipboardDocumentCheckIcon class="w-6"></ClipboardDocumentCheckIcon></span>
           <input @click="selectEmail" type="text" :value="emailAddress" ref="emailInput" readonly class="form-input w-full">
           <transition name="fade">
             <div v-if="copySuccess" class="absolute top-4 right-12 bg-primary-500 opacity-90 text-textbright text-xs px-2 py-1 rounded shadow">
-              Copied!
+              {{ $t('Kopiert!') }}
             </div>
           </transition>
         </div>
