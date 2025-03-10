@@ -60,11 +60,11 @@
     <section class="relative flex justify-center bg-primarycontrast-500">
       <video-background
           src="images/bg.mp4"
-          class="h-[720px] max-w-[1280px]"
-          overlay="rgba(50, 30, 10, 0.1)"
+          class="h-[300px] sm:h-[500px] md:h-[720px] md:max-w-[1280px]"
+          overlay="rgba(50, 30, 10, 0.4)"
       >
       </video-background>
-      <div class=" absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
+      <div class="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
         <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-4 text-textbright">
           <!--          <img src="/images/pocketledge-logo-v2-white.svg" alt="">-->
           <span class="gloria-hallelujah-regular custom-text-shadow">POCKETLEDGE</span>
@@ -76,10 +76,12 @@
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
           <span>{{ $t('Jetzt bestellen') }}</span>
         </div>
-        <div @click="showModal = true"
-             class=" w-fit gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 ">
-          <PlayPauseIcon class="w-6"></PlayPauseIcon>
-          <span>{{ $t('Aufbau in Aktion ansehen') }}</span>
+        <div class="hidden sm:block">
+          <div @click="showModal = true"
+               class="w-fit gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
+            <PlayPauseIcon class="w-6"></PlayPauseIcon>
+            <span>{{ $t('Aufbau in Aktion ansehen') }}</span>
+          </div>
         </div>
       </div>
     </section>
