@@ -72,11 +72,19 @@
         <p class="text-xl sm:text-2xl mb-8 text-textbright text-center custom-text-shadow max-w-[33rem]">
           {{ $t('Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm).')}}
         </p>
-        <div @click="showOrderModalFunc" class="gradient-button mb-8">
-          <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span>{{ $t('Jetzt bestellen') }}</span>
-        </div>
         <div class="hidden sm:block">
+          <div @click="showOrderModalFunc" class="gradient-button mb-8">
+            <shopping-cart-icon class="w-6"></shopping-cart-icon>
+            <span>{{ $t('Jetzt bestellen') }}</span>
+          </div>
+        </div>
+        <div class="inline-block sm:hidden">
+          <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8">
+            <shopping-cart-icon class="w-6"></shopping-cart-icon>
+            <span>{{ $t('Jetzt bestellen') }}</span>
+          </div>
+        </div>
+        <div class="hidden md:block">
           <div @click="showModal = true"
                class="w-fit gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
             <PlayPauseIcon class="w-6"></PlayPauseIcon>
@@ -87,7 +95,7 @@
     </section>
 
     <div class="bg-primarycontrast-500 w-full">
-      <section id="features" class="container mx-auto px-4 py-16 max-w-screen-xl">
+      <section id="features" class="container mx-auto px-4 py-12 max-w-screen-xl text-center">
         <h2 class="text-center text-textbright text-2xl font-bold mb-8">
           {{ $t('Aufbau in nur 1 Minute!') }}
         </h2>
