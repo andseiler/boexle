@@ -358,7 +358,7 @@ const lastScrollPosition = ref(0);
 const scrollOffset = 0;
 
 const showOrderModalFunc=()=>{
-  if(cartItem){
+  if(cartItem.value){
     showCartModal.value = true;
   }else{
     showOrderModal.value = true;
