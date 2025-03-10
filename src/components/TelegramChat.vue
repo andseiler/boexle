@@ -2,8 +2,8 @@
   <div class="w-full flex flex-col gap-4 ">
     <div class="text-lg font-bold text-primary-500">Schreib uns eine Nachricht!</div>
     <div class="form-group">
-      <input type="email" v-model="email" :class="{'error': validate && !email}" placeholder="Deine Email" class="form-input">
-      <span class="text-red-500 text-sm pl-1" v-if="validate && !email">Email ist ein Pflichtfeld</span>
+      <input type="email" v-model="email" :class="{'error': validate && !validEmail}" placeholder="Deine Email" class="form-input">
+      <span class="text-red-500 text-sm pl-1" v-if="validate && !validEmail">Bitte eine gültige E-Mail-Adresse eingeben</span>
     </div>
     <div class="form-group">
       <textarea rows="6" class="form-input" v-model="message" :class="{'error': validate && !message}" placeholder="Deine Nachricht"></textarea>
@@ -23,8 +23,13 @@ const responseMessage = ref("");
 const isError = ref(false);
 const validate = ref(false);
 
+const validEmail = computed(() => {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email.value);
+});
+
 const sendMessage = async () => {
-  if (!message.value || !email.value) {
+  if (!message.value || !email.value || !validEmail.value) {
     validate.value = true;
     return
   }

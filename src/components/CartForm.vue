@@ -22,16 +22,18 @@
         Dein Warenkorb
       </h1>
       <div class="contact-card">
-        <div class="grid grid-cols-3 gap-4 w-full">
-          <div class="h-auto bg-gray-200 row-span-2"></div>
+        <div class="grid grid-cols-3 gap-4 w-full mb-6">
+          <div class="h-auto row-span-2">
+            <img src="/images/box-zusammen.webp" alt="">
+          </div>
           <div class="gloria-hallelujah-regular text-left">POCKETLEDGE</div>
-          <div class="flex justify-end"><div class=" w-8 h-8 items-center justify-center outline-button dark" @click="clearCart">X</div></div>
+          <div class="flex justify-end"><div class="w-10 h-10 items-center justify-center outline-button dark font-bold" @click="clearCart"><TrashIcon class="font-bold"></TrashIcon></div></div>
           <div class="font-bold flex items-center">{{ formatCurrency(subtotal) }}</div>
           <div class="flex justify-end">
             <div class="flex items-center font-bold">
-              <div class="w-8 h-8 border-r-0 border rounded-l-lg flex items-center justify-center">-</div>
-              <div class="w-8 h-8 border flex items-center justify-center">{{ quantity }}</div>
-              <div class="w-8 h-8 border-l-0 border rounded-r-lg flex items-center justify-center">+</div>
+              <div @click="changeQuantity(-1)" class="h-10 w-10 border-r-0 border rounded-l-lg border-2 flex items-center justify-center text-textdark hover:border-primary-500 hover:text-primary-500 cursor-pointer">-</div>
+              <div class="h-10 w-10 border border-2 flex items-center justify-center">{{ quantity }}</div>
+              <div @click="changeQuantity(1)" class="h-10 w-10 border-l-0 border-2 rounded-r-lg flex items-center justify-center text-textdark hover:border-primary-500 hover:text-primary-500 cursor-pointer">+</div>
             </div>
           </div>
         </div>
@@ -166,7 +168,7 @@
 <script setup lang="ts">
 import {ref, computed} from 'vue';
 import useCartStore from "../store/cartStore.js";
-import {CreditCardIcon} from "@heroicons/vue/24/outline";
+import {CreditCardIcon, TrashIcon} from "@heroicons/vue/24/outline";
 
 // Produkt- und Preis-Definition (statisch, da One-Product-Shop)
 const price = 280; // Bruttopreis pro Einheit in €
@@ -204,6 +206,14 @@ const shippingCost = computed(() => {
   return 0;
 });
 const total = computed(() => subtotal.value + shippingCost.value);
+
+const changeQuantity=(inc:number)=>{
+  if((quantity.value+inc) <= 0){
+    return;
+  }
+
+  quantity.value += inc;
+}
 
 const formatCurrency = (amount: number) => {
   return new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}).format(amount);
