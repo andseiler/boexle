@@ -12,7 +12,9 @@ const cartItemRef = ref(null as CartItem|null);
 
 export default function useCartStore() {
     async function init(){
-
+        if(sessionStorage.getItem('cartItem')){
+            cartItemRef.value = JSON.parse(sessionStorage.getItem('cartItem')!);
+        }
     }
 
     async function set(cartItem: CartItem){
