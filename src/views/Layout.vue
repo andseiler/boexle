@@ -65,7 +65,7 @@
           class="h-[700px] 2xl:h-[850px]"
       >
         <SwiperSlide>
-          <img src="/images/bg.png" alt="Slide 1" class="object-cover w-full h-full"/>
+          <img src="/images/bg3.png" alt="Slide 1" class="object-cover w-full h-full"/>
         </SwiperSlide>
         <!--        <SwiperSlide>-->
         <!--          <img src="/images/fs-blunt-art.jpg" alt="Slide 2" class="object-cover w-full h-full" />-->
@@ -74,7 +74,7 @@
         <!--          <img src="/images/bs-crooks-art.jpg" alt="Slide 3" class="object-cover w-full h-full" />-->
         <!--        </SwiperSlide>-->
         <div class="swiper-pagination"></div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black opacity-0 px-4 z-40">
+        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black opacity-30 px-4 z-40">
 
         </div>
       </Swiper>
