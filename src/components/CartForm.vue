@@ -26,15 +26,22 @@
           <div class="h-auto row-span-2">
             <img src="/images/box-zusammen.webp" alt="">
           </div>
-          <div class="gloria-hallelujah-regular text-left">POCKETLEDGE</div>
-          <div class="flex justify-end"><div class="w-10 h-10 items-center justify-center outline-button dark font-bold" @click="clearCart"><TrashIcon class="font-bold"></TrashIcon></div></div>
-          <div class="font-bold flex items-center">{{ formatCurrency(subtotal) }}</div>
-          <div class="flex justify-end">
-            <div class="flex items-center font-bold">
-              <div @click="changeQuantity(-1)" class="h-10 w-10 border-r-0 border rounded-l-lg border-2 flex items-center justify-center text-textdark hover:border-primary-500 hover:text-primary-500 cursor-pointer">-</div>
-              <div class="h-10 w-10 border border-2 flex items-center justify-center">{{ quantity }}</div>
-              <div @click="changeQuantity(1)" class="h-10 w-10 border-l-0 border-2 rounded-r-lg flex items-center justify-center text-textdark hover:border-primary-500 hover:text-primary-500 cursor-pointer">+</div>
+          <div class="flex flex-col gloria-hallelujah-regular" :class="[cartItem.color.textClass]">
+            <div class=" text-2xl text-left" >
+              POCKETLEDGE
             </div>
+            <div>
+              in {{cartItem.color.name}}
+            </div>
+          </div>
+
+          <div class="flex justify-end"><div class="w-10 h-10 items-center justify-center outline-button dark font-bold" @click="clearCart"><TrashIcon class="font-bold"></TrashIcon></div></div>
+          <div class="font-bold flex flex-col items-start justify-end">
+            <span>{{ formatCurrency(subtotal) }}</span>
+            <span class="font-normal text-xs">Davon MwSt: {{ formatCurrency(vatAmount) }}</span>
+          </div>
+          <div class="flex justify-end items-end">
+            <QuantityInput :model-value="quantity" @update:model-value="updateQuantity"></QuantityInput>
           </div>
         </div>
 <!--        <div class="form-group w-full mb-4">-->
@@ -169,20 +176,31 @@
 import {ref, computed} from 'vue';
 import useCartStore from "../store/cartStore.js";
 import {CreditCardIcon, TrashIcon} from "@heroicons/vue/24/outline";
+import QuantityInput from "./QuantityInput.vue";
 
 // Produkt- und Preis-Definition (statisch, da One-Product-Shop)
 const price = 280; // Bruttopreis pro Einheit in €
 
-const emit = defineEmits(['order'])
+const emit = defineEmits(['order', 'close'])
 
 // Reaktive Variable für den Warenkorb (aus sessionStorage)
 const cartStore = useCartStore();
 const cartItem = cartStore.cartItem;
 const clearCart = ()=>{cartStore.reset();}
+const quantity = computed(() => cartStore.cartItem.value.quantity)
+const updateQuantity = (newQuantity: number)=>{
+  if(newQuantity <= 0){
+    return;
+  }
 
-// Bestellung und Berechnungen (unabhängig von cartItem, da statisch und via Checkout-Form abrufbar)
-const quantity = ref(cartItem.value ? cartItem.value.quantity : 1);
+  cartStore.cartItem.value.quantity = newQuantity;
+  cartStore.set(cartStore.cartItem.value);
+}
+
 const subtotal = computed(() => price * quantity.value);
+const vatRate = 0.2;
+const netSubtotal = computed(() => subtotal.value / (1 + vatRate));
+const vatAmount = computed(() => subtotal.value - netSubtotal.value);
 
 const deliveryMethod = ref('Lieferung');
 const customerName = ref('');
@@ -207,14 +225,6 @@ const shippingCost = computed(() => {
 });
 const total = computed(() => subtotal.value + shippingCost.value);
 
-const changeQuantity=(inc:number)=>{
-  if((quantity.value+inc) <= 0){
-    return;
-  }
-
-  quantity.value += inc;
-}
-
 const formatCurrency = (amount: number) => {
   return new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}).format(amount);
 };
@@ -237,6 +247,7 @@ Deine Adresse: ${customerAddress.value}
 Land: ${customerCountry.value}
 Versandart: ${deliveryMethod.value}
 Menge: ${quantity.value}
+Farbe: ${cartItem.value.color.name}
 Kommentar: ${customerComment.value}
 Gesamtsumme: ${formatCurrency(total.value)}
 Auftragsbestätigung erfolgt per E-Mail mit den Zahlungshinweisen.`;
@@ -254,10 +265,14 @@ Auftragsbestätigung erfolgt per E-Mail mit den Zahlungshinweisen.`;
       customerAddress.value = "";
       customerCountry.value = "Österreich";
       deliveryMethod.value = "Lieferung";
-      quantity.value = 1;
       customerComment.value = "";
       validate.value = false;
       isError.value = false;
+      setTimeout(async ()=>{
+        await cartStore.reset();
+        emit('close');
+      },3000)
+
     } else {
       responseMessage.value = "Fehler beim Senden der Bestellung!";
       isError.value = true;

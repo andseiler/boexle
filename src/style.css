@@ -82,6 +82,14 @@
 @theme {
     --color-textdark: #2f3235;
     --color-textbright: #e2e3e6;
+    /*https://www.hornbach.at/p/mtn-montana-94-spruehlack-rv-5013-navy-blue-400-ml/10574591/*/
+    --color-boxblue: #010e30;
+    /*https://www.hornbach.at/p/mtn-montana-94-spruehlack-rv-3004-bordeaux-red-400-ml/10574621/*/
+    --color-boxred: #610819;
+    /*https://www.hornbach.at/p/mtn-montana-94-spruehlack-rv-126-toscana-green-400-ml/10574597/*/
+    --color-boxgreen: #2b491e;
+    /*https://www.hornbach.at/p/mtn-montana-94-spruehlack-rv-105-tangerine-400-ml/10574564/*/
+    --color-boxyellow: #f5a54a;
 }
 
 @theme {

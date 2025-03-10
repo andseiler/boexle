@@ -1,13 +1,13 @@
 <template>
   <div class="bg-tertiary-200" id="home">
     <ModalComponent :isVisible="showContactModal" @close="closeModals">
-      <ContactForm></ContactForm>
+      <ContactForm @close="closeModals"></ContactForm>
     </ModalComponent>
     <ModalComponent :isVisible="showOrderModal" @close="closeModals">
       <OrderForm @close="closeModals" @order="cartFromOrderForm"></OrderForm>
     </ModalComponent>
     <ModalComponent :isVisible="showCartModal" @close="closeModals">
-      <CartForm @order="orderFromCart"></CartForm>
+      <CartForm @order="orderFromCart" @close="closeModals"></CartForm>
     </ModalComponent>
     <ModalComponent :isVisible="showModal" @close="closeModals" :title="$t('Aufbau')">
       <iframe
@@ -86,7 +86,7 @@
         <p class="text-xl sm:text-2xl mb-8 text-gray-50 text-center custom-text-shadow max-w-[33rem]">
           {{ $t('Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm).')}}
         </p>
-        <div @click="showOrderModal = true" class="gradient-button mb-8">
+        <div @click="showOrderModalFunc" class="gradient-button mb-8">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
           <span>{{ $t('Jetzt bestellen') }}</span>
         </div>
@@ -201,7 +201,7 @@
           </ul>
 
           <!-- Order Button -->
-          <div @click="showOrderModal=true"
+          <div @click="showOrderModalFunc"
                class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
             <shopping-cart-icon class="w-6"></shopping-cart-icon>
             Jetzt bestellen
@@ -356,6 +356,14 @@ const isScrolled = ref(false);
 const showHeader = ref(true);
 const lastScrollPosition = ref(0);
 const scrollOffset = 0;
+
+const showOrderModalFunc=()=>{
+  if(cartItem){
+    showCartModal.value = true;
+  }else{
+    showOrderModal.value = true;
+  }
+}
 
 const closeModals = () => {
   showModal.value = false;

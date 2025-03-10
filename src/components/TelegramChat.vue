@@ -2,7 +2,7 @@
   <div class="w-full flex flex-col gap-4 ">
     <div class="text-lg font-bold text-primary-500">Schreib uns eine Nachricht!</div>
     <div class="form-group">
-      <input type="email" v-model="email" :class="{'error': validate && !validEmail}" placeholder="Deine Email" class="form-input">
+      <input type="email" v-model="email" :class="{'error': validate && !validEmail}" placeholder="Deine Email (damit wir antworten können)" class="form-input">
       <span class="text-red-500 text-sm pl-1" v-if="validate && !validEmail">Bitte eine gültige E-Mail-Adresse eingeben</span>
     </div>
     <div class="form-group">
@@ -22,6 +22,7 @@ const message = ref("");
 const responseMessage = ref("");
 const isError = ref(false);
 const validate = ref(false);
+const emit = defineEmits(['close'])
 
 const validEmail = computed(() => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -48,6 +49,10 @@ const sendMessage = async () => {
       email.value = "";
       message.value = "";
       validate.value = false;
+      setTimeout(()=>{
+        emit('close');
+      }, 1000);
+
     } else {
       responseMessage.value = "Fehler beim Senden!";
       isError.value = true;

@@ -42,9 +42,12 @@
       <div class="form-group w-full mb-4">
         <p class="text-primary-500 font-bold mb-1">Farbe:</p>
         <div class="flex gap-4">
-          <label v-for="(color, index) in colors" :key="index" class="flex items-center">
-            <input type="radio" :value="color" v-model="selectedColor" class="custom-radio mr-2" />
-            <span>{{ color }}</span>
+          <label v-for="(item, index) in colors" :key="index" class="flex items-center">
+            <div class="cursor-pointer flex gap-1 py-1 px-2 rounded-xl h-10 w-10 hover:scale-105 shadow ease-in-out duration-300"
+                 @click="selectedColor = item"
+                 :class="[item.bgClass]">
+              <CheckIcon class="font-bold text-white" v-if="selectedColor.name == item.name"></CheckIcon>
+            </div>
           </label>
         </div>
       </div>
@@ -52,19 +55,7 @@
       <!-- Hier die Eingabe der Menge -->
       <div class="form-group w-full mb-4">
         <label for="quantity" class="form-label block text-primary-500 font-bold mb-1">Menge:</label>
-        <input
-            id="quantity"
-            type="number"
-            min="1"
-            step="1"
-            v-model.number="quantity"
-            @blur="validate = true"
-            class="form-input w-full"
-            placeholder="Gib die gewünschte Menge ein"
-        />
-        <span v-if="validate && !validQuantity" class="text-red-500 text-sm pl-1">
-          Bitte eine gültige Menge eingeben (ganze Zahl > 0)
-        </span>
+        <QuantityInput v-model="quantity"></QuantityInput>
       </div>
 
       <!-- Hier der Gesamtpreis -->
@@ -102,9 +93,11 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 //@ts-ignore
 import 'swiper/css/pagination';
-import { ChevronLeftIcon, ChevronRightIcon, ShoppingCartIcon, CreditCardIcon } from '@heroicons/vue/24/outline';
+import { ChevronLeftIcon, ChevronRightIcon, ShoppingCartIcon, CreditCardIcon} from '@heroicons/vue/24/outline';
+import { CheckIcon} from '@heroicons/vue/24/solid';
 import useCartStore from "../store/cartStore.js";
 import type {CartItem} from "../store/cartStore.js";
+import QuantityInput from "./QuantityInput.vue";
 
 const cartStore = useCartStore();
 // Produktdaten
@@ -122,8 +115,14 @@ const images = ref([
 ]);
 
 // Farbauswahl
-const colors = ref(['Schwarz', 'Weiß', 'Rot', 'Blau']);
-const selectedColor = ref('Schwarz');
+const colors = computed(()=>[
+  {name: 'Schwarz', bgClass: 'bg-black', textClass: 'text-black'},
+  {name: 'Dunkelblau', bgClass: 'bg-boxblue', textClass: 'text-boxblue'},
+  {name: 'Grün', bgClass: 'bg-boxgreen', textClass: 'text-boxgreen'},
+  {name: 'Rot', bgClass: 'bg-boxred', textClass: 'text-boxred'},
+  {name: 'Gelb', bgClass: 'bg-boxyellow', textClass: 'text-boxyellow'}
+]);
+const selectedColor = ref({name: 'Schwarz', bgClass: 'bg-black', textClass: 'text-black'});
 
 // Validierung der Menge: Nur ganze Zahlen > 0
 const validate = ref(false);
