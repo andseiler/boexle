@@ -14,7 +14,7 @@
           <span class="absolute right-4 top-4 text-textdark cursor-pointer hover:text-primary-500" @click="copyEmailToClipboard"><ClipboardDocumentCheckIcon class="w-6"></ClipboardDocumentCheckIcon></span>
           <input @click="selectEmail" type="text" :value="emailAddress" ref="emailInput" readonly class="form-input w-full">
           <transition name="fade">
-            <div v-if="copySuccess" class="absolute top-4 right-12 bg-primary-500 opacity-90 text-white text-xs px-2 py-1 rounded shadow">
+            <div v-if="copySuccess" class="absolute top-4 right-12 bg-primary-500 opacity-90 text-textbright text-xs px-2 py-1 rounded shadow">
               Copied!
             </div>
           </transition>

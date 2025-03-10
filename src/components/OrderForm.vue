@@ -46,7 +46,7 @@
             <div class="cursor-pointer flex gap-1 py-1 px-2 rounded-xl h-10 w-10 hover:scale-105 shadow ease-in-out duration-300"
                  @click="selectedColor = item"
                  :class="[item.bgClass]">
-              <CheckIcon class="font-bold text-white" v-if="selectedColor.name == item.name"></CheckIcon>
+              <CheckIcon class="font-bold text-textbright" v-if="selectedColor.name == item.name"></CheckIcon>
             </div>
           </label>
         </div>

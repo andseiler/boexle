@@ -7,7 +7,7 @@
 
 .gradient-button:not(.gradient-button-outline) {
     transition: all 0.3s ease-in-out;
-    @apply cursor-pointer rounded-2xl bg-linear-to-r text-white p-4 flex gap-2 justify-center;
+    @apply cursor-pointer rounded-2xl bg-linear-to-r text-textbright p-4 flex gap-2 justify-center;
 }
 
 .gradient-button:not(.custom-color){
@@ -48,7 +48,7 @@
 }
 
 .outline-button:not(.dark){
-    @apply text-gray-50 border-gray-50 hover:text-primary-500 hover:border-primary-500;
+    @apply text-textbright border-textbright hover:text-primary-500 hover:border-primary-500;
 }
 
 .outline-button.dark{
@@ -81,7 +81,8 @@
 
 @theme {
     --color-textdark: #2f3235;
-    --color-textbright: #e2e3e6;
+    --color-textbright: #fff;
+    --color-textsemibright: #c5c7cb;
     /*https://www.hornbach.at/p/mtn-montana-94-spruehlack-rv-5013-navy-blue-400-ml/10574591/*/
     --color-boxblue: #010e30;
     /*https://www.hornbach.at/p/mtn-montana-94-spruehlack-rv-3004-bordeaux-red-400-ml/10574621/*/

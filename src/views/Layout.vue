@@ -79,11 +79,11 @@
         </div>
       </Swiper>
       <div class=" absolute inset-0 flex flex-col items-center justify-center px-4 z-20 ">
-        <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-4 text-gray-50">
+        <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-4 text-textbright">
           <!--          <img src="/images/pocketledge-logo-v2-white.svg" alt="">-->
           <span class="gloria-hallelujah-regular custom-text-shadow">POCKETLEDGE</span>
         </h1>
-        <p class="text-xl sm:text-2xl mb-8 text-gray-50 text-center custom-text-shadow max-w-[33rem]">
+        <p class="text-xl sm:text-2xl mb-8 text-textbright text-center custom-text-shadow max-w-[33rem]">
           {{ $t('Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm).')}}
         </p>
         <div @click="showOrderModalFunc" class="gradient-button mb-8">
@@ -100,34 +100,34 @@
 
     <div class="bg-primarycontrast-500 w-full">
       <section id="features" class="container mx-auto px-4 py-16 max-w-screen-xl">
-        <h2 class="text-center text-white text-2xl font-bold mb-8">
+        <h2 class="text-center text-textbright text-2xl font-bold mb-8">
           {{ $t('Aufbau in nur 1 Minute!') }}
         </h2>
         <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
 
           <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-80">
             <img src="/images/box-zusammen.webp" alt="Box zusammengeklappt">
-            <p class="mt-2 text-center text-gray-800 font-semibold">{{ $t('Transportmodus') }}</p>
+            <p class="mt-2 text-center text-textdark font-semibold">{{ $t('Transportmodus') }}</p>
           </div>
 
-          <div class="text-white text-3xl font-bold">
+          <div class="text-textbright text-3xl font-bold">
             <span class="inline lg:hidden">↓</span>
             <span class="hidden lg:inline">➜</span>
           </div>
 
           <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-80">
             <img src="/images/box-aufbau.webp" alt="Box im Aufbau">
-            <p class="mt-2 text-center text-gray-800 font-semibold">{{ $t('Aufklappen & Verriegeln') }}</p>
+            <p class="mt-2 text-center text-textdark font-semibold">{{ $t('Aufklappen & Verriegeln') }}</p>
           </div>
 
-          <div class="text-white text-3xl font-bold">
+          <div class="text-textbright text-3xl font-bold">
             <span class="inline lg:hidden">↓</span>
             <span class="hidden lg:inline">➜</span>
           </div>
 
           <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-80">
             <img src="/images/box-komplett.webp" alt="Komplette Box bereit zum Skaten">
-            <p class="mt-2 text-center text-gray-800 font-semibold">{{ $t('Skaten!') }}</p>
+            <p class="mt-2 text-center text-textdark font-semibold">{{ $t('Skaten!') }}</p>
           </div>
 
         </div>
@@ -147,19 +147,19 @@
         <div class="grid md:grid-cols-3 gap-8">
 
           <div class="bg-white rounded-lg shadow p-6 text-center">
-            <p class="text-gray-700 italic">"PocketLedge ist ein Gamechanger! Super stabil und perfekt für jede
+            <p class="text-textdark italic">"PocketLedge ist ein Gamechanger! Super stabil und perfekt für jede
               Session!"</p>
             <p class="mt-4 font-bold text-primary-500">- Max aus Berlin</p>
           </div>
 
           <div class="bg-white rounded-lg shadow p-6 text-center">
-            <p class="text-gray-700 italic">"Ich liebe meine Pocketledge, so schnell aufgebaut und passt locker in mein
+            <p class="text-textdark italic">"Ich liebe meine Pocketledge, so schnell aufgebaut und passt locker in mein
               Lastenrad."</p>
             <p class="mt-4 font-bold text-primary-500">- Lisa aus Wien</p>
           </div>
 
           <div class="bg-white rounded-lg shadow p-6 text-center">
-            <p class="text-gray-700 italic">"Der Landi isch volle bärig, aber gibt halt keine Ledge. Jetzt bring ich
+            <p class="text-textdark italic">"Der Landi isch volle bärig, aber gibt halt keine Ledge. Jetzt bring ich
               einfach meine Eigene mit"</p>
             <p class="mt-4 font-bold text-primary-500">- Chris aus Innsbruck</p>
           </div>
@@ -170,18 +170,19 @@
 
     <div class="bg-primarycontrast-500 w-full">
       <section id="price" class="container mx-auto px-4 py-16 max-w-screen-xl text-center">
-        <h2 class="text-3xl font-extrabold text-white mb-6">Deine PocketLedge – Handgemacht in Österreich!</h2>
-        <p class="text-gray-300 text-lg mb-8">
+        <h2 class="text-3xl font-extrabold text-textbright mb-6">Deine PocketLedge – Handgemacht in Österreich!</h2>
+        <p class="text-textsemibright text-lg mb-8">
           Perfekte Verarbeitung, langlebig und extrem stabil – in nur einer Minute aufgebaut!
         </p>
 
         <div
             class="max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center justify-center">
           <h3 class="ont-bold text-primary-500 mb-4 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
-          <p class="text-4xl font-extrabold text-gray-900 mb-6">280 €</p>
-          <p class="text-gray-700 mb-6">Handgefertigt in Österreich – sofort einsatzbereit!</p>
+          <p class="text-4xl font-extrabold text-textdark ">280 €</p>
+          <p class="text-sm mb-6 text-textdark">(inkl. gesetzlicher MwSt)</p>
+          <p class="text-textdark mb-6">Handgefertigt in Österreich – sofort einsatzbereit!</p>
 
-          <ul class="text-gray-700 text-left space-y-3 mb-6">
+          <ul class="text-textdark text-left space-y-3 mb-6">
             <li class="flex items-center">
               <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
               <span class="ml-2">Hochwertige Handarbeit – Made in Austria 🇦🇹</span>
@@ -210,8 +211,8 @@
 
         <!-- Customization Option -->
         <div class="mt-8 flex flex-col items-center justify-center gap-6">
-          <h3 class="text-xl font-bold text-white mb-2">Mach sie zu deiner eigenen Ledge!</h3>
-          <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+          <h3 class="text-xl font-bold text-textbright mb-2">Mach sie zu deiner eigenen Ledge!</h3>
+          <p class="text-textsemibright text-lg max-w-2xl mx-auto">
             Du willst eine spezielle Farbe, eine andere Größe oder eine individuelle Höhe?
             Kein Problem! Wir fertigen die PocketLedge genau nach deinen Wünschen an.
           </p>
@@ -231,18 +232,18 @@
 
           <div class="bg-white rounded-lg shadow p-6">
             <h3 class="font-bold text-primary-500">Wie lange dauert der Aufbau wirklich?</h3>
-            <p class="text-gray-700 mt-2">Der Aufbau dauert tatsächlich nur 1 Minute! Dank unseres cleveren Designs
+            <p class="text-textdark mt-2">Der Aufbau dauert tatsächlich nur 1 Minute! Dank unseres cleveren Designs
               kannst du PocketLedge blitzschnell einsatzbereit machen.</p>
           </div>
 
           <div class="bg-white rounded-lg shadow p-6">
             <h3 class="font-bold text-primary-500">Wie stabil ist PocketLedge?</h3>
-            <p class="text-gray-700 mt-2">PocketLedge besteht aus hochwertigem Stahl und bleibt stabil, egal bei welchem Grind oder Slide.</p>
+            <p class="text-textdark mt-2">PocketLedge besteht aus hochwertigem Stahl und bleibt stabil, egal bei welchem Grind oder Slide.</p>
           </div>
 
           <div class="bg-white rounded-lg shadow p-6">
             <h3 class="font-bold text-primary-500">Passt PocketLedge wirklich in eine Eurobox?</h3>
-            <p class="text-gray-700 mt-2">Ja! Das Design ist so optimiert, dass PocketLedge perfekt in eine Eurobox
+            <p class="text-textdark mt-2">Ja! Das Design ist so optimiert, dass PocketLedge perfekt in eine Eurobox
               (60x40x30 cm) passt.</p>
           </div>
 
@@ -305,7 +306,7 @@
 
 
     <!-- Footer (dezent platzierte Links) -->
-    <footer class="bg-primarycontrast-500 text-gray-50">
+    <footer class="bg-primarycontrast-500 text-textbright">
       <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center max-w-screen-xl">
         <p class="text-sm">&copy; 2025 PocketLedge. Alle Rechte vorbehalten.</p>
         <div class="space-x-4 text-sm">
