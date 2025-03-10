@@ -65,7 +65,7 @@
           class="h-[700px] 2xl:h-[850px]"
       >
         <SwiperSlide>
-          <img src="/images/bg3.png" alt="Slide 1" class="object-cover w-full h-full"/>
+          <img src="/images/bg.png" alt="Slide 1" class="object-cover w-full h-full"/>
         </SwiperSlide>
         <!--        <SwiperSlide>-->
         <!--          <img src="/images/fs-blunt-art.jpg" alt="Slide 2" class="object-cover w-full h-full" />-->
