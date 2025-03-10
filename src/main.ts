@@ -24,13 +24,9 @@ export const i18n = createI18n({
     }
 })
 
-const createBoexleApp = async () => {
-    createApp(App).use(i18n).mount('#app')
+createApp(App).use(i18n).mount('#app')
 
-    const cartStore = useCartStore();
-    await cartStore.init();
-}
-
-createBoexleApp();
+const cartStore = useCartStore();
+cartStore.init();
 
 

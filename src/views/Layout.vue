@@ -18,7 +18,7 @@
       ></iframe>
     </ModalComponent>
     <!-- Header bleibt unverändert -->
-    <header class="bg-primarycontrast-500 sticky z-50 transition-all duration-300"
+    <header class="bg-primarycontrast-500 sticky z-50 transition-all duration-300 shadow-xl"
             :class="{'shadow-xl': isScrolled, '-top-full': !showHeader, 'top-0': showHeader}">
       <div class="container mx-auto px-4 py-2 flex items-center justify-between max-w-screen-lg">
         <div class="text-xl sm:text-3xl font-bold text-primary-500 flex flex-col justify-center cursor-pointer"
@@ -57,28 +57,14 @@
       </div>
     </header>
 
-    <section class="relative bg-linear-to-b from-tertiary-500 to-tertiary-200 ">
-      <Swiper
-          :slides-per-view="1"
-          :loop="true"
-          :autoplay="{ delay: 3000 }"
-          class="h-[700px] 2xl:h-[850px]"
+    <section class="relative flex justify-center bg-primarycontrast-500">
+      <video-background
+          src="images/bg.mp4"
+          class="h-[720px] max-w-[1280px]"
+          overlay="rgba(50, 30, 10, 0.1)"
       >
-        <SwiperSlide>
-          <img src="/images/bg.png" alt="Slide 1" class="object-cover w-full h-full"/>
-        </SwiperSlide>
-        <!--        <SwiperSlide>-->
-        <!--          <img src="/images/fs-blunt-art.jpg" alt="Slide 2" class="object-cover w-full h-full" />-->
-        <!--        </SwiperSlide>-->
-        <!--        <SwiperSlide>-->
-        <!--          <img src="/images/bs-crooks-art.jpg" alt="Slide 3" class="object-cover w-full h-full" />-->
-        <!--        </SwiperSlide>-->
-        <div class="swiper-pagination"></div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black opacity-30 px-4 z-40">
-
-        </div>
-      </Swiper>
-      <div class=" absolute inset-0 flex flex-col items-center justify-center px-4 z-20 ">
+      </video-background>
+      <div class=" absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
         <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-4 text-textbright">
           <!--          <img src="/images/pocketledge-logo-v2-white.svg" alt="">-->
           <span class="gloria-hallelujah-regular custom-text-shadow">POCKETLEDGE</span>
@@ -325,7 +311,6 @@
 </template>
 
 <script setup lang="ts">
-import {Swiper, SwiperSlide} from 'swiper/vue';
 //@ts-ignore
 import 'swiper/css';
 //@ts-ignore
@@ -348,6 +333,8 @@ import {useI18n} from "vue-i18n";
 import CartForm from "../components/CartForm.vue";
 import OrderForm  from "../components/OrderForm.vue";
 import useCartStore from "../store/cartStore.ts";
+//@ts-ignore
+import VideoBackground from 'vue-responsive-video-background-player'
 
 // Initialisiere Swiper Plugins
 SwiperCore.use([Pagination, Autoplay]);
