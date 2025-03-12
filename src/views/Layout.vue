@@ -65,23 +65,23 @@
       >
       </video-background>
       <div class="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
-        <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-4 text-textbright">
+        <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-8 text-textbright">
           <!--          <img src="/images/pocketledge-logo-v2-white.svg" alt="">-->
           <span class="gloria-hallelujah-regular custom-text-shadow">POCKETLEDGE</span>
         </h1>
         <p class="text-xl sm:text-2xl mb-8 text-textbright text-center custom-text-shadow max-w-[33rem]">
-          {{ $t('Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm).')}}
+          {{ $t('Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm) und wiegt so viel wie ne Bierkiste')}}
         </p>
         <div class="hidden sm:block">
           <div @click="showOrderModalFunc" class="gradient-button mb-8">
             <shopping-cart-icon class="w-6"></shopping-cart-icon>
-            <span>{{ $t('Jetzt bestellen') }}</span>
+            <span>{{ $t('Jetzt vorbestellen') }}</span>
           </div>
         </div>
         <div class="inline-block sm:hidden">
           <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8">
             <shopping-cart-icon class="w-6"></shopping-cart-icon>
-            <span>{{ $t('Jetzt bestellen') }}</span>
+            <span>{{ $t('Jetzt vorbestellen') }}</span>
           </div>
         </div>
         <div class="hidden md:block">
@@ -96,9 +96,10 @@
 
     <div class="bg-primarycontrast-500 w-full">
       <section id="features" class="container mx-auto px-4 py-12 max-w-screen-xl text-center">
-        <h2 class="text-center text-textbright text-2xl font-bold mb-8">
+        <h2 class="text-center text-textbright text-2xl font-bold ">
           {{ $t('Aufbau in nur 1 Minute!') }}
         </h2>
+        <p class="text-center text-textsemibright mb-8 mt-4">{{$t('In nur 1 Minute eine 1,80 m lange Ledge mit 25 cm Höhe skaten, perfekt zum Tricks lernen!')}}</p>
         <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
 
           <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-80">
@@ -190,6 +191,10 @@
             </li>
             <li class="flex items-center">
               <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
+              <span class="ml-2">{{ $t('Perfekt zum Tricks lernen – 1,80 m lang und 25 cm hoch.') }}</span>
+            </li>
+            <li class="flex items-center">
+              <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
               <span class="ml-2">{{ $t('Sekundenschneller Aufbau – in 1 Minute bereit') }}</span>
             </li>
             <li class="flex items-center">
@@ -202,7 +207,7 @@
           <div @click="showOrderModalFunc"
                class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
             <shopping-cart-icon class="w-6"></shopping-cart-icon>
-            {{ $t('Jetzt bestellen') }}
+            {{ $t('Jetzt vorbestellen') }}
           </div>
         </div>
 

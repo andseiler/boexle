@@ -44,27 +44,6 @@
             <QuantityInput :model-value="quantity" @update:model-value="updateQuantity"></QuantityInput>
           </div>
         </div>
-<!--        <div class="form-group w-full mb-4">-->
-<!--          <label for="quantity" class="form-label block text-primary-500 font-bold mb-1">Menge:</label>-->
-<!--          <div class="flex items-center gap-2">-->
-<!--            <input-->
-<!--                id="quantity"-->
-<!--                type="number"-->
-<!--                min="1"-->
-<!--                step="1"-->
-<!--                v-model.number="quantity"-->
-<!--                :class="['form-input', { error: validate && !validQuantity }]"-->
-<!--                placeholder="Gib die gewünschte Menge ein"-->
-<!--            /><span class="outline-button dark" @click="clearCart">X</span></div>-->
-<!--          <span v-if="validate && !validQuantity" class="text-red-500 text-sm pl-1">-->
-<!--            Bitte eine gültige Menge eingeben (ganze Zahl > 0)-->
-<!--          </span>-->
-<!--        </div>-->
-<!--        <div class="form-group w-full mb-4">-->
-<!--          <p class="text-primary-500 font-bold">Summe:</p>-->
-<!--          <p class="text-textdark text-xl">{{ formatCurrency(subtotal) }}</p>-->
-<!--          <p class="text-textdark text-xs mt-1">(Enthaltene MwSt: {{ formatCurrency(vatAmount) }})</p>-->
-<!--        </div>-->
         <!-- Kundeninformationen -->
         <div class="form-group w-full mb-4">
           <label for="name" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Name:') }}</label>
@@ -93,11 +72,10 @@
           <textarea
               id="address"
               v-model="customerAddress"
-              :class="['form-input', { error: validate && !customerAddress }]"
+              :class="['form-input']"
               rows="3"
-              :placeholder="$t('Deine Adresse')"
+              :placeholder="$t('Deine Adresse (optional)')"
           ></textarea>
-          <span v-if="validate && !customerAddress" class="text-red-500 text-sm pl-1">{{ $t('Adresse ist ein Pflichtfeld') }}</span>
         </div>
         <div class="form-group w-full mb-4">
           <label for="country" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Land:') }}</label>
@@ -147,11 +125,8 @@
 
         <!-- Hinweis zur Bestätigung -->
         <div class="w-full flex flex-col gap-4 mt-1">
-          <p class="text-sm text-textdark text-center font-bold">
-            {{ $t('Unsere Produkte werden erst nach Eingang Deiner Bestellung gefertigt. Aufgrund der aktuellen hohen Nachfrage kann der Versand bis zu mehreren Tagen dauern.') }}
-          </p>
-          <p class="text-sm text-textdark text-center">
-            {{ $t('Auftragsbestätigung mit den Zahlungshinweisen erfolgt per E-Mail.') }}
+          <p class="text-md text-textdark text-center font-bold">
+            {{ $t('Die ersten Ledges werden im Mai 2025 versendet. Den genauen Liefertermin bekommst du nach der Vorbestellung per Email.') }}
           </p>
         </div>
 
@@ -159,7 +134,7 @@
         <div class="w-full mt-6 flex flex-col gap-2">
           <button @click="checkout" class="gradient-button w-full py-3 text-lg items-center">
             <CreditCardIcon class="w-6 h-6 mr-2" />
-            {{ $t('Zahlungspflichtig bestellen') }}
+            {{ $t('Jetzt vorbestellen') }}
           </button>
           <p v-if="responseMessage" class="font-bold mt-2"
              :class="{'text-red-500': isError, 'text-primary-500': !isError}">
@@ -233,7 +208,7 @@ const responseMessage = ref('');
 const isError = ref(false);
 
 const checkout = async () => {
-  if (!customerName.value || !customerEmail.value || !customerAddress.value || !validQuantity.value || !validEmail.value) {
+  if (!customerName.value || !customerEmail.value || !validQuantity.value || !validEmail.value) {
     validate.value = true;
     responseMessage.value = i18n.global.t("Bitte fülle alle Pflichtfelder korrekt aus.");
     isError.value = true;
