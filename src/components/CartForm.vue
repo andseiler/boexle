@@ -10,7 +10,7 @@
         <div class="text-center">
           <button @click="goToShop"
                   class="gradient-button w-full py-3 text-lg">
-            {{ $t('Jetzt bestellen') }}
+            {{ $t('Jetzt vorbestellen') }}
           </button>
         </div>
       </div>
@@ -134,7 +134,7 @@
         <div class="w-full mt-6 flex flex-col gap-2">
           <button @click="checkout" class="gradient-button w-full py-3 text-lg items-center">
             <CreditCardIcon class="w-6 h-6 mr-2" />
-            {{ $t('Jetzt vorbestellen') }}
+            {{ $t('Vorbestellung absenden') }}
           </button>
           <p v-if="responseMessage" class="font-bold mt-2"
              :class="{'text-red-500': isError, 'text-primary-500': !isError}">

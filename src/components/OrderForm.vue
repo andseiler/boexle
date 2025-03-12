@@ -2,7 +2,7 @@
 <template>
   <div class="cart-component container mx-auto p-4 bg-primarycontrast-500 pb-8">
     <h1 class="contact-header text-3xl font-extrabold text-textbright mb-8 text-center">
-      {{ $t('Jetzt bestellen') }}
+      {{ $t('Jetzt vorbestellen') }}
     </h1>
     <div class="contact-card max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center">
 
@@ -80,7 +80,7 @@
         <!-- Hier ein Button "Direkt bezahlen" -->
         <button @click="directPay" class="gradient-button custom-color from-primary-500 to-primary-600 flex-1 py-3 text-lg flex items-center justify-center">
           <CreditCardIcon class="w-6 h-6 mr-2" />
-          {{ $t('Direkt bestellen') }}
+          {{ $t('Direkt vorbestellen') }}
         </button>
       </div>
     </div>
