@@ -93,33 +93,33 @@
     --color-boxyellow: #f5a54a;
 }
 
-/*@theme {*/
-/*    --color-primarycontrast-50: #dbeffa;*/
-/*    --color-primarycontrast-100: #b7dff6;*/
-/*    --color-primarycontrast-200: #6abceb;*/
-/*    --color-primarycontrast-300: #229ce2;*/
-/*    --color-primarycontrast-400: #156c9e;*/
-/*    --color-primarycontrast-500: #0b3954;*/
-/*    --color-primarycontrast-600: #092e44;*/
-/*    --color-primarycontrast-700: #072232;*/
-/*    --color-primarycontrast-800: #041620;*/
-/*    --color-primarycontrast-900: #020c12;*/
-/*    --color-primarycontrast-950: #010609;*/
-/*}*/
-
 @theme {
-    --color-primarycontrast-50: #ebebeb;
-    --color-primarycontrast-100: #d4d4d4;
-    --color-primarycontrast-200: #a8a8a8;
-    --color-primarycontrast-300: #7d7d7d;
-    --color-primarycontrast-400: #525252;
-    --color-primarycontrast-500: #272727;
-    --color-primarycontrast-600: #1f1f1f;
-    --color-primarycontrast-700: #171717;
-    --color-primarycontrast-800: #0f0f0f;
-    --color-primarycontrast-900: #080808;
-    --color-primarycontrast-950: #050505;
+    --color-primarycontrast-50: #dbeffa;
+    --color-primarycontrast-100: #b7dff6;
+    --color-primarycontrast-200: #6abceb;
+    --color-primarycontrast-300: #229ce2;
+    --color-primarycontrast-400: #156c9e;
+    --color-primarycontrast-500: #0b3954;
+    --color-primarycontrast-600: #092e44;
+    --color-primarycontrast-700: #072232;
+    --color-primarycontrast-800: #041620;
+    --color-primarycontrast-900: #020c12;
+    --color-primarycontrast-950: #010609;
 }
+
+/*@theme {*/
+/*    --color-primarycontrast-50: #ebebeb;*/
+/*    --color-primarycontrast-100: #d4d4d4;*/
+/*    --color-primarycontrast-200: #a8a8a8;*/
+/*    --color-primarycontrast-300: #7d7d7d;*/
+/*    --color-primarycontrast-400: #525252;*/
+/*    --color-primarycontrast-500: #272727;*/
+/*    --color-primarycontrast-600: #1f1f1f;*/
+/*    --color-primarycontrast-700: #171717;*/
+/*    --color-primarycontrast-800: #0f0f0f;*/
+/*    --color-primarycontrast-900: #080808;*/
+/*    --color-primarycontrast-950: #050505;*/
+/*}*/
 
 @theme {
     --color-tertiary-50: #fefcfb;
