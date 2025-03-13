@@ -245,8 +245,8 @@
           <h3 class="text-lg font-bold text-primary-500 mb-2">{{ $t('Willst du auch in unserer Galerie erscheinen?') }}</h3>
           <div @click="showContactModal=true"
                class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
-            <photo-icon class="w-6"></photo-icon>
-            {{ $t('Schick uns dein Bild!') }}
+            <video-camera-icon class="w-6"></video-camera-icon>
+            {{ $t('Schick uns dein Video!') }}
           </div>
         </div>
       </section>
@@ -263,7 +263,10 @@ import {Autoplay, Pagination} from 'swiper/modules';
 import {onMounted, onUnmounted, ref} from "vue";
 import {
   ShoppingCartIcon,
-  ChatBubbleOvalLeftEllipsisIcon
+  ChatBubbleOvalLeftEllipsisIcon,
+    CheckBadgeIcon,
+  VideoCameraIcon,
+    PlayPauseIcon,
 } from '@heroicons/vue/24/outline'
 import useCartStore from "../store/cartStore.ts";
 //@ts-ignore
