@@ -21,7 +21,7 @@
     <header class="bg-primarycontrast-500 sticky z-50 transition-all duration-300 shadow-xl"
             :class="{'shadow-xl': isScrolled, '-top-full': !showHeader, 'top-0': showHeader}">
       <div class="container mx-auto px-4 py-2 flex items-center justify-between max-w-screen-xl">
-        <div class="text-2xl sm:text-3xl font-bold text-primary-500 flex flex-col justify-center cursor-pointer"
+        <div class="text-xl sm:text-3xl font-bold text-primary-500 flex flex-col justify-center cursor-pointer"
              @click.prevent="scrollToSection('home')">
           <!--          <img class="h-20" src="/images/pocketledge-logo-v2-green.svg" alt="">-->
           <span class="gloria-hallelujah-regular py-4">POCKETLEDGE</span>
