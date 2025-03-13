@@ -7,11 +7,11 @@
       >
       </video-background>
       <div class="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
-        <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-8 text-textbright">
+        <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-2 sm:mb-8 text-textbright">
           <!--          <img src="/images/pocketledge-logo-v2-white.svg" alt="">-->
           <span class="gloria-hallelujah-regular custom-text-shadow">POCKETLEDGE</span>
         </h1>
-        <p class="text-xl sm:text-2xl mb-8 text-textbright text-center custom-text-shadow max-w-[33rem]">
+        <p class="text-xl sm:text-2xl mb-4 sm:mb-8 text-textbright text-center custom-text-shadow max-w-[33rem]">
           {{ $t('Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm) und wiegt so viel wie ne Bierkiste')}}
         </p>
         <div class="hidden sm:block">
