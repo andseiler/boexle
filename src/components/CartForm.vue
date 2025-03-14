@@ -125,8 +125,8 @@
 
         <!-- Hinweis zur Bestätigung -->
         <div class="w-full flex flex-col gap-4 mt-1">
-          <p class="text-md text-textdark text-center font-bold">
-            {{ $t('Die ersten Ledges werden im Mai 2025 versendet. Den genauen Liefertermin bekommst du nach der Vorbestellung per Email.') }}
+          <p class="text-md text-textdark font-bold">
+            {{ $t('Die Ledges werden im Mai 2025 versendet. Den genauen Liefertermin bekommst du nach der Vorbestellung per Email.') }}
           </p>
         </div>
 
@@ -152,6 +152,7 @@ import useCartStore from "../store/cartStore.js";
 import {CreditCardIcon, TrashIcon} from "@heroicons/vue/24/outline";
 import QuantityInput from "./QuantityInput.vue";
 import {i18n} from "../main.ts";
+import usePreOrderStore from "../store/usePreOrderStore";
 
 // Produkt- und Preis-Definition (statisch, da One-Product-Shop)
 const price = 280; // Bruttopreis pro Einheit in €
@@ -172,7 +173,14 @@ const updateQuantity = (newQuantity: number)=>{
   cartStore.set(cartStore.cartItem.value);
 }
 
-const subtotal = computed(() => price * quantity.value);
+const { rebate } = usePreOrderStore();
+
+// Ensure rebate is treated as a number
+const discountedPrice = price - Number(rebate.value);
+console.log('Rebate:', rebate);
+console.log('Discounted Price:', discountedPrice);
+const subtotal = computed(() => discountedPrice * quantity.value);
+
 const vatRate = 0.2;
 const netSubtotal = computed(() => subtotal.value / (1 + vatRate));
 const vatAmount = computed(() => subtotal.value - netSubtotal.value);
@@ -198,6 +206,8 @@ const shippingCost = computed(() => {
   if (customerCountry.value === 'ch') return 40;
   return 0;
 });
+
+// Update the total to use the discounted price
 const total = computed(() => subtotal.value + shippingCost.value);
 
 const formatCurrency = (amount: number) => {

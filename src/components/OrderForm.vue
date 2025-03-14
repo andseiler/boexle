@@ -35,9 +35,13 @@
 
       <!-- Produktinformationen -->
       <h3 class="font-bold text-primary-500 mb-2 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
-      <p class="text-sm mb-4 text-semibright">{{$t('Transportgröße 60x40x30 cm - Aufgebaute Größe 180x35x25 cm')}}</p>
-      <p class="text-4xl font-extrabold text-textdark mb-2">{{ formatCurrency(price) }}</p>
-      <p class="text-sm text-textdark mb-6">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
+      <p class="text-sm mb-4 text-semibright">{{$t('Transportgröße 60x40x30 cm - Aufgebaute Größe 180x36x25 cm')}}</p>
+      <p class="text-4xl font-extrabold text-textdark mb-2 flex flex-col justify-center items-center">
+        <span class="relative">{{ formatCurrency(price) }} <span class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
+        <span class="text-primary-600">{{ formatCurrency(discountedPrice) }}</span>
+      </p>
+      <p class="text-sm text-textdark mb-4">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
+      <p class="text-lg font-bold text-primary-600 mb-6 text-center">{{ $t('Bestelle jetzt, nur noch') }} {{ totalAvailable - preOrderCount }} {{ $t('Stück zum reduzierten Preis verfügbar') }}</p>
 
       <!-- Hier eine schöne Farbauswahl, schwarz ist default -->
       <div class="form-group w-full mb-4">
@@ -65,9 +69,9 @@
         <p class="text-textdark text-2xl font-extrabold">{{ formatCurrency(total) }}</p>
       </div>
 
-      <div class="w-full flex flex-col gap-4 mt-1">
-        <p class="text-sm text-textdark text-center">
-          {{ $t('Unsere Produkte werden erst nach Eingang Deiner Bestellung gefertigt. Aufgrund der aktuellen hohen Nachfrage kann der Versand bis zu zwei Wochen dauern.') }}
+      <div class="w-full flex flex-col gap-4 pt-4 border-t">
+        <p class="text-md text-textdark font-bold">
+          {{ $t('Die Ledges werden im Mai 2025 versendet. Den genauen Liefertermin bekommst du nach der Vorbestellung per Email.') }}
         </p>
       </div>
 
@@ -100,12 +104,16 @@ import useCartStore from "../store/cartStore.js";
 import type {CartItem} from "../store/cartStore.js";
 import QuantityInput from "./QuantityInput.vue";
 import {i18n} from "../main.ts";
+import usePreOrderStore from '../store/usePreOrderStore';
 
 const cartStore = useCartStore();
+const { preOrderCount, totalAvailable, rebate } = usePreOrderStore();
+
 // Produktdaten
 const price = 280; // Einzelpreis in €
+const discountedPrice = computed(() => price - rebate.value); // Rabattierte Preis
 const quantity = ref(1);
-const total = computed(() => price * quantity.value);
+const total = computed(() => discountedPrice.value * quantity.value);
 
 const emit = defineEmits(['close', 'order'])
 
@@ -157,7 +165,7 @@ const addToCart = () => {
   }
   const cartItem: CartItem = {
     product: 'POCKETLEDGE',
-    price: price,
+    price: discountedPrice.value,
     quantity: quantity.value,
     color: selectedColor.value,
     total: total.value

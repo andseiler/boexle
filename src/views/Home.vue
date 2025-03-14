@@ -11,12 +11,11 @@
       rotate-12 text-white text-sm font-bold rounded-full shadow-lg 
       flex text-center flex-col gap-2
       items-center justify-center z-20 h-36 w-36 lg:h-48 lg:w-48">
-        <span class="gloria-hallelujah-regular text-xl lg:text-3xl">Early Bird</span>
-          <span class=" font-bolder text-4xl lg:text-5xl gloria-hallelujah-regular">-50 €</span>
-          <span class="text-sm italic font-normal"><span class="hidden lg:inline">Nur noch</span> {{ totalAvailable - preOrderCount }} verfügbar</span>
+        <span class="gloria-hallelujah-regular text-xl lg:text-3xl">{{ $t('Early Bird') }}</span>
+          <span class=" font-bolder text-4xl lg:text-5xl gloria-hallelujah-regular">-{{ rebate }} €</span>
+          <span class="text-sm italic font-normal"><span class="hidden lg:inline">{{ $t('Nur noch') }}</span> {{ totalAvailable - preOrderCount }} {{ $t('verfügbar') }}</span>
       </div>
       </video-background>
-
       <div class="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
         <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-2 sm:mb-8 text-textbright">
           <!--          <img src="/images/pocketledge-logo-v2-white.svg" alt="">-->
@@ -41,9 +40,9 @@
                     rotate-12 font-bold rounded-full shadow-lg
                     flex text-center flex-col
                     items-center justify-center z-20 h-28 w-28">
-          <span class="gloria-hallelujah-regular text-base">Early Bird</span>
-          <span class=" font-bolder text-xl gloria-hallelujah-regular">-50 €</span>
-          <span class="text-xs italic font-normal">{{ totalAvailable - preOrderCount }} verfügbar</span>
+          <span class="gloria-hallelujah-regular text-base">{{ $t('Early Bird') }}</span>
+          <span class=" font-bolder text-xl gloria-hallelujah-regular">-{{ rebate }} €</span>
+          <span class="text-xs italic font-normal">{{ totalAvailable - preOrderCount }} {{ $t('verfügbar') }}</span>
         </div>
         <div class="inline-block sm:hidden">
           <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8">
@@ -293,7 +292,7 @@ SwiperCore.use([Pagination, Autoplay]);
 const {cartItem} = useCartStore();
 
 const { showModal, showContactModal, showOrderModal, showCartModal } = useModalStore();
-const { preOrderCount, totalAvailable } = usePreOrderStore();
+const { preOrderCount, totalAvailable, rebate } = usePreOrderStore();
 const isScrolled = ref(false);
 const showHeader = ref(true);
 const lastScrollPosition = ref(0);
