@@ -5,7 +5,18 @@
           class="h-[300px] sm:h-[500px] md:h-[720px] md:max-w-[1280px]"
           overlay="rgba(50, 30, 10, 0.4)"
       >
+      <div class="absolute top-4 right-4 bg-gradient-to-r
+      from-primary-500 to-primary-600
+      hidden md:flex
+      rotate-12 text-white text-sm font-bold rounded-full shadow-lg 
+      flex text-center flex-col gap-2
+      items-center justify-center z-20 h-36 w-36 lg:h-48 lg:w-48">
+        <span class="gloria-hallelujah-regular text-xl lg:text-3xl">Early Bird</span>
+          <span class=" font-bolder text-4xl lg:text-5xl gloria-hallelujah-regular">-50 €</span>
+          <span class="text-sm italic font-normal"><span class="hidden lg:inline">Nur noch</span> {{ totalAvailable - preOrderCount }} verfügbar</span>
+      </div>
       </video-background>
+
       <div class="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
         <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-2 sm:mb-8 text-textbright">
           <!--          <img src="/images/pocketledge-logo-v2-white.svg" alt="">-->
@@ -20,24 +31,26 @@
             <span>{{ $t('Jetzt vorbestellen') }}</span>
           </div>
         </div>
+
+      </div>  
+    </section>
+    <div class="bg-primarycontrast-500 w-full">
+      <section id="features" class="container mx-auto px-4 py-12 max-w-screen-xl text-center relative">
+        <div class="absolute top-[-3.5rem] right-2 sm:right-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white
+                    flex md:hidden
+                    rotate-12 font-bold rounded-full shadow-lg
+                    flex text-center flex-col
+                    items-center justify-center z-20 h-28 w-28">
+          <span class="gloria-hallelujah-regular text-base">Early Bird</span>
+          <span class=" font-bolder text-xl gloria-hallelujah-regular">-50 €</span>
+          <span class="text-xs italic font-normal">{{ totalAvailable - preOrderCount }} verfügbar</span>
+        </div>
         <div class="inline-block sm:hidden">
           <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8">
             <shopping-cart-icon class="w-6"></shopping-cart-icon>
             <span>{{ $t('Jetzt vorbestellen') }}</span>
           </div>
         </div>
-        <div class="hidden md:block">
-          <div @click="showModal = true"
-               class="w-fit gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
-            <PlayPauseIcon class="w-6"></PlayPauseIcon>
-            <span>{{ $t('Aufbau in Aktion ansehen') }}</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="bg-primarycontrast-500 w-full">
-      <section id="features" class="container mx-auto px-4 py-12 max-w-screen-xl text-center">
         <h2 class="text-center text-textbright text-2xl font-bold ">
           {{ $t('Aufbau in nur 1 Minute!') }}
         </h2>
@@ -45,7 +58,7 @@
         <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
 
           <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-80">
-            <img src="/images/box-zusammen.webp" alt="Box zusammengeklappt">
+            <img src="/images/transportmodus.jpg" alt="Transportmodus">
             <p class="mt-2 text-center text-textdark font-semibold">{{ $t('Transportmodus') }}</p>
           </div>
 
@@ -55,7 +68,7 @@
           </div>
 
           <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-80">
-            <img src="/images/box-aufbau.webp" alt="Box im Aufbau">
+            <img src="/images/setup.jpg" alt="Setup">
             <p class="mt-2 text-center text-textdark font-semibold">{{ $t('Aufklappen & Verriegeln') }}</p>
           </div>
 
@@ -65,7 +78,7 @@
           </div>
 
           <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-80">
-            <img src="/images/box-komplett.webp" alt="Komplette Box bereit zum Skaten">
+            <img src="/images/skate.jpg" alt="Skate">
             <p class="mt-2 text-center text-textdark font-semibold">{{ $t('Skaten!') }}</p>
           </div>
 
@@ -272,6 +285,7 @@ import useCartStore from "../store/cartStore.ts";
 //@ts-ignore
 import VideoBackground from 'vue-responsive-video-background-player'
 import useModalStore from '../store/modalStore';
+import usePreOrderStore from '../store/usePreOrderStore';
 
 // Initialisiere Swiper Plugins
 SwiperCore.use([Pagination, Autoplay]);
@@ -279,6 +293,7 @@ SwiperCore.use([Pagination, Autoplay]);
 const {cartItem} = useCartStore();
 
 const { showModal, showContactModal, showOrderModal, showCartModal } = useModalStore();
+const { preOrderCount, totalAvailable } = usePreOrderStore();
 const isScrolled = ref(false);
 const showHeader = ref(true);
 const lastScrollPosition = ref(0);
