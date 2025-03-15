@@ -78,7 +78,7 @@
           ></textarea>
         </div>
         <div class="form-group w-full mb-4">
-          <label for="country" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Land:') }}</label>
+          <label for="country" class="form-label">{{ $t('Land:') }}</label>
           <select id="country" v-model="customerCountry" class="form-input w-full text-textdark">
             <option value="at">{{ $t('Österreich') }}</option>
             <option value="de">{{ $t('Deutschland') }}</option>
@@ -88,7 +88,7 @@
 
         <!-- Versandart Auswahl -->
         <div class="form-group w-full mb-4">
-          <p class="text-primary-500 font-bold mb-1">{{ $t('Versandart:') }}</p>
+          <p class="form-label">{{ $t('Versandart:') }}</p>
           <div class="flex gap-4">
             <label class="flex items-center">
               <input type="radio" value="delivery" v-model="deliveryMethod" class="custom-radio mr-2"/>
@@ -103,17 +103,17 @@
 
         <!-- Bestellinformationen -->
         <div class="form-group w-full mb-4" v-if="deliveryMethod === 'delivery'">
-          <p class="text-primary-500 font-bold">{{ $t('Versandkosten:') }}</p>
+          <p class="form-label">{{ $t('Versandkosten:') }}</p>
           <p class="text-textdark text-xl">{{ formatCurrency(shippingCost) }}</p>
         </div>
         <div class="form-group w-full mb-4">
-          <p class="text-primary-500 font-bold">{{ $t('Gesamtsumme:') }}</p>
+          <p class="form-label">{{ $t('Gesamtsumme:') }}</p>
           <p class="text-textdark text-2xl font-extrabold">{{ formatCurrency(total) }}</p>
         </div>
 
         <!-- Kommentarfeld -->
         <div class="form-group w-full mb-4">
-          <label for="comment" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Kommentar:') }}</label>
+          <label for="comment" class="form-label">{{ $t('Kommentar:') }}</label>
           <textarea
               id="comment"
               v-model="customerComment"

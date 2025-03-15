@@ -34,18 +34,20 @@
       </div>
 
       <!-- Produktinformationen -->
-      <h3 class="font-bold text-primary-500 mb-2 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
-      <p class="text-sm mb-4 text-semibright">{{$t('Transportgröße 60x40x30 cm - Aufgebaute Größe 180x36x25 cm')}}</p>
-      <p class="text-4xl font-extrabold text-textdark mb-2 flex flex-col justify-center items-center">
+      <h3 class="font-bold text-primary-600 mb-2 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
+      <p class="text-sm mb-4 text-semibright">{{$t('Transportgröße 60x40x30 cm - Aufgebaute Größe 165x36x25 cm')}}</p>
+      <p class="text-4xl text-textdark mb-2 flex flex-col justify-center items-center">
         <span class="relative">{{ formatCurrency(price) }} <span class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
-        <span class="text-primary-600">{{ formatCurrency(discountedPrice) }}</span>
+        <span class="text-primary-600 font-extrabold">{{ formatCurrency(discountedPrice) }}</span>
       </p>
       <p class="text-sm text-textdark mb-4">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
-      <p class="text-lg font-bold text-primary-600 mb-6 text-center">{{ $t('Bestelle jetzt, nur noch') }} {{ totalAvailable - preOrderCount }} {{ $t('Stück zum reduzierten Preis verfügbar') }}</p>
+<!--      <p class="text-base font-bold text-textdark mb-6 text-center">{{ $t('Bestelle jetzt, nur noch') }} {{ totalAvailable - preOrderCount }} {{ $t('Stück zum reduzierten Preis verfügbar') }}</p>-->
+      <p class="text-base font-bold text-textdark mb-6 text-center">{{ $t('Bestelle jetzt,') }} <span class="text-primary-600">{{ $t('nur noch') }} {{ totalAvailable - preOrderCount }} {{ $t('Stück') }}</span>
+        {{ $t('zum reduzierten Preis verfügbar') }}</p>
 
       <!-- Hier eine schöne Farbauswahl, schwarz ist default -->
       <div class="form-group w-full mb-4">
-        <p class="text-primary-500 font-bold mb-1">{{ $t('Farbe:') }}</p>
+        <p class="form-label">{{ $t('Farbe:') }}</p>
         <div class="flex gap-4">
           <label v-for="(item, index) in colors" :key="index" class="flex items-center">
             <div class="cursor-pointer flex gap-1 py-1 px-2 rounded-xl h-10 w-10 hover:scale-105 shadow ease-in-out duration-300"
@@ -59,13 +61,13 @@
 
       <!-- Hier die Eingabe der Menge -->
       <div class="form-group w-full mb-4">
-        <label for="quantity" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Menge:') }}</label>
+        <label for="quantity" class="form-label">{{ $t('Menge:') }}</label>
         <QuantityInput v-model="quantity"></QuantityInput>
       </div>
 
       <!-- Hier der Gesamtpreis -->
       <div class="form-group w-full mb-4">
-        <p class="text-primary-500 font-bold">{{ $t('Gesamtpreis:') }}</p>
+        <p class="form-label">{{ $t('Gesamtpreis:') }}</p>
         <p class="text-textdark text-2xl font-extrabold">{{ formatCurrency(total) }}</p>
       </div>
 
