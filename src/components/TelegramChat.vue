@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex flex-col gap-4 ">
-    <div class="text-lg font-bold text-primary-600">{{ $t('Schreib uns eine Nachricht!') }}</div>
+    <div class="text-lg font-bold text-primary-500">{{ $t('Schreib uns eine Nachricht!') }}</div>
     <div class="form-group">
       <input type="email" v-model="email" :class="{'error': validate && !validEmail}" :placeholder="$t('Deine Email (damit wir antworten können)')" class="form-input">
       <span class="text-red-500 text-sm pl-1" v-if="validate && !validEmail">{{ $t('Bitte eine gültige E-Mail-Adresse eingeben') }}</span>
