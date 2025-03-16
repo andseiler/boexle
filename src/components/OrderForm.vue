@@ -40,7 +40,7 @@
         <span class="relative">{{ formatCurrency(price) }} <span class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
         <span class="text-primary-500 font-extrabold">{{ formatCurrency(discountedPrice) }}</span>
       </p>
-      <p class="text-sm text-textdark mb-4">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
+      <p class="text-sm text-textdark mb-4">{{ $t('(inkl. gesetzlicher MwSt)')}} {{ $t('+ Versand') }}</p>
 <!--      <p class="text-base font-bold text-textdark mb-6 text-center">{{ $t('Bestelle jetzt, nur noch') }} {{ totalAvailable - preOrderCount }} {{ $t('Stück zum reduzierten Preis verfügbar') }}</p>-->
       <p class="text-base font-bold text-textdark mb-6 text-center">{{ $t('Bestelle jetzt,') }} <span class="text-primary-500">{{ $t('nur noch') }} {{ totalAvailable - preOrderCount }} {{ $t('Stück') }}</span>
         {{ $t('zum reduzierten Preis verfügbar') }}</p>
