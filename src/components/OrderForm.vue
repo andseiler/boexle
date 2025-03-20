@@ -109,11 +109,10 @@ import {i18n} from "../main.ts";
 import usePreOrderStore from '../store/usePreOrderStore';
 
 const cartStore = useCartStore();
-const { preOrderCount, totalAvailable, rebate } = usePreOrderStore();
+const { preOrderCount, totalAvailable, rebate, price } = usePreOrderStore();
 
-// Produktdaten
-const price = 280; // Einzelpreis in €
-const discountedPrice = computed(() => price - rebate.value); // Rabattierte Preis
+// Calculate discounted price
+const discountedPrice = computed(() => price.value - rebate.value); // Rabattierte Preis
 const quantity = ref(1);
 const total = computed(() => discountedPrice.value * quantity.value);
 

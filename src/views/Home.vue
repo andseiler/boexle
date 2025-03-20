@@ -141,7 +141,7 @@
       <div
           class="max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center justify-center">
         <h3 class="ont-bold text-primary-500 mb-4 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
-        <p class="text-4xl font-extrabold text-textdark ">280 €</p>
+        <p class="text-4xl font-extrabold text-textdark">{{ price }} €</p>
         <p class="text-sm mb-6 text-textdark">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
         <p class="text-textdark mb-6">{{ $t('Handgefertigt in Österreich – sofort einsatzbereit!') }}</p>
 
@@ -328,7 +328,7 @@ SwiperCore.use([Pagination, Autoplay]);
 const {cartItem} = useCartStore();
 
 const {showModal, showContactModal, showOrderModal, showCartModal} = useModalStore();
-const {preOrderCount, totalAvailable, rebate} = usePreOrderStore();
+const {preOrderCount, totalAvailable, price, rebate} = usePreOrderStore();
 const isScrolled = ref(false);
 const showHeader = ref(true);
 const lastScrollPosition = ref(0);

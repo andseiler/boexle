@@ -154,9 +154,6 @@ import QuantityInput from "./QuantityInput.vue";
 import {i18n} from "../main.ts";
 import usePreOrderStore from "../store/usePreOrderStore";
 
-// Produkt- und Preis-Definition (statisch, da One-Product-Shop)
-const price = 280; // Bruttopreis pro Einheit in €
-
 const emit = defineEmits(['order', 'close'])
 
 // Reaktive Variable für den Warenkorb (aus sessionStorage)
@@ -173,10 +170,11 @@ const updateQuantity = (newQuantity: number)=>{
   cartStore.set(cartStore.cartItem.value);
 }
 
-const { rebate } = usePreOrderStore();
+// Get price from the store
+const { rebate, price } = usePreOrderStore();
 
 // Ensure rebate is treated as a number
-const discountedPrice = price - Number(rebate.value);
+const discountedPrice = price.value - Number(rebate.value);
 console.log('Rebate:', rebate);
 console.log('Discounted Price:', discountedPrice);
 const subtotal = computed(() => discountedPrice * quantity.value);
