@@ -1,7 +1,7 @@
 <template>
   <section class="relative flex justify-center bg-primarycontrast-500">
     <video-background
-        src="images/bg.mp4"
+        src="images/pocketledge-teaser.mp4"
         class="h-[300px] sm:h-[500px] md:h-[720px] md:max-w-[1280px]"
         overlay="rgba(50, 30, 10, 0.4)"
     >
