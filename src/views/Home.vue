@@ -273,21 +273,126 @@
   <div class="bg-tertiary-200">
     <section id="testimonials" class="container mx-auto px-4 py-16 max-w-screen-xl">
       <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Unsere Kunden in Action') }}</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg shadow p-6 text-center">
-          <img src="/images/box-aufbau.webp" alt="Box im Aufbau">
-        </div>
+      
+      <!-- Replace the static grid with a Swiper slider -->
+      <swiper
+        :slides-per-view="3"
+        :space-between="30"
+        :pagination="{ 
+          clickable: true,
+          el: '.swiper-pagination-container' 
+        }"
+        :modules="[Pagination, Autoplay]"
+        :grab-cursor="true"
+        :keyboard="{ enabled: true }"
+        :navigation="false"
+        :autoplay="{
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        }"
+        :breakpoints="{
+          '320': {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          '640': {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          '768': {
+            slidesPerView: 3,
+            spaceBetween: 30
+          }
+        }"
+        class="w-full touch-pan-y select-none"
+      >
+        <swiper-slide>
+          <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-nosegrind-180.mp4')">
+            <div class="relative">
+              <video class="w-full h-auto rounded" muted loop autoplay>
+                <source src="/images/bs-nosegrind-180.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-primary-500 rounded-full p-3 opacity-80">
+                  <PlayPauseIcon class="w-8 h-8 text-white" />
+                </div>
+              </div>
+            </div>
+            <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS Nosegrind 180 Out') }}</p>
+          </div>
+        </swiper-slide>
 
-        <div class="bg-white rounded-lg shadow p-6 text-center">
-          <img src="/images/box-aufbau.webp" alt="Box im Aufbau">
-        </div>
+        <swiper-slide>
+          <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('5050-bs-180.mp4')">
+            <div class="relative">
+              <video class="w-full h-auto rounded" muted loop autoplay>
+                <source src="/images/5050-bs-180.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-primary-500 rounded-full p-3 opacity-80">
+                  <PlayPauseIcon class="w-8 h-8 text-white" />
+                </div>
+              </div>
+            </div>
+            <p class="mt-2 text-primary-500 font-semibold">{{ $t('50-50 BS 180 Out') }}</p>
+          </div>
+        </swiper-slide>
 
-        <div class="bg-white rounded-lg shadow p-6 text-center">
-          <img src="/images/box-aufbau.webp" alt="Box im Aufbau">
-        </div>
+        <swiper-slide>
+          <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('fakie-fs-5050.mp4')">
+            <div class="relative">
+              <video class="w-full h-auto rounded" muted loop autoplay>
+                <source src="/images/fakie-fs-5050.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-primary-500 rounded-full p-3 opacity-80">
+                  <PlayPauseIcon class="w-8 h-8 text-white" />
+                </div>
+              </div>
+            </div>
+            <p class="mt-2 text-primary-500 font-semibold">{{ $t('Fakie FS 50-50') }}</p>
+          </div>
+        </swiper-slide>
 
-      </div>
-      <div class="mt-8 flex flex-col items-center justify-center gap-6">
+        <!-- Add the two new videos -->
+        <swiper-slide>
+          <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-5050.mp4')">
+            <div class="relative">
+              <video class="w-full h-auto rounded" muted loop autoplay>
+                <source src="/images/bs-5050.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-primary-500 rounded-full p-3 opacity-80">
+                  <PlayPauseIcon class="w-8 h-8 text-white" />
+                </div>
+              </div>
+            </div>
+            <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS 50-50') }}</p>
+          </div>
+        </swiper-slide>
+
+        <swiper-slide>
+          <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-tailslide.mp4')">
+            <div class="relative">
+              <video class="w-full h-auto rounded" muted loop autoplay>
+                <source src="/images/bs-tailslide.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-primary-500 rounded-full p-3 opacity-80">
+                  <PlayPauseIcon class="w-8 h-8 text-white" />
+                </div>
+              </div>
+            </div>
+            <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS Tailslide') }}</p>
+          </div>
+        </swiper-slide>
+      </swiper>
+      
+      <!-- External pagination -->
+      <div class="swiper-pagination-container flex justify-center gap-2 my-8"></div>
+      
+      <div class="flex flex-col items-center justify-center gap-6">
         <h3 class="text-lg font-bold text-primary-500 mb-2">{{
             $t('Willst du auch in unserer Galerie erscheinen?')
           }}</h3>
@@ -299,6 +404,21 @@
       </div>
     </section>
   </div>
+
+  <!-- Video Modal -->
+  <ModalComponent :is-visible="showVideoModal" :title="$t('Video')" @close="showVideoModal = false">
+    <div class="p-4">
+      <div class="relative pt-[56.25%]"> <!-- 16:9 aspect ratio -->
+        <video 
+          class="absolute inset-0 w-full h-full" 
+          controls 
+          autoplay
+          :src="`/images/${currentVideo}`">
+          {{ $t('Dein Browser unterstützt keine Videos.') }}
+        </video>
+      </div>
+    </div>
+  </ModalComponent>
 </template>
 
 <script setup lang="ts">
@@ -306,8 +426,8 @@
 import 'swiper/css';
 //@ts-ignore
 import 'swiper/css/pagination';
-import SwiperCore from 'swiper';
-import {Autoplay, Pagination} from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination, Autoplay } from 'swiper/modules';
 import {onMounted, onUnmounted, ref} from "vue";
 import {
   ShoppingCartIcon,
@@ -321,9 +441,7 @@ import useCartStore from "../store/cartStore.ts";
 import VideoBackground from 'vue-responsive-video-background-player'
 import useModalStore from '../store/modalStore';
 import usePreOrderStore from '../store/usePreOrderStore';
-
-// Initialisiere Swiper Plugins
-SwiperCore.use([Pagination, Autoplay]);
+import ModalComponent from '../components/ModalComponent.vue';
 
 const {cartItem} = useCartStore();
 
@@ -333,6 +451,8 @@ const isScrolled = ref(false);
 const showHeader = ref(true);
 const lastScrollPosition = ref(0);
 const scrollOffset = 0;
+const showVideoModal = ref(false);
+const currentVideo = ref('bs-nosegrind-180.mp4');
 
 const showOrderModalFunc = () => {
   if (cartItem.value) {
@@ -353,6 +473,11 @@ const handleScroll = () => {
 
 onMounted(() => window.addEventListener("scroll", handleScroll));
 onUnmounted(() => window.removeEventListener("scroll", handleScroll));
+
+const openVideoModal = (video: string) => {
+  currentVideo.value = video;
+  showVideoModal.value = true;
+}
 </script>
 
 <style lang="scss">

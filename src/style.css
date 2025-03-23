@@ -1,6 +1,21 @@
 @import "tailwindcss";
 @import "./styles/main.scss";
 
+/* Swiper pagination bullets */
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background-color: #ccc !important;
+  opacity: 0.6 !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  background-color: var(--color-primarycontrast-500) !important;
+  transform: scale(1.2) !important;
+}
+
 .gradient-button {
     @apply font-bold
 }
