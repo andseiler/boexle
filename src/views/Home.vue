@@ -274,120 +274,130 @@
     <section id="testimonials" class="container mx-auto px-4 py-16 max-w-screen-xl">
       <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Unsere Kunden in Action') }}</h2>
       
-      <!-- Replace the static grid with a Swiper slider -->
-      <swiper
-        :slides-per-view="3"
-        :space-between="30"
-        :pagination="{ 
-          clickable: true,
-          el: '.swiper-pagination-container' 
-        }"
-        :modules="[Pagination, Autoplay]"
-        :grab-cursor="true"
-        :keyboard="{ enabled: true }"
-        :navigation="false"
-        :autoplay="{
-          delay: 10000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true
-        }"
-        :breakpoints="{
-          '320': {
-            slidesPerView: 1,
-            spaceBetween: 20
-          },
-          '640': {
-            slidesPerView: 2,
-            spaceBetween: 20
-          },
-          '768': {
-            slidesPerView: 3,
-            spaceBetween: 30
-          }
-        }"
-        class="w-full touch-pan-y select-none"
-      >
-        <swiper-slide>
-          <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-nosegrind-180.mp4')">
-            <div class="relative">
-              <video class="w-full h-auto rounded" muted loop autoplay>
-                <source src="/images/bs-nosegrind-180.mp4" type="video/mp4">
-              </video>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-primary-500 rounded-full p-3 opacity-80">
-                  <PlayPauseIcon class="w-8 h-8 text-white" />
+      <!-- Create a relative container with padding for the arrows -->
+      <div class="relative px-12 md:px-14 lg:px-16">
+        <!-- Swiper component -->
+        <swiper
+          :slides-per-view="3"
+          :space-between="30"
+          :pagination="{ 
+            clickable: true,
+            el: '.swiper-pagination-container' 
+          }"
+          :modules="[Pagination, Autoplay, Navigation]"
+          :grab-cursor="true"
+          :keyboard="{ enabled: true }"
+          :navigation="{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          }"
+          :autoplay="{
+            delay: 10000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
+          }"
+          :breakpoints="{
+            '320': {
+              slidesPerView: 1,
+              spaceBetween: 20
+            },
+            '640': {
+              slidesPerView: 2,
+              spaceBetween: 20
+            },
+            '768': {
+              slidesPerView: 3,
+              spaceBetween: 30
+            }
+          }"
+          class="w-full touch-pan-y select-none"
+        >
+          <swiper-slide>
+            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-nosegrind-180.mp4')">
+              <div class="relative">
+                <video class="w-full h-auto rounded" muted loop autoplay>
+                  <source src="/images/bs-nosegrind-180.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="bg-primary-500 rounded-full p-3 opacity-80">
+                    <PlayPauseIcon class="w-8 h-8 text-white" />
+                  </div>
                 </div>
               </div>
+              <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS Nosegrind 180') }}</p>
             </div>
-            <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS Nosegrind 180') }}</p>
-          </div>
-        </swiper-slide>
+          </swiper-slide>
 
-        <swiper-slide>
-          <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('5050-bs-180.mp4')">
-            <div class="relative">
-              <video class="w-full h-auto rounded" muted loop autoplay>
-                <source src="/images/5050-bs-180.mp4" type="video/mp4">
-              </video>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-primary-500 rounded-full p-3 opacity-80">
-                  <PlayPauseIcon class="w-8 h-8 text-white" />
+          <swiper-slide>
+            <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('5050-bs-180.mp4')">
+              <div class="relative">
+                <video class="w-full h-auto rounded" muted loop autoplay>
+                  <source src="/images/5050-bs-180.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="bg-primary-500 rounded-full p-3 opacity-80">
+                    <PlayPauseIcon class="w-8 h-8 text-white" />
+                  </div>
                 </div>
               </div>
+              <p class="mt-2 text-primary-500 font-semibold">{{ $t('FS 50-50 BS 180') }}</p>
             </div>
-            <p class="mt-2 text-primary-500 font-semibold">{{ $t('FS 50-50 BS 180') }}</p>
-          </div>
-        </swiper-slide>
+          </swiper-slide>
 
-        <swiper-slide>
-          <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('fakie-fs-5050.mp4')">
-            <div class="relative">
-              <video class="w-full h-auto rounded" muted loop autoplay>
-                <source src="/images/fakie-fs-5050.mp4" type="video/mp4">
-              </video>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-primary-500 rounded-full p-3 opacity-80">
-                  <PlayPauseIcon class="w-8 h-8 text-white" />
+          <swiper-slide>
+            <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('fakie-fs-5050.mp4')">
+              <div class="relative">
+                <video class="w-full h-auto rounded" muted loop autoplay>
+                  <source src="/images/fakie-fs-5050.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="bg-primary-500 rounded-full p-3 opacity-80">
+                    <PlayPauseIcon class="w-8 h-8 text-white" />
+                  </div>
                 </div>
               </div>
+              <p class="mt-2 text-primary-500 font-semibold">{{ $t('Fakie FS 50-50') }}</p>
             </div>
-            <p class="mt-2 text-primary-500 font-semibold">{{ $t('Fakie FS 50-50') }}</p>
-          </div>
-        </swiper-slide>
+          </swiper-slide>
 
-        <!-- Add the two new videos -->
-        <swiper-slide>
-          <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-5050.mp4')">
-            <div class="relative">
-              <video class="w-full h-auto rounded" muted loop autoplay>
-                <source src="/images/bs-5050.mp4" type="video/mp4">
-              </video>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-primary-500 rounded-full p-3 opacity-80">
-                  <PlayPauseIcon class="w-8 h-8 text-white" />
+          <!-- Add the two new videos -->
+          <swiper-slide>
+            <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-5050.mp4')">
+              <div class="relative">
+                <video class="w-full h-auto rounded" muted loop autoplay>
+                  <source src="/images/bs-5050.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="bg-primary-500 rounded-full p-3 opacity-80">
+                    <PlayPauseIcon class="w-8 h-8 text-white" />
+                  </div>
                 </div>
               </div>
+              <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS 50-50') }}</p>
             </div>
-            <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS 50-50') }}</p>
-          </div>
-        </swiper-slide>
+          </swiper-slide>
 
-        <swiper-slide>
-          <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-tailslide.mp4')">
-            <div class="relative">
-              <video class="w-full h-auto rounded" muted loop autoplay>
-                <source src="/images/bs-tailslide.mp4" type="video/mp4">
-              </video>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-primary-500 rounded-full p-3 opacity-80">
-                  <PlayPauseIcon class="w-8 h-8 text-white" />
+          <swiper-slide>
+            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-tailslide.mp4')">
+              <div class="relative">
+                <video class="w-full h-auto rounded" muted loop autoplay>
+                  <source src="/images/bs-tailslide.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="bg-primary-500 rounded-full p-3 opacity-80">
+                    <PlayPauseIcon class="w-8 h-8 text-white" />
+                  </div>
                 </div>
               </div>
+              <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS Tailslide') }}</p>
             </div>
-            <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS Tailslide') }}</p>
-          </div>
-        </swiper-slide>
-      </swiper>
+          </swiper-slide>
+        </swiper>
+        
+        <!-- Navigation arrows positioned absolutely outside the slides -->
+        <div class="swiper-button-prev !absolute !top-1/2 !transform !-translate-y-1/2 !text-primary-500 !opacity-70 hover:!opacity-100 transition-opacity duration-300 !left-0 z-10"></div>
+        <div class="swiper-button-next !absolute !top-1/2 !transform !-translate-y-1/2 !text-primary-500 !opacity-70 hover:!opacity-100 transition-opacity duration-300 !right-0 z-10"></div>
+      </div>
       
       <!-- External pagination -->
       <div class="swiper-pagination-container flex justify-center gap-2 my-8"></div>
@@ -431,8 +441,10 @@
 import 'swiper/css';
 //@ts-ignore
 import 'swiper/css/pagination';
+//@ts-ignore
+import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import {onMounted, onUnmounted, ref} from "vue";
 import {
   ShoppingCartIcon,
@@ -516,5 +528,35 @@ const openVideoModal = (video: string) => {
 
 .-top-full {
   top: -100%;
+}
+
+/* Custom styles for Swiper navigation */
+:deep(.swiper-button-prev),
+:deep(.swiper-button-next) {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+:deep(.swiper-button-prev:after),
+:deep(.swiper-button-next:after) {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-primary-500);
+}
+
+@media (max-width: 640px) {
+  :deep(.swiper-button-prev),
+  :deep(.swiper-button-next) {
+    width: 30px;
+    height: 30px;
+  }
+  
+  :deep(.swiper-button-prev:after),
+  :deep(.swiper-button-next:after) {
+    font-size: 14px;
+  }
 }
 </style>
