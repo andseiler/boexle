@@ -6,8 +6,16 @@
                   leave-active-class="transition-opacity duration-300"
                   leave-from-class="opacity-100"
                   leave-to-class="opacity-0">
-    <div v-if="props.isVisible" class="modal-overlay flex items-end sm:items-center" @click.self="closeModal">
-      <div class="modal-content w-full sm:max-w-[600px] sm:mx-auto rounded-t-xl sm:rounded-xl">
+    <div v-if="props.isVisible" 
+         :class="[
+           'modal-overlay flex', 
+           props.isVideoMode ? 'items-center' : 'items-end sm:items-center'
+         ]" 
+         @click.self="closeModal">
+      <div :class="[
+             'modal-content rounded-t-xl sm:rounded-xl w-full mx-auto',
+             props.isVideoMode ? 'sm:max-w-4xl' : 'sm:max-w-[600px]'
+           ]">
         <div
             class="sticky top-0 z-10 shadow-lg flex items-center justify-between p-4 border-b border-gray-200 text-textdark bg-tertiary-200">
           <div class="w-20"></div>
@@ -16,10 +24,13 @@
             <XCircleIcon class="w-8"></XCircleIcon>
           </div>
         </div>
-        <div class="w-full sm:min-w-[600px] overflow-y-auto max-h-[calc(95vh-70px)]">
+        <div :class="[
+               'w-full overflow-y-auto',
+               props.isVideoMode ? 'max-h-[90vh]' : 'max-h-[calc(95vh-70px)]',
+               props.isVideoMode ? '' : 'sm:min-w-[600px]'
+             ]">
           <slot></slot>
         </div>
-
       </div>
     </div>
   </transition>
@@ -31,7 +42,8 @@ import {onUnmounted, watch} from "vue";
 
 const props = defineProps({
   isVisible: {type: Boolean, required: true},
-  title: {type: String}
+  title: {type: String},
+  isVideoMode: { type: Boolean, default: false }
 })
 
 const emit = defineEmits(['close'])

@@ -287,7 +287,7 @@
         :keyboard="{ enabled: true }"
         :navigation="false"
         :autoplay="{
-          delay: 3000,
+          delay: 10000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true
         }"
@@ -319,7 +319,7 @@
                 </div>
               </div>
             </div>
-            <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS Nosegrind 180 Out') }}</p>
+            <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS Nosegrind 180') }}</p>
           </div>
         </swiper-slide>
 
@@ -335,7 +335,7 @@
                 </div>
               </div>
             </div>
-            <p class="mt-2 text-primary-500 font-semibold">{{ $t('50-50 BS 180 Out') }}</p>
+            <p class="mt-2 text-primary-500 font-semibold">{{ $t('FS 50-50 BS 180') }}</p>
           </div>
         </swiper-slide>
 
@@ -406,7 +406,12 @@
   </div>
 
   <!-- Video Modal -->
-  <ModalComponent :is-visible="showVideoModal" :title="$t('Video')" @close="showVideoModal = false">
+  <ModalComponent 
+    :is-visible="showVideoModal" 
+    :title="$t('Video')" 
+    :is-video-mode="true"
+    @close="showVideoModal = false"
+  >
     <div class="p-4">
       <div class="relative pt-[56.25%]"> <!-- 16:9 aspect ratio -->
         <video 
