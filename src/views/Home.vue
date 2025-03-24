@@ -4,6 +4,7 @@
         src="images/pocketledge-teaser.mp4"
         class="h-[300px] sm:h-[500px] md:h-[720px] md:max-w-[1280px]"
         overlay="rgba(50, 30, 10, 0.4)"
+        poster="images/hp-teaser.png"
     >
       <div class="absolute top-4 right-4 bg-gradient-to-r
       from-primary-500 to-primary-600
