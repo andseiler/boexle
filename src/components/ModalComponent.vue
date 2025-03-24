@@ -9,12 +9,12 @@
     <div v-if="props.isVisible" 
          :class="[
            'modal-overlay flex', 
-           props.isVideoMode ? 'items-center' : 'items-end sm:items-center'
+           props.isVideoMode || props.isImageMode ? 'items-center' : 'items-end sm:items-center'
          ]" 
          @click.self="closeModal">
       <div :class="[
              'modal-content rounded-t-xl sm:rounded-xl w-full mx-auto',
-             props.isVideoMode ? 'sm:max-w-4xl' : 'sm:max-w-[600px]'
+             props.isVideoMode || props.isImageMode ? 'sm:max-w-4xl' : 'sm:max-w-[600px]'
            ]">
         <div
             class="sticky top-0 z-10 shadow-lg flex items-center justify-between p-4 border-b border-gray-200 text-textdark bg-tertiary-200">
@@ -26,8 +26,8 @@
         </div>
         <div :class="[
                'w-full overflow-y-auto',
-               props.isVideoMode ? 'max-h-[90vh]' : 'max-h-[calc(95vh-70px)]',
-               props.isVideoMode ? '' : 'sm:min-w-[600px]'
+               props.isVideoMode || props.isImageMode ? 'max-h-[90vh]' : 'max-h-[calc(95vh-70px)]',
+               props.isVideoMode || props.isImageMode ? '' : 'sm:min-w-[600px]'
              ]">
           <slot></slot>
         </div>
@@ -43,7 +43,8 @@ import {onUnmounted, watch} from "vue";
 const props = defineProps({
   isVisible: {type: Boolean, required: true},
   title: {type: String},
-  isVideoMode: { type: Boolean, default: false }
+  isVideoMode: { type: Boolean, default: false },
+  isImageMode: { type: Boolean, default: false }
 })
 
 const emit = defineEmits(['close'])

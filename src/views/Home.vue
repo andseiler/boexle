@@ -67,7 +67,20 @@
       <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
 
         <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-80">
-          <img src="/images/transportmodus.jpg" alt="Transportmodus">
+          <div class="relative w-full aspect-square cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/transportmodus.jpg', $t('Transportmodus'))">
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[0]">
+              <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </div>
+            <img src="/images/transportmodus.jpg" alt="Transportmodus" class="w-full h-full object-cover rounded" @load="imageLoaded[0] = true" :class="{'opacity-0': !imageLoaded[0], 'opacity-100 transition-opacity duration-300': imageLoaded[0]}">
+            <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
+              <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6" />
+              </svg>
+            </div>
+          </div>
           <p class="mt-2 text-center text-textdark font-semibold">{{ $t('Transportmodus') }}</p>
         </div>
 
@@ -77,7 +90,20 @@
         </div>
 
         <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-80">
-          <img src="/images/setup.jpg" alt="Setup">
+          <div class="relative w-full aspect-square cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/setup.jpg', $t('Aufklappen & Verriegeln'))">
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[1]">
+              <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </div>
+            <img src="/images/setup.jpg" alt="Setup" class="w-full h-full object-cover rounded" @load="imageLoaded[1] = true" :class="{'opacity-0': !imageLoaded[1], 'opacity-100 transition-opacity duration-300': imageLoaded[1]}">
+            <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
+              <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6" />
+              </svg>
+            </div>
+          </div>
           <p class="mt-2 text-center text-textdark font-semibold">{{ $t('Aufklappen & Verriegeln') }}</p>
         </div>
 
@@ -87,7 +113,20 @@
         </div>
 
         <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-80">
-          <img src="/images/skate.jpg" alt="Skate">
+          <div class="relative w-full aspect-square cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/skate.jpg', $t('Skaten!'))">
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[2]">
+              <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </div>
+            <img src="/images/skate.jpg" alt="Skate" class="w-full h-full object-cover rounded" @load="imageLoaded[2] = true" :class="{'opacity-0': !imageLoaded[2], 'opacity-100 transition-opacity duration-300': imageLoaded[2]}">
+            <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
+              <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6" />
+              </svg>
+            </div>
+          </div>
           <p class="mt-2 text-center text-textdark font-semibold">{{ $t('Skaten!') }}</p>
         </div>
 
@@ -316,10 +355,16 @@
           <swiper-slide>
             <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-nosegrind-180.mp4')">
               <div class="relative">
-                <video class="w-full h-auto rounded" muted loop autoplay>
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!videoLoaded[0]">
+                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                </div>
+                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[0] = true" @error="videoError[0] = true" :class="{'opacity-0': !videoLoaded[0], 'opacity-100 transition-opacity duration-300': videoLoaded[0]}">
                   <source src="/images/bs-nosegrind-180.mp4" type="video/mp4">
                 </video>
-                <div class="absolute inset-0 flex items-center justify-center">
+                <div class="absolute inset-0 flex items-center justify-center" v-show="videoLoaded[0]">
                   <div class="bg-primary-500 rounded-full p-3 opacity-80">
                     <PlayPauseIcon class="w-8 h-8 text-white" />
                   </div>
@@ -330,12 +375,18 @@
           </swiper-slide>
 
           <swiper-slide>
-            <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('5050-bs-180.mp4')">
+            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('5050-bs-180.mp4')">
               <div class="relative">
-                <video class="w-full h-auto rounded" muted loop autoplay>
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!videoLoaded[1]">
+                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                </div>
+                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[1] = true" @error="videoError[1] = true" :class="{'opacity-0': !videoLoaded[1], 'opacity-100 transition-opacity duration-300': videoLoaded[1]}">
                   <source src="/images/5050-bs-180.mp4" type="video/mp4">
                 </video>
-                <div class="absolute inset-0 flex items-center justify-center">
+                <div class="absolute inset-0 flex items-center justify-center" v-show="videoLoaded[1]">
                   <div class="bg-primary-500 rounded-full p-3 opacity-80">
                     <PlayPauseIcon class="w-8 h-8 text-white" />
                   </div>
@@ -346,12 +397,18 @@
           </swiper-slide>
 
           <swiper-slide>
-            <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('fakie-fs-5050.mp4')">
+            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('fakie-fs-5050.mp4')">
               <div class="relative">
-                <video class="w-full h-auto rounded" muted loop autoplay>
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!videoLoaded[2]">
+                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                </div>
+                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[2] = true" @error="videoError[2] = true" :class="{'opacity-0': !videoLoaded[2], 'opacity-100 transition-opacity duration-300': videoLoaded[2]}">
                   <source src="/images/fakie-fs-5050.mp4" type="video/mp4">
                 </video>
-                <div class="absolute inset-0 flex items-center justify-center">
+                <div class="absolute inset-0 flex items-center justify-center" v-show="videoLoaded[2]">
                   <div class="bg-primary-500 rounded-full p-3 opacity-80">
                     <PlayPauseIcon class="w-8 h-8 text-white" />
                   </div>
@@ -363,12 +420,18 @@
 
           <!-- Add the two new videos -->
           <swiper-slide>
-            <div class="bg-white rounded-lg  p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-5050.mp4')">
+            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-5050.mp4')">
               <div class="relative">
-                <video class="w-full h-auto rounded" muted loop autoplay>
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!videoLoaded[3]">
+                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                </div>
+                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[3] = true" @error="videoError[3] = true" :class="{'opacity-0': !videoLoaded[3], 'opacity-100 transition-opacity duration-300': videoLoaded[3]}">
                   <source src="/images/bs-5050.mp4" type="video/mp4">
                 </video>
-                <div class="absolute inset-0 flex items-center justify-center">
+                <div class="absolute inset-0 flex items-center justify-center" v-show="videoLoaded[3]">
                   <div class="bg-primary-500 rounded-full p-3 opacity-80">
                     <PlayPauseIcon class="w-8 h-8 text-white" />
                   </div>
@@ -381,10 +444,16 @@
           <swiper-slide>
             <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-tailslide.mp4')">
               <div class="relative">
-                <video class="w-full h-auto rounded" muted loop autoplay>
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!videoLoaded[4]">
+                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                </div>
+                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[4] = true" @error="videoError[4] = true" :class="{'opacity-0': !videoLoaded[4], 'opacity-100 transition-opacity duration-300': videoLoaded[4]}">
                   <source src="/images/bs-tailslide.mp4" type="video/mp4">
                 </video>
-                <div class="absolute inset-0 flex items-center justify-center">
+                <div class="absolute inset-0 flex items-center justify-center" v-show="videoLoaded[4]">
                   <div class="bg-primary-500 rounded-full p-3 opacity-80">
                     <PlayPauseIcon class="w-8 h-8 text-white" />
                   </div>
@@ -435,6 +504,42 @@
       </div>
     </div>
   </ModalComponent>
+
+  <!-- Image Modal -->
+  <ModalComponent 
+    :is-visible="showImageModal" 
+    :title="currentImageTitle" 
+    :is-image-mode="true"
+    @close="showImageModal = false"
+  >
+    <div class="p-4 flex items-center justify-center bg-black relative">
+      <button 
+        v-if="currentImageIndex > 0" 
+        @click="showPreviousImage" 
+        class="absolute left-8 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
+      >
+        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      
+      <img 
+        :src="currentImage" 
+        :alt="currentImageTitle" 
+        class="max-w-full max-h-[80vh] object-contain"
+      />
+      
+      <button 
+        v-if="currentImageIndex < setupImages.length - 1" 
+        @click="showNextImage" 
+        class="absolute right-8 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
+      >
+        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </ModalComponent>
 </template>
 
 <script setup lang="ts">
@@ -446,7 +551,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
-import {onMounted, onUnmounted, ref} from "vue";
+import {onMounted, onUnmounted, ref, watch} from "vue";
 import {
   ShoppingCartIcon,
   ChatBubbleOvalLeftEllipsisIcon,
@@ -460,6 +565,7 @@ import VideoBackground from 'vue-responsive-video-background-player'
 import useModalStore from '../store/modalStore';
 import usePreOrderStore from '../store/usePreOrderStore';
 import ModalComponent from '../components/ModalComponent.vue';
+import { useI18n } from 'vue-i18n';
 
 const {cartItem} = useCartStore();
 
@@ -471,6 +577,37 @@ const lastScrollPosition = ref(0);
 const scrollOffset = 0;
 const showVideoModal = ref(false);
 const currentVideo = ref('bs-nosegrind-180.mp4');
+const imageLoaded = ref([false, false, false]);
+const videoLoaded = ref([false, false, false, false, false]);
+const videoError = ref([false, false, false, false, false]);
+
+// Image modal state
+const showImageModal = ref(false);
+const currentImage = ref('');
+const currentImageTitle = ref('');
+const currentImageIndex = ref(0);
+
+// Setup images data
+const setupImages = [
+  { 
+    src: '/images/transportmodus.jpg', 
+    title: 'Transportmodus',
+    translationKey: 'Transportmodus'
+  },
+  { 
+    src: '/images/setup.jpg', 
+    title: 'Aufklappen & Verriegeln',
+    translationKey: 'Aufklappen & Verriegeln'
+  },
+  { 
+    src: '/images/skate.jpg', 
+    title: 'Skaten!',
+    translationKey: 'Skaten!'
+  }
+];
+
+// Get the translation function from i18n
+const { t } = useI18n();
 
 const showOrderModalFunc = () => {
   if (cartItem.value) {
@@ -496,6 +633,64 @@ const openVideoModal = (video: string) => {
   currentVideo.value = video;
   showVideoModal.value = true;
 }
+
+const openImageModal = (image: string, title: string) => {
+  // Find the index of the image in our array
+  const index = setupImages.findIndex(img => img.src === image);
+  if (index !== -1) {
+    currentImageIndex.value = index;
+  }
+  
+  currentImage.value = image;
+  currentImageTitle.value = title;
+  showImageModal.value = true;
+  
+  // Add keyboard event listener when modal opens
+  document.addEventListener('keydown', handleImageModalKeydown);
+}
+
+const showNextImage = () => {
+  if (currentImageIndex.value < setupImages.length - 1) {
+    currentImageIndex.value++;
+    const nextImage = setupImages[currentImageIndex.value];
+    currentImage.value = nextImage.src;
+    currentImageTitle.value = t(nextImage.translationKey);
+  }
+}
+
+const showPreviousImage = () => {
+  if (currentImageIndex.value > 0) {
+    currentImageIndex.value--;
+    const prevImage = setupImages[currentImageIndex.value];
+    currentImage.value = prevImage.src;
+    currentImageTitle.value = t(prevImage.translationKey);
+  }
+}
+
+const handleImageModalKeydown = (event: KeyboardEvent) => {
+  if (!showImageModal.value) return;
+  
+  if (event.key === 'ArrowRight') {
+    showNextImage();
+  } else if (event.key === 'ArrowLeft') {
+    showPreviousImage();
+  } else if (event.key === 'Escape') {
+    closeImageModal();
+  }
+}
+
+const closeImageModal = () => {
+  showImageModal.value = false;
+  // Remove keyboard event listener when modal closes
+  document.removeEventListener('keydown', handleImageModalKeydown);
+}
+
+// Update the close handler on the modal component
+watch(showImageModal, (newVal: boolean) => {
+  if (!newVal) {
+    document.removeEventListener('keydown', handleImageModalKeydown);
+  }
+});
 </script>
 
 <style lang="scss">
