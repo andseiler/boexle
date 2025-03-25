@@ -23,7 +23,19 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // If the user uses browser navigation buttons and a saved position exists
+    if (savedPosition) {
+      return savedPosition
+    }
+
+    // Otherwise, scroll to top
+    return {
+      top: 0,
+      behavior: 'instant' // Changed from 'smooth' to ensure immediate scrolling
+    }
+  }
 });
 
 export default router; 
