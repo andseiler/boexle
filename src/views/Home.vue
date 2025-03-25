@@ -370,7 +370,6 @@
                   </div>
                 </div>
               </div>
-              <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS Nosegrind 180') }}</p>
             </div>
           </swiper-slide>
 
@@ -392,7 +391,6 @@
                   </div>
                 </div>
               </div>
-              <p class="mt-2 text-primary-500 font-semibold">{{ $t('FS 50-50 BS 180') }}</p>
             </div>
           </swiper-slide>
 
@@ -414,7 +412,6 @@
                   </div>
                 </div>
               </div>
-              <p class="mt-2 text-primary-500 font-semibold">{{ $t('Fakie FS 50-50') }}</p>
             </div>
           </swiper-slide>
 
@@ -437,7 +434,6 @@
                   </div>
                 </div>
               </div>
-              <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS 50-50') }}</p>
             </div>
           </swiper-slide>
 
@@ -459,7 +455,6 @@
                   </div>
                 </div>
               </div>
-              <p class="mt-2 text-primary-500 font-semibold">{{ $t('BS Tailslide') }}</p>
             </div>
           </swiper-slide>
         </swiper>
