@@ -503,9 +503,9 @@
   <!-- Image Modal -->
   <ModalComponent 
     :is-visible="showImageModal" 
-    :title="currentImageTitle" 
+    :title="$t(currentImageTitle)"
     :is-image-mode="true"
-    @close="showImageModal = false"
+    @close="closeImageModal"
   >
     <div class="p-4 flex items-center justify-center bg-black relative">
       <button 
@@ -520,7 +520,7 @@
       
       <img 
         :src="currentImage" 
-        :alt="currentImageTitle" 
+        :alt="$t(currentImageTitle)"
         class="max-w-full max-h-[80vh] object-contain"
       />
       
@@ -546,7 +546,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
-import {onMounted, onUnmounted, ref, watch} from "vue";
+import {onMounted, onUnmounted, ref} from "vue";
 import {
   ShoppingCartIcon,
   ChatBubbleOvalLeftEllipsisIcon,
@@ -586,18 +586,15 @@ const currentImageIndex = ref(0);
 const setupImages = [
   { 
     src: '/images/transportmodus.jpg', 
-    title: 'Transportmodus',
-    translationKey: 'Transportmodus'
+    title: 'Transportmodus'
   },
   { 
     src: '/images/setup.jpg', 
-    title: 'Aufklappen & Verriegeln',
-    translationKey: 'Aufklappen & Verriegeln'
+    title: 'Aufklappen & Verriegeln'
   },
   { 
     src: '/images/skate.jpg', 
-    title: 'Skaten!',
-    translationKey: 'Skaten!'
+    title: 'Skaten!'
   }
 ];
 
@@ -639,9 +636,6 @@ const openImageModal = (image: string, title: string) => {
   currentImage.value = image;
   currentImageTitle.value = title;
   showImageModal.value = true;
-  
-  // Add keyboard event listener when modal opens
-  document.addEventListener('keydown', handleImageModalKeydown);
 }
 
 const showNextImage = () => {
@@ -649,7 +643,7 @@ const showNextImage = () => {
     currentImageIndex.value++;
     const nextImage = setupImages[currentImageIndex.value];
     currentImage.value = nextImage.src;
-    currentImageTitle.value = t(nextImage.translationKey);
+    currentImageTitle.value = nextImage.title;
   }
 }
 
@@ -658,34 +652,13 @@ const showPreviousImage = () => {
     currentImageIndex.value--;
     const prevImage = setupImages[currentImageIndex.value];
     currentImage.value = prevImage.src;
-    currentImageTitle.value = t(prevImage.translationKey);
-  }
-}
-
-const handleImageModalKeydown = (event: KeyboardEvent) => {
-  if (!showImageModal.value) return;
-  
-  if (event.key === 'ArrowRight') {
-    showNextImage();
-  } else if (event.key === 'ArrowLeft') {
-    showPreviousImage();
-  } else if (event.key === 'Escape') {
-    closeImageModal();
+    currentImageTitle.value = prevImage.title;
   }
 }
 
 const closeImageModal = () => {
   showImageModal.value = false;
-  // Remove keyboard event listener when modal closes
-  document.removeEventListener('keydown', handleImageModalKeydown);
 }
-
-// Update the close handler on the modal component
-watch(showImageModal, (newVal: boolean) => {
-  if (!newVal) {
-    document.removeEventListener('keydown', handleImageModalKeydown);
-  }
-});
 </script>
 
 <style lang="scss">

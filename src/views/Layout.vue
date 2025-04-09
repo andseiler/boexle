@@ -9,17 +9,37 @@
     <ModalComponent :isVisible="showCartModal" @close="closeModals">
       <CartForm @order="orderFromCart" @close="closeModals"></CartForm>
     </ModalComponent>
-    <ModalComponent :isVisible="showModal" @close="closeModals" :title="$t('Aufbau')" :is-video-mode="true">
-      <div class="p-4">
-        <div class="relative pt-[56.25%]"> <!-- 16:9 aspect ratio -->
+    <ModalComponent :isVisible="showModal" @close="closeModals" :title="$t(currentVideoTitle)" :is-video-mode="true">
+      <div class="p-4 flex items-center justify-center bg-black relative">
+        <button 
+          v-if="currentVideoIndex > 0" 
+          @click="showPreviousVideo" 
+          class="absolute left-8 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
+        >
+          <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <div class="relative pt-[56.25%] w-full max-w-5xl"> <!-- 16:9 aspect ratio -->
           <video
-              class="absolute inset-0 w-full h-full"
-              controls
-              autoplay
-              src="/images/aufbau.mp4">
+            class="absolute inset-0 w-full h-full"
+            controls
+            autoplay
+            :src="currentVideo">
             {{ $t('Dein Browser unterstützt keine Videos.') }}
           </video>
         </div>
+        
+        <button 
+          v-if="currentVideoIndex < videoData.length - 1" 
+          @click="showNextVideo" 
+          class="absolute right-8 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
+        >
+          <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
     </ModalComponent>
     <!-- Header bleibt unverändert -->
@@ -27,7 +47,7 @@
             :class="{'shadow-xl': isScrolled, '-top-full': !showHeader, 'top-0': showHeader}">
       <div class="container mx-auto px-4 py-2 flex items-center justify-between max-w-screen-xl">
         <div class="text-xl sm:text-3xl font-bold text-primary-500 flex flex-col justify-center cursor-pointer"
-             @click.prevent="scrollToSection('home')">
+             @click.prevent="openVideoModal(0)">
           <!--          <img class="h-20" src="/images/pocketledge-logo-v2-green.svg" alt="">-->
           <span class="gloria-hallelujah-regular py-4">POCKETLEDGE</span>
         </div>
@@ -113,15 +133,60 @@ const showHeader = ref(true);
 const lastScrollPosition = ref(0);
 const scrollOffset = 0;
 
+// Video modal state
+const currentVideoIndex = ref(0);
+const currentVideo = ref('/images/aufbau.mp4');
+const currentVideoTitle = ref('Aufbau');
+
+// Video data array
+const videoData = [
+  {
+    src: '/images/aufbau.mp4',
+    title: 'Aufbau'
+  },
+  {
+    src: '/images/aufbau2.mp4',
+    title: 'Aufbau im Detail'
+  }
+];
+
+const showNextVideo = () => {
+  if (currentVideoIndex.value < videoData.length - 1) {
+    currentVideoIndex.value++;
+    updateCurrentVideo();
+  }
+};
+
+const showPreviousVideo = () => {
+  if (currentVideoIndex.value > 0) {
+    currentVideoIndex.value--;
+    updateCurrentVideo();
+  }
+};
+
+const updateCurrentVideo = () => {
+  const video = videoData[currentVideoIndex.value];
+  currentVideo.value = video.src;
+  currentVideoTitle.value = video.title;
+};
+
+// Update closeModals to remove keyboard event listener references
 const closeModals = () => {
   showModal.value = false;
   showContactModal.value = false;
   showOrderModal.value = false;
   showCartModal.value = false;
-}
+};
+
+// Update openVideoModal to remove keyboard event listener references
+const openVideoModal = (videoIndex = 0) => {
+  currentVideoIndex.value = videoIndex;
+  updateCurrentVideo();
+  showModal.value = true;
+};
 
 // Use vue-i18n for localization
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 const cartFromOrderForm = ()=>{
   closeModals();
@@ -166,6 +231,11 @@ const handleScroll = () => {
 
 onMounted(() => window.addEventListener("scroll", handleScroll));
 onUnmounted(() => window.removeEventListener("scroll", handleScroll));
+
+// Explicitly expose the openVideoModal function for use in other components
+defineExpose({
+  openVideoModal
+});
 </script>
 
 <style lang="scss">
