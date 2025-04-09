@@ -9,13 +9,18 @@
     <ModalComponent :isVisible="showCartModal" @close="closeModals">
       <CartForm @order="orderFromCart" @close="closeModals"></CartForm>
     </ModalComponent>
-    <ModalComponent :isVisible="showModal" @close="closeModals" :title="$t('Aufbau')">
-      <iframe
-          class="w-96 h-64"
-          src="https://www.youtube.com/embed/VIDEO_ID"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-      ></iframe>
+    <ModalComponent :isVisible="showModal" @close="closeModals" :title="$t('Aufbau')" :is-video-mode="true">
+      <div class="p-4">
+        <div class="relative pt-[56.25%]"> <!-- 16:9 aspect ratio -->
+          <video
+              class="absolute inset-0 w-full h-full"
+              controls
+              autoplay
+              src="/images/aufbau.mp4">
+            {{ $t('Dein Browser unterstützt keine Videos.') }}
+          </video>
+        </div>
+      </div>
     </ModalComponent>
     <!-- Header bleibt unverändert -->
     <header class="bg-primarycontrast-500 sticky z-50 transition-all duration-300 shadow-xl"
