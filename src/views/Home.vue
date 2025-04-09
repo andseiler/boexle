@@ -560,7 +560,6 @@ import VideoBackground from 'vue-responsive-video-background-player'
 import useModalStore from '../store/modalStore';
 import usePreOrderStore from '../store/usePreOrderStore';
 import ModalComponent from '../components/ModalComponent.vue';
-import { useI18n } from 'vue-i18n';
 
 const {cartItem} = useCartStore();
 
@@ -597,9 +596,6 @@ const setupImages = [
     title: 'Skaten!'
   }
 ];
-
-// Get the translation function from i18n
-const { t } = useI18n();
 
 const showOrderModalFunc = () => {
   if (cartItem.value) {

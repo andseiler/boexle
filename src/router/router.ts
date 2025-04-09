@@ -24,7 +24,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(_to, _from, savedPosition) {
     // If the user uses browser navigation buttons and a saved position exists
     if (savedPosition) {
       return savedPosition

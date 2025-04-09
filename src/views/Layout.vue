@@ -186,7 +186,7 @@ const openVideoModal = (videoIndex = 0) => {
 };
 
 // Use vue-i18n for localization
-const { locale, t } = useI18n();
+const { locale } = useI18n();
 
 const cartFromOrderForm = ()=>{
   closeModals();
