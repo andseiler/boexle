@@ -66,15 +66,15 @@
         {{ $t('In nur 1 Minute eine 1,80 m lange Ledge mit 25 cm Höhe skaten, perfekt zum Tricks lernen!') }}</p>
       <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
 
-        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-80">
-          <div class="relative w-full aspect-square cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/transportmodus.jpg', $t('Transportmodus'))">
+        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-96">
+          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/transport-wide.jpeg', $t('Transportmodus'))">
             <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[0]">
               <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             </div>
-            <img src="/images/transportmodus.jpg" alt="Transportmodus" class="w-full h-full object-cover rounded" @load="imageLoaded[0] = true" :class="{'opacity-0': !imageLoaded[0], 'opacity-100 transition-opacity duration-300': imageLoaded[0]}">
+            <img src="/images/final/transport-43.jpeg" alt="Transportmodus" class="w-full h-full object-cover rounded" @load="imageLoaded[0] = true" :class="{'opacity-0': !imageLoaded[0], 'opacity-100 transition-opacity duration-300': imageLoaded[0]}">
             <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
               <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6" />
@@ -89,15 +89,15 @@
           <span class="hidden lg:inline">➜</span>
         </div>
 
-        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-80">
-          <div class="relative w-full aspect-square cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/setup.jpg', $t('Aufklappen & Verriegeln'))">
+        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-96">
+          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/verriegeln-wide.jpeg', $t('Aufklappen & Verriegeln'))">
             <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[1]">
               <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             </div>
-            <img src="/images/setup.jpg" alt="Setup" class="w-full h-full object-cover rounded" @load="imageLoaded[1] = true" :class="{'opacity-0': !imageLoaded[1], 'opacity-100 transition-opacity duration-300': imageLoaded[1]}">
+            <img src="/images/final/verriegeln-43.jpeg" alt="Setup" class="w-full h-full object-cover rounded" @load="imageLoaded[1] = true" :class="{'opacity-0': !imageLoaded[1], 'opacity-100 transition-opacity duration-300': imageLoaded[1]}">
             <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
               <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6" />
@@ -112,15 +112,15 @@
           <span class="hidden lg:inline">➜</span>
         </div>
 
-        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-80">
-          <div class="relative w-full aspect-square cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/skate.jpg', $t('Skaten!'))">
+        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-96">
+          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/skaten-wide.jpeg', $t('Skaten!'))">
             <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[2]">
               <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             </div>
-            <img src="/images/skate.jpg" alt="Skate" class="w-full h-full object-cover rounded" @load="imageLoaded[2] = true" :class="{'opacity-0': !imageLoaded[2], 'opacity-100 transition-opacity duration-300': imageLoaded[2]}">
+            <img src="/images/final/skaten-43.jpeg" alt="Skate" class="w-full h-full object-cover rounded" @load="imageLoaded[2] = true" :class="{'opacity-0': !imageLoaded[2], 'opacity-100 transition-opacity duration-300': imageLoaded[2]}">
             <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
               <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6" />
@@ -584,16 +584,49 @@ const currentImageIndex = ref(0);
 // Setup images data
 const setupImages = [
   { 
-    src: '/images/transportmodus.jpg', 
+    src: '/images/final/transport-wide.jpeg',
     title: 'Transportmodus'
   },
   { 
-    src: '/images/setup.jpg', 
+    src: '/images/final/verriegeln-wide.jpeg',
     title: 'Aufklappen & Verriegeln'
   },
   { 
-    src: '/images/skate.jpg', 
+    src: '/images/final/skaten-wide.jpeg',
     title: 'Skaten!'
+  },
+  {
+    src: '/images/final/transport-hori.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/verriegeln-hori.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/skaten-hori.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/scharnier-zu.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/scharnier-w.jpeg',
+    title: ''
+  },
+  ,
+  {
+    src: '/images/final/stange-loch.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/stange-gewinde.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/scharnier-beide-offen.jpeg',
+    title: ''
   }
 ];
 

@@ -7,12 +7,14 @@
     <div class="contact-card max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center">
 
       <!-- Hier einen schicken Image-Slider mit Swiper -->
-      <div class="w-full mb-6 flex shadow">
+      <div class="w-full mb-6 flex shadow relative">
         <button
             @click="slidePrev"
-            class="bg-white rounded-l-lg hover:bg-gray-100"
+            class="absolute left-1 top-1/2 -translate-y-1/2 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
         >
-          <ChevronLeftIcon class="w-6 h-6 text-primary-500" />
+          <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
         </button>
         <Swiper
             :slides-per-view="1"
@@ -27,9 +29,11 @@
         </Swiper>
         <button
             @click="slideNext"
-            class="bg-white rounded-r-lg hover:bg-gray-100"
+            class="absolute right-1 top-1/2 -translate-y-1/2 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
         >
-          <ChevronRightIcon class="w-6 h-6 text-primary-500" />
+          <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
 
@@ -120,9 +124,14 @@ const emit = defineEmits(['close', 'order'])
 
 // Bilder für den Slider
 const images = ref([
-  '/images/box-zusammen.webp',
-  '/images/box-aufbau.webp',
-  '/images/box-komplett.webp'
+  '/images/final/skaten-wide.jpeg',
+  '/images/final/transport-wide.jpeg',
+  '/images/final/verriegeln-wide.jpeg',
+  '/images/final/scharnier-zu.jpeg',
+  '/images/final/scharnier-w.jpeg',
+  '/images/final/stange-loch.jpeg',
+  '/images/final/stange-gewinde.jpeg',
+  '/images/final/scharnier-beide-offen.jpeg'
 ]);
 
 // Farbauswahl
@@ -185,4 +194,3 @@ const directPay = () => {
   emit('order')
 };
 </script>
-
