@@ -17,14 +17,15 @@
           </svg>
         </button>
         <Swiper
+            :auto-height="true"
             :slides-per-view="1"
             loop
             :pagination="{ clickable: true }"
             @swiper="onSwiper"
-            class="w-full flex-1"
+            class="w-full aspect-[4/3]"
         >
           <SwiperSlide v-for="(img, index) in images" :key="index">
-            <img :src="img" alt="Produktbild" class="object-cover w-full" />
+            <v-lazy-image :src="img" src-placeholder="/images/loading.gif" class=" w-full" />
           </SwiperSlide>
         </Swiper>
         <button
@@ -111,6 +112,8 @@ import type {CartItem} from "../store/cartStore.js";
 import QuantityInput from "./QuantityInput.vue";
 import {i18n} from "../main.ts";
 import usePreOrderStore from '../store/usePreOrderStore';
+//@ts-ignore
+import VLazyImage from "v-lazy-image";
 
 const cartStore = useCartStore();
 const { preOrderCount, totalAvailable, rebate, price } = usePreOrderStore();
@@ -124,9 +127,9 @@ const emit = defineEmits(['close', 'order'])
 
 // Bilder für den Slider
 const images = ref([
-  '/images/final/skaten-wide.jpeg',
-  '/images/final/transport-wide.jpeg',
-  '/images/final/verriegeln-wide.jpeg',
+  '/images/final/skaten-43.jpeg',
+  '/images/final/transport-43.jpeg',
+  '/images/final/verriegeln-43.jpeg',
   '/images/final/scharnier-zu.jpeg',
   '/images/final/scharnier-w.jpeg',
   '/images/final/stange-loch.jpeg',

@@ -24,7 +24,7 @@
       <div class="contact-card">
         <div class="grid grid-cols-3 gap-4 w-full mb-6">
           <div class="h-auto row-span-2">
-            <img src="/images/box-zusammen.webp" alt="">
+            <v-lazy-image src="/images/final/skaten-43.jpeg" src-placeholder="/images/loading.gif" alt=""></v-lazy-image>
           </div>
           <div class="flex flex-col gloria-hallelujah-regular" :class="[cartItem.color.textClass]">
             <div class=" text-2xl text-left" >
@@ -153,6 +153,8 @@ import {CreditCardIcon, TrashIcon} from "@heroicons/vue/24/outline";
 import QuantityInput from "./QuantityInput.vue";
 import {i18n} from "../main.ts";
 import usePreOrderStore from "../store/usePreOrderStore";
+//@ts-ignore
+import VLazyImage from "v-lazy-image";
 
 const emit = defineEmits(['order', 'close'])
 

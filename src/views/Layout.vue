@@ -59,12 +59,15 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-        
-        <img 
-          :src="currentImage" 
-          :alt="$t(currentImageTitle)"
-          class="max-w-full max-h-[80vh] object-contain"
-        />
+
+        <v-lazy-image           :src="currentImage"
+                                src-placeholder="/images/loading.gif"
+                                :alt="$t(currentImageTitle)"
+                                class="max-w-full max-h-[80vh] ">
+        </v-lazy-image>
+<!--        <img -->
+
+<!--        />-->
         
         <button 
           v-if="currentImageIndex < setupImages.length - 1" 
@@ -82,7 +85,7 @@
             :class="{'shadow-xl': isScrolled, '-top-full': !showHeader, 'top-0': showHeader}">
       <div class="container mx-auto px-4 py-2 flex items-center justify-between max-w-screen-xl">
         <div class="text-xl sm:text-3xl font-bold text-primary-500 flex flex-col justify-center cursor-pointer"
-             @click.prevent="openVideoModal(0)">
+             @click.prevent="scrollToSection('home')">
           <!--          <img class="h-20" src="/images/pocketledge-logo-v2-green.svg" alt="">-->
           <span class="gloria-hallelujah-regular py-4">POCKETLEDGE</span>
         </div>
@@ -156,6 +159,8 @@ import useCartStore from "../store/cartStore.ts";
 import VideoBackground from 'vue-responsive-video-background-player'
 import useModalStore from '../store/modalStore';
 import { useRouter } from 'vue-router';
+//@ts-ignore
+import VLazyImage from "v-lazy-image";
 
 // Initialisiere Swiper Plugins
 SwiperCore.use([Pagination, Autoplay]);
