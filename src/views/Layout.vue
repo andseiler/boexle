@@ -277,7 +277,38 @@ const handleScroll = () => {
   lastScrollPosition.value = currentScrollPosition;
 };
 
-onMounted(() => window.addEventListener("scroll", handleScroll));
+const sendVisitorInfo = async () => {
+  try {
+    const userAgent = navigator.userAgent;
+    const language = navigator.language;
+    const screenSize = `${window.screen.width}x${window.screen.height}`;
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const referrer = document.referrer;
+
+    const visitorInfo = `🔍 New Visitor:\n` +
+      `📱 Device: ${userAgent}\n` +
+      `🌐 Language: ${language}\n` +
+      `📺 Screen: ${screenSize}\n` +
+      `🕒 Timezone: ${timeZone}\n` +
+      `↩️ Referrer: ${referrer || 'Direct visit'}`;
+
+    await fetch('/.netlify/functions/sendTelegramMessage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message: visitorInfo })
+    });
+  } catch (error) {
+    console.error('Failed to send visitor info:', error);
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+  sendVisitorInfo();
+});
+
 onUnmounted(() => window.removeEventListener("scroll", handleScroll));
 
 // Image Modal State
