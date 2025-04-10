@@ -187,7 +187,10 @@
       <div
           class="max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center justify-center">
         <h3 class="ont-bold text-primary-500 mb-4 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
-        <p class="text-4xl font-extrabold text-textdark">{{ price }} €</p>
+        <p class="text-4xl text-textdark mb-2 flex flex-col justify-center items-center">
+          <span class="relative">{{ formatCurrency(price) }} <span class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
+          <span class="text-primary-500 font-extrabold">{{ formatCurrency(discountedPrice) }}</span>
+        </p>
         <p class="text-sm mb-6 text-textdark">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
         <p class="text-textdark mb-6">{{ $t('Handgefertigt in Österreich – sofort einsatzbereit!') }}</p>
 
@@ -553,7 +556,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
-import {onMounted, onUnmounted, ref} from "vue";
+import {computed, onMounted, onUnmounted, ref} from "vue";
 import {
   ShoppingCartIcon,
   ChatBubbleOvalLeftEllipsisIcon,
@@ -583,6 +586,7 @@ const currentVideo = ref('bs-nosegrind-180.mp4');
 const imageLoaded = ref([false, false, false]);
 const videoLoaded = ref([false, false, false, false, false]);
 const videoError = ref([false, false, false, false, false]);
+const discountedPrice = computed(() => price.value - rebate.value);
 
 // Image modal state
 const showImageModal = ref(false);
@@ -684,6 +688,10 @@ const showPreviousImage = () => {
 const closeImageModal = () => {
   showImageModal.value = false;
 }
+
+const formatCurrency = (amount: number) => {
+  return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(amount);
+};
 </script>
 
 <style lang="scss">
