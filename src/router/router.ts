@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Impressum from '../views/Impressum.vue';
 import Datenschutz from '../views/Datenschutz.vue';
+import AGB from '../views/agb.vue';
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/datenschutz',
     name: 'Datenschutz',
     component: Datenschutz
+  },
+  {
+    path: '/agb',
+    name: 'AGB',
+    component: AGB
   }
 ];
 

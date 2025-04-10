@@ -130,6 +130,7 @@
         <div class="space-x-4 text-sm">
           <a href="/impressum" class="hover:text-primary-500">{{ $t('Impressum') }}</a>
           <a href="/datenschutz" class="hover:text-primary-500">{{ $t('Datenschutz') }}</a>
+          <a href="/agb" class="hover:text-primary-500">{{ $t('AGB') }}</a>
         </div>
       </div>
     </footer>
