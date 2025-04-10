@@ -67,7 +67,7 @@
       <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
 
         <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-96">
-          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/transport-wide.jpeg', $t('Transportmodus'))">
+          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/transport-hori.jpeg', $t('Transportmodus'))">
             <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[0]">
               <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -90,7 +90,7 @@
         </div>
 
         <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-96">
-          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/verriegeln-wide.jpeg', $t('Aufklappen & Verriegeln'))">
+          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/verriegeln-hori.jpeg', $t('Aufklappen & Verriegeln'))">
             <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[1]">
               <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -113,7 +113,7 @@
         </div>
 
         <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-96">
-          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/skaten-wide.jpeg', $t('Skaten!'))">
+          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/skaten-hori.jpeg', $t('Skaten!'))">
             <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[2]">
               <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -583,18 +583,6 @@ const currentImageIndex = ref(0);
 
 // Setup images data
 const setupImages = [
-  { 
-    src: '/images/final/transport-wide.jpeg',
-    title: 'Transportmodus'
-  },
-  { 
-    src: '/images/final/verriegeln-wide.jpeg',
-    title: 'Aufklappen & Verriegeln'
-  },
-  { 
-    src: '/images/final/skaten-wide.jpeg',
-    title: 'Skaten!'
-  },
   {
     src: '/images/final/transport-hori.jpeg',
     title: ''
@@ -615,7 +603,6 @@ const setupImages = [
     src: '/images/final/scharnier-w.jpeg',
     title: ''
   },
-  ,
   {
     src: '/images/final/stange-loch.jpeg',
     title: ''

@@ -39,7 +39,7 @@
 
       <!-- Produktinformationen -->
       <h3 class="font-bold text-primary-500 mb-2 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
-      <p class="text-sm mb-4 text-semibright">{{$t('Transportgröße 60x40x30 cm - Aufgebaute Größe 165x36x25 cm')}}</p>
+      <p class="text-sm mb-4 text-semibright text-center">{{$t('Transportgröße 60x40x30 cm - Aufgebaute Größe 165x36x25 cm')}}</p>
       <p class="text-4xl text-textdark mb-2 flex flex-col justify-center items-center">
         <span class="relative">{{ formatCurrency(price) }} <span class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
         <span class="text-primary-500 font-extrabold">{{ formatCurrency(discountedPrice) }}</span>

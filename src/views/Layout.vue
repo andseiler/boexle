@@ -42,6 +42,41 @@
         </button>
       </div>
     </ModalComponent>
+    <!-- Image Modal -->
+    <ModalComponent 
+      :is-visible="showImageModal" 
+      :title="$t(currentImageTitle)"
+      :is-image-mode="true"
+      @close="closeImageModal"
+    >
+      <div class="p-4 flex items-center justify-center bg-black relative">
+        <button 
+          v-if="currentImageIndex > 0" 
+          @click="showPreviousImage" 
+          class="absolute left-8 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
+        >
+          <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <img 
+          :src="currentImage" 
+          :alt="$t(currentImageTitle)"
+          class="max-w-full max-h-[80vh] object-contain"
+        />
+        
+        <button 
+          v-if="currentImageIndex < setupImages.length - 1" 
+          @click="showNextImage" 
+          class="absolute right-8 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
+        >
+          <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </ModalComponent>
     <!-- Header bleibt unverändert -->
     <header class="bg-primarycontrast-500 sticky z-50 transition-all duration-300 shadow-xl"
             :class="{'shadow-xl': isScrolled, '-top-full': !showHeader, 'top-0': showHeader}">
@@ -57,10 +92,10 @@
             <currency-euro-icon class="w-6"></currency-euro-icon>
             <span class="hidden sm:inline">{{ $t('Preise') }}</span>
           </a>
-          <a @click.prevent="scrollToSection('faq')"
+          <a @click="openImageModal('/images/final/skaten-hori.jpeg', '')"
              class="outline-button">
-            <question-mark-circle-icon class="w-6"></question-mark-circle-icon>
-            <span class="hidden sm:inline">{{ $t('FAQ') }}</span></a>
+            <photo-icon class="w-6"></photo-icon>
+            <span class="hidden sm:inline">{{ $t('Galerie') }}</span></a>
           <a @click="showContactModal = true" class="outline-button">
             <chat-bubble-oval-left-ellipsis-icon class="w-6"></chat-bubble-oval-left-ellipsis-icon>
             <span class="hidden sm:inline">{{ $t('Kontakt') }}</span></a>
@@ -108,7 +143,7 @@ import {onMounted, onUnmounted, ref} from "vue";
 import {
   ShoppingCartIcon,
   CurrencyEuroIcon,
-  QuestionMarkCircleIcon,
+  PhotoIcon,
   ChatBubbleOvalLeftEllipsisIcon
 } from '@heroicons/vue/24/outline'
 import ModalComponent from "../components/ModalComponent.vue";
@@ -239,6 +274,78 @@ const handleScroll = () => {
 
 onMounted(() => window.addEventListener("scroll", handleScroll));
 onUnmounted(() => window.removeEventListener("scroll", handleScroll));
+
+// Image Modal State
+const showImageModal = ref(false);
+const currentImage = ref('');
+const currentImageTitle = ref('');
+const currentImageIndex = ref(0);
+const setupImages = [
+  {
+    src: '/images/final/skaten-hori.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/verriegeln-hori.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/transport-hori.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/scharnier-zu.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/scharnier-w.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/stange-loch.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/stange-gewinde.jpeg',
+    title: ''
+  },
+  {
+    src: '/images/final/scharnier-beide-offen.jpeg',
+    title: ''
+  }
+];
+
+function openImageModal(imageSrc: string, title: string) {
+  const index = setupImages.findIndex(img => img.src === imageSrc);
+  if (index !== -1) {
+    currentImageIndex.value = index;
+    currentImage.value = imageSrc;
+    currentImageTitle.value = title || '';
+    showImageModal.value = true;
+  }
+}
+
+function showNextImage() {
+  if (currentImageIndex.value < setupImages.length - 1) {
+    currentImageIndex.value++;
+    const image = setupImages[currentImageIndex.value];
+    currentImage.value = image.src;
+    currentImageTitle.value = image.title;
+  }
+}
+
+function showPreviousImage() {
+  if (currentImageIndex.value > 0) {
+    currentImageIndex.value--;
+    const image = setupImages[currentImageIndex.value];
+    currentImage.value = image.src;
+    currentImageTitle.value = image.title;
+  }
+}
+
+function closeImageModal() {
+  showImageModal.value = false;
+}
 
 // Explicitly expose the openVideoModal function for use in other components
 defineExpose({
