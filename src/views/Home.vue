@@ -66,7 +66,7 @@
         {{ $t('In nur 1 Minute eine 1,80 m lange Ledge mit 25 cm Höhe skaten, perfekt zum Tricks lernen!') }}</p>
       <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
 
-        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-96">
+        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-full max-w-96">
           <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/transport-hori.jpeg', $t('Transportmodus'))">
             <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[0]">
               <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -91,7 +91,7 @@
           <span class="hidden lg:inline">➜</span>
         </div>
 
-        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-96">
+        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-full max-w-96">
           <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/verriegeln-hori.jpeg', $t('Aufklappen & Verriegeln'))">
             <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[1]">
               <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -116,7 +116,7 @@
           <span class="hidden lg:inline">➜</span>
         </div>
 
-        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center  w-96">
+        <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-full max-w-96">
           <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/skaten-hori.jpeg', $t('Skaten!'))">
             <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[2]">
               <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
