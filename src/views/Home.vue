@@ -657,7 +657,7 @@ const openVideoModal = (video: string) => {
 
 const openImageModal = (image: string, title: string) => {
   // Find the index of the image in our array
-  const index = setupImages.findIndex(img => img.src === image);
+  const index = setupImages.findIndex(img => img?.src === image);
   if (index !== -1) {
     currentImageIndex.value = index;
   }
@@ -671,8 +671,8 @@ const showNextImage = () => {
   if (currentImageIndex.value < setupImages.length - 1) {
     currentImageIndex.value++;
     const nextImage = setupImages[currentImageIndex.value];
-    currentImage.value = nextImage.src;
-    currentImageTitle.value = nextImage.title;
+    currentImage.value = nextImage?.src??'';
+    currentImageTitle.value = nextImage?.title??'';
   }
 }
 
@@ -680,8 +680,8 @@ const showPreviousImage = () => {
   if (currentImageIndex.value > 0) {
     currentImageIndex.value--;
     const prevImage = setupImages[currentImageIndex.value];
-    currentImage.value = prevImage.src;
-    currentImageTitle.value = prevImage.title;
+    currentImage.value = prevImage?.src??'';
+    currentImageTitle.value = prevImage?.title??'';
   }
 }
 

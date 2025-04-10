@@ -104,7 +104,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 //@ts-ignore
 import 'swiper/css/pagination';
-import { ChevronLeftIcon, ChevronRightIcon, ShoppingCartIcon, CreditCardIcon} from '@heroicons/vue/24/outline';
+import { ShoppingCartIcon, CreditCardIcon} from '@heroicons/vue/24/outline';
 import { CheckIcon} from '@heroicons/vue/24/solid';
 import useCartStore from "../store/cartStore.js";
 import type {CartItem} from "../store/cartStore.js";
