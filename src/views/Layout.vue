@@ -256,6 +256,7 @@ const toggleLanguage = () => {
 const router = useRouter();
 
 const scrollToSection = (id: string) => {
+  sendVisitorInfo("Scrolled to: " + id);
   if (id === 'home' && window.location.pathname !== '/') {
     // Navigate to home route if not already there
     router.push('/');
@@ -279,7 +280,7 @@ const handleScroll = () => {
   lastScrollPosition.value = currentScrollPosition;
 };
 
-const sendVisitorInfo = async () => {
+const sendVisitorInfo = async (title: string) => {
   try {
     const userAgent = navigator.userAgent;
     const language = navigator.language;
@@ -287,12 +288,12 @@ const sendVisitorInfo = async () => {
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const referrer = document.referrer;
 
-    const visitorInfo = `🔍 New Visitor:\n` +
-      `📱 Device: ${userAgent}\n` +
-      `🌐 Language: ${language}\n` +
-      `📺 Screen: ${screenSize}\n` +
-      `🕒 Timezone: ${timeZone}\n` +
-      `↩️ Referrer: ${referrer || 'Direct visit'}`;
+    const visitorInfo = `🔍 ${title}:\n` +
+        `📱 Device: ${userAgent}\n` +
+        `🌐 Language: ${language}\n` +
+        `📺 Screen: ${screenSize}\n` +
+        `🕒 Timezone: ${timeZone}\n` +
+        `↩️ Referrer: ${referrer || 'Direct visit'}`;
 
     await fetch('/.netlify/functions/sendTelegramMessage', {
       method: 'POST',
@@ -308,7 +309,7 @@ const sendVisitorInfo = async () => {
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
-  sendVisitorInfo();
+  sendVisitorInfo('New Visitor');
 });
 
 onUnmounted(() => window.removeEventListener("scroll", handleScroll));

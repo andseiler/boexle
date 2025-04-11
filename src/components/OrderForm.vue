@@ -99,7 +99,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import {ref, computed, onMounted} from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 //@ts-ignore
 import 'swiper/css';
@@ -151,6 +151,10 @@ const selectedColor = ref({val:'black', name: i18n.global.t('black'), bgClass: '
 const validate = ref(false);
 const validQuantity = computed(() => Number.isInteger(quantity.value) && quantity.value > 0);
 
+onMounted(()=>{
+  sendVisitorInfo("OrderForm: ");
+})
+
 // Formatierung der Währung
 const formatCurrency = (amount: number) => {
   return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(amount);
@@ -195,5 +199,32 @@ const directPay = () => {
   }
   addToCart();
   emit('order')
+};
+
+const sendVisitorInfo = async (title: string) => {
+  try {
+    const userAgent = navigator.userAgent;
+    const language = navigator.language;
+    const screenSize = `${window.screen.width}x${window.screen.height}`;
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const referrer = document.referrer;
+
+    const visitorInfo = `🔍 ${title}:\n` +
+        `📱 Device: ${userAgent}\n` +
+        `🌐 Language: ${language}\n` +
+        `📺 Screen: ${screenSize}\n` +
+        `🕒 Timezone: ${timeZone}\n` +
+        `↩️ Referrer: ${referrer || 'Direct visit'}`;
+
+    await fetch('/.netlify/functions/sendTelegramMessage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message: visitorInfo })
+    });
+  } catch (error) {
+    console.error('Failed to send visitor info:', error);
+  }
 };
 </script>
