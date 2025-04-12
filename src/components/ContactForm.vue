@@ -1,6 +1,11 @@
 <template>
   <div class="contact-container">
-    <div class="contact-header">{{ $t('Kontakt') }}</div>
+    <div class="contact-header">
+      {{ $t('Kontakt') }}
+      <div class="text-base text-textbright mt-4" v-if="subtitle">
+       <span v-html="subtitle"></span>
+      </div>
+    </div>
     <div class="contact-card">
       <TelegramChat @close="emit('close')"></TelegramChat>
       <div class="flex items-center w-full gap-2 my-4 text-textdark">
@@ -33,6 +38,11 @@ const emailAddress = computed(()=>'mail@pocketledge.de')
 const copySuccess = ref(false);
 
 import {onMounted} from "vue";
+
+//@ts-ignore
+const props = defineProps({
+  subtitle: {type: String, required: false}
+})
 
 onMounted(()=>{
   sendVisitorInfo("ContactForm Viewed");

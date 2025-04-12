@@ -38,7 +38,7 @@
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
           <span>{{ $t('Jetzt vorbestellen') }}</span>
         </div>
-        <div @click="showContactModal=true" class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
+        <div @click="showCustomObstacleModalFunc" class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
           <span>{{ $t('Anfrage für dein Custom-Obstacle') }}</span>
         </div>
@@ -62,7 +62,7 @@
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
           <span>{{ $t('Jetzt vorbestellen') }}</span>
         </div>
-        <div @click="showContactModal=true" class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
+        <div @click="showCustomObstacleModalFunc" class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
           <span>{{ $t('Anfrage für dein Custom-Obstacle') }}</span>
         </div>
@@ -582,7 +582,7 @@ import VLazyImage from "v-lazy-image";
 
 const {cartItem} = useCartStore();
 
-const {showModal, showContactModal, showOrderModal, showCartModal} = useModalStore();
+const {showModal, showContactModal, showOrderModal, showCartModal, showCustomObstacleModalFunc} = useModalStore();
 const {preOrderCount, totalAvailable, price, rebate} = usePreOrderStore();
 const isScrolled = ref(false);
 const showHeader = ref(true);

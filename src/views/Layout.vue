@@ -1,7 +1,7 @@
 <template>
   <div class="bg-tertiary-200 min-h-screen flex flex-col" id="home">
     <ModalComponent :isVisible="showContactModal" @close="closeModals">
-      <ContactForm @close="closeModals"></ContactForm>
+      <ContactForm @close="closeModals" :subtitle="customObstacleSubtitle"></ContactForm>
     </ModalComponent>
     <ModalComponent :isVisible="showOrderModal" @close="closeModals">
       <OrderForm @close="closeModals" @order="cartFromOrderForm"></OrderForm>
@@ -169,7 +169,7 @@ SwiperCore.use([Pagination, Autoplay]);
 
 const {cartItem} = useCartStore();
 
-const { showModal, showContactModal, showOrderModal, showCartModal } = useModalStore();
+const { showModal, showContactModal, showOrderModal, showCartModal , customObstacleSubtitle} = useModalStore();
 const isScrolled = ref(false);
 const showHeader = ref(true);
 const lastScrollPosition = ref(0);
