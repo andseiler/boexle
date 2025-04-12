@@ -16,7 +16,7 @@ export default function useModalStore() {
     })
     function showCustomObstacleModalFunc() {
         showContactModal.value = true;
-        customObstacleSubtitle.value = i18n.global.t('Du willst ein individuelles Obstacle? Rails, Ledges oder was ganz anderes – wir machen’s möglich!<br><br>Schreib uns einfach, sag, was du brauchst, und du bekommst ein unverbindliches Angebot von uns.');
+        customObstacleSubtitle.value = i18n.global.t('Du willst ein individuelles Obstacle? Rails, Ledges oder was ganz anderes – kein Problem!<br><br>Schreib einfach eine kurze Nachricht, wir besprechen was du dir vorstellst und du bekommst ein unverbindliches Angebot.');
     }
 
     return {showModal, showContactModal, showOrderModal, showCartModal, showCustomObstacleModalFunc, customObstacleSubtitle};
