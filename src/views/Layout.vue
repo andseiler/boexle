@@ -193,10 +193,6 @@ const videoData = [
   {
     src: '/images/abbau.mp4',
     title: 'Abbau'
-  },
-  {
-    src: '/images/einarm.mp4',
-    title: 'Sogar mit kaputter Schulter'
   }
 ];
 

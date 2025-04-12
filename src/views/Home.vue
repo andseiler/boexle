@@ -146,206 +146,33 @@
     </section>
   </div>
 
-
   <div class="bg-tertiary-200">
     <section id="testimonials" class="container mx-auto px-4 py-16 max-w-screen-xl">
-      <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Was unsere Kunden sagen') }}</h2>
-      <div class="grid md:grid-cols-3 gap-8">
+      <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Noch ein paar Clips') }}</h2>
 
-        <div class="bg-white rounded-lg shadow p-6 text-center">
-          <p class="text-textdark italic">
-            {{ $t('"PocketLedge ist ein Gamechanger! Super stabil und perfekt für jede Session!') }}</p>
-          <p class="mt-4 font-bold text-primary-500">{{ $t('- Max aus Berlin') }}</p>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6 text-center">
-          <p class="text-textdark italic">
-            {{ $t('"Ich liebe meine Pocketledge, so schnell aufgebaut und passt locker in mein Lastenrad."') }}</p>
-          <p class="mt-4 font-bold text-primary-500">{{ $t('- Lisa aus Wien') }}</p>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6 text-center">
-          <p class="text-textdark italic">
-            {{
-              $t('"Der Landi isch volle bärig, aber gibt halt keine Ledge. Jetzt bring ich einfach meine Eigene mit"')
-            }}</p>
-          <p class="mt-4 font-bold text-primary-500">{{ $t('- Chris aus Innsbruck') }}</p>
-        </div>
-
-      </div>
-    </section>
-  </div>
-
-  <div class="bg-primarycontrast-500 w-full">
-    <section id="price" class="container mx-auto px-4 py-16 max-w-screen-xl text-center">
-      <h2 class="text-3xl font-extrabold text-textbright mb-6">
-        {{ $t('Deine PocketLedge – Handgemacht in Österreich!') }}</h2>
-      <p class="text-textsemibright text-lg mb-8">
-        {{ $t('Perfekte Verarbeitung, langlebig und extrem stabil – in nur einer Minute aufgebaut!') }}
-      </p>
-
-      <div
-          class="max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center justify-center">
-        <h3 class="ont-bold text-primary-500 mb-4 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
-        <p class="text-4xl text-textdark mb-2 flex flex-col justify-center items-center">
-          <span class="relative">{{ formatCurrency(price) }} <span class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
-          <span class="text-primary-500 font-extrabold">{{ formatCurrency(discountedPrice) }}</span>
-        </p>
-        <p class="text-sm mb-6 text-textdark">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
-        <p class="text-textdark mb-6">{{ $t('Handgefertigt in Österreich – sofort einsatzbereit!') }}</p>
-
-        <ul class="text-textdark text-left space-y-3 mb-6">
-          <li class="flex items-center">
-            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
-            <span class="ml-2">{{ $t('Sekundenschneller Aufbau – in 1 Minute bereit') }}</span>
-          </li>
-          <li class="flex items-center">
-            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
-            <span class="ml-2">{{ $t('Modulares Design – passt in jede Eurobox (60x40x30)') }}</span>
-          </li>
-          <li class="flex items-center">
-            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
-            <span class="ml-2">{{ $t('Leicht transportabel - Wiegt so viel wie ein Bierkasten') }}</span>
-          </li>
-          <li class="flex items-center">
-            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
-            <span class="ml-2">{{ $t('Hochwertige Handarbeit – Made in Austria') }} 🇦🇹</span>
-          </li>
-          <li class="flex items-center">
-            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
-            <span class="ml-2">{{ $t('Perfekt zum Tricks lernen – 1,80 m lang und 25 cm hoch.') }}</span>
-          </li>
-          <li class="flex items-center">
-            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
-            <span class="ml-2">{{ $t('Stabile Metallkonstruktion – kein Wackeln, kein Verrutschen') }}</span>
-          </li>
-        </ul>
-
-        <!-- Order Button -->
-        <div @click="showOrderModalFunc"
-             class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
-          <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          {{ $t('Jetzt vorbestellen') }}
-        </div>
-      </div>
-
-      <!-- Customization Option -->
-      <div class="mt-8 flex flex-col items-center justify-center gap-6">
-        <h3 class="text-xl font-bold text-textbright mb-2">{{ $t('Mach sie zu deiner eigenen Ledge!') }}</h3>
-        <p class="text-textsemibright text-lg max-w-2xl mx-auto">
-          {{
-            $t('Du willst eine andere Größe oder eine individuelle Höhe? Kein Problem! Wir fertigen die PocketLedge genau nach deinen Wünschen an.')
-          }}
-        </p>
-        <a @click="showContactModal=true" class="gradient-button gradient-button-outline">
-          {{ $t('Jetzt individuelle Anfrage senden') }}
-        </a>
-      </div>
-    </section>
-  </div>
-
-
-  <div class="bg-tertiary-200">
-    <section id="faq" class="container mx-auto px-4 py-16 max-w-screen-xl">
-      <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Häufig gestellte Fragen (FAQ)') }}</h2>
-
-      <div class="max-w-2xl mx-auto space-y-6">
-
-        <div class="bg-white rounded-lg shadow p-6">
-          <h3 class="font-bold text-primary-500">{{ $t('Wie lange dauert der Aufbau wirklich?') }}</h3>
-          <p class="text-textdark mt-2">
-            {{
-              $t('Der Aufbau dauert tatsächlich nur 1 Minute! Dank unseres cleveren Designs kannst du PocketLedge blitzschnell einsatzbereit machen.')
-            }}
-            <br><br><span class="flex items-center gap-2">{{ $t('Der Beweis? Schau dir hier unser Video an') }} <div
-              class="outline-button dark w-fit" @click="showModal=true"><PlayPauseIcon
-              class="w-6"></PlayPauseIcon></div></span></p>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-          <h3 class="font-bold text-primary-500">{{ $t('Wie schwer ist PocketLedge?') }}</h3>
-          <p class="text-textdark mt-2">
-            {{
-              $t('PocketLedge ist zwar super stabil und rutschfest, trotzdem perfekt transportabel. Die ganze Ledge wiegt nicht mehr als ein Kasten Bier. ')
-            }}</p>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-          <h3 class="font-bold text-primary-500">{{ $t('Wie stabil ist PocketLedge?') }}</h3>
-          <p class="text-textdark mt-2">
-            {{
-              $t('PocketLedge besteht aus hochwertigem Stahl und dank der rutschfesten Füße gibt es kein Wackeln. Wenn doch mal was kaputt geht, einfach einschicken und wir reparieren entweder auf Gewährleistung oder gegen eine kleine Gebühr.')
-            }}</p>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-          <h3 class="font-bold text-primary-500">{{ $t('Passt PocketLedge wirklich in eine Eurobox?') }}</h3>
-          <p class="text-textdark mt-2">
-            {{ $t('Ja! Das Design ist so optimiert, dass PocketLedge perfekt in eine Eurobox (60x40x30 cm) passt.') }}
-            <br><br><span class="flex items-center gap-2">{{
-              $t('Wir bieten aber auch anderer Formate an, sprich uns dazu einfach an')
-            }} <div class="outline-button dark w-fit" @click="showContactModal=true"><chat-bubble-oval-left-ellipsis-icon
-                class="w-6"></chat-bubble-oval-left-ellipsis-icon></div></span></p>
-        </div>
-
-      </div>
-    </section>
-  </div>
-
-  <div class="bg-primarycontrast-500 w-full">
-    <section class="container mx-auto px-4 py-12 max-w-screen-xl text-center">
-      <h2 class="text-3xl font-extrabold text-textbright mb-12">
-        {{ $t('Die Vorteile') }}</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-tertiary-200 rounded-lg shadow p-6">
-          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Modulares Design') }}</h2>
-          <p>
-            {{ $t('Überall dabei, passt in jeden Kofferraum und sogar auf manche Fahrräder.') }}
-          </p>
-        </div>
-        <div class="bg-tertiary-200 rounded-lg shadow p-6">
-          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Sekundenschneller Aufbau') }}</h2>
-          <p>
-            {{ $t('Kein Werkzeug, kein Gefummel, einfach ausklappen und in 1 Minute skaten.') }}
-          </p>
-        </div>
-        <div class="bg-tertiary-200 rounded-lg shadow p-6">
-          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Stabile Metallkonstruktion') }}</h2>
-          <p>
-            {{ $t('Die solide Bauweise aus Stahl sorgt für Stabilität, kein Wackeln, kein Verrutschen.') }}
-          </p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="bg-tertiary-200">
-    <section id="testimonials" class="container mx-auto px-4 py-16 max-w-screen-xl">
-      <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Unsere Kunden in Action') }}</h2>
-      
       <!-- Create a relative container with padding for the arrows -->
       <div class="relative px-12 md:px-14 lg:px-16">
         <!-- Swiper component -->
         <swiper
-          :slides-per-view="3"
-          :space-between="30"
-          :pagination="{ 
+            :slides-per-view="3"
+            :space-between="30"
+            :pagination="{
             clickable: true,
-            el: '.swiper-pagination-container' 
+            el: '.swiper-pagination-container'
           }"
-          :modules="[Pagination, Autoplay, Navigation]"
-          :grab-cursor="true"
-          :keyboard="{ enabled: true }"
-          :navigation="{
+            :modules="[Pagination, Autoplay, Navigation]"
+            :grab-cursor="true"
+            :keyboard="{ enabled: true }"
+            :navigation="{
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
           }"
-          :autoplay="{
+            :autoplay="{
             delay: 10000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true
           }"
-          :breakpoints="{
+            :breakpoints="{
             '320': {
               slidesPerView: 1,
               spaceBetween: 20
@@ -359,7 +186,7 @@
               spaceBetween: 30
             }
           }"
-          class="w-full touch-pan-y select-none"
+            class="w-full touch-pan-y select-none"
         >
           <swiper-slide>
             <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-nosegrind-180.mp4')">
@@ -467,15 +294,15 @@
             </div>
           </swiper-slide>
         </swiper>
-        
+
         <!-- Navigation arrows positioned absolutely outside the slides -->
         <div class="swiper-button-prev !absolute !top-1/2 !transform !-translate-y-1/2 !text-primary-500 !opacity-70 hover:!opacity-100 transition-opacity duration-300 !left-0 z-10"></div>
         <div class="swiper-button-next !absolute !top-1/2 !transform !-translate-y-1/2 !text-primary-500 !opacity-70 hover:!opacity-100 transition-opacity duration-300 !right-0 z-10"></div>
       </div>
-      
+
       <!-- External pagination -->
       <div class="swiper-pagination-container flex justify-center gap-2 my-8"></div>
-      
+
       <div class="flex flex-col items-center justify-center gap-6">
         <h3 class="text-lg font-bold text-primary-500 mb-2">{{
             $t('Willst du auch in unserer Galerie erscheinen?')
@@ -488,6 +315,177 @@
       </div>
     </section>
   </div>
+
+  <div class="bg-primarycontrast-500 w-full">
+    <section id="price" class="container mx-auto px-4 py-16 max-w-screen-xl text-center">
+      <h2 class="text-3xl font-extrabold text-textbright mb-6">
+        {{ $t('Deine PocketLedge – Handgemacht in Österreich!') }}</h2>
+      <p class="text-textsemibright text-lg mb-8">
+        {{ $t('Perfekte Verarbeitung, langlebig und extrem stabil – in nur einer Minute aufgebaut!') }}
+      </p>
+
+      <div
+          class="max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center justify-center">
+        <h3 class="ont-bold text-primary-500 mb-4 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
+        <p class="text-4xl text-textdark mb-2 flex flex-col justify-center items-center">
+          <span class="relative">{{ formatCurrency(price) }} <span class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
+          <span class="text-primary-500 font-extrabold">{{ formatCurrency(discountedPrice) }}</span>
+        </p>
+        <p class="text-sm mb-6 text-textdark">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
+        <p class="text-textdark mb-6">{{ $t('Handgefertigt in Österreich – sofort einsatzbereit!') }}</p>
+
+        <ul class="text-textdark text-left space-y-3 mb-6">
+          <li class="flex items-center">
+            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
+            <span class="ml-2">{{ $t('Sekundenschneller Aufbau – in 1 Minute bereit') }}</span>
+          </li>
+          <li class="flex items-center">
+            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
+            <span class="ml-2">{{ $t('Modulares Design – passt in jede Eurobox (60x40x30)') }}</span>
+          </li>
+          <li class="flex items-center">
+            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
+            <span class="ml-2">{{ $t('Leicht transportabel - Wiegt so viel wie ein Bierkasten') }}</span>
+          </li>
+          <li class="flex items-center">
+            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
+            <span class="ml-2">{{ $t('Hochwertige Handarbeit – Made in Austria') }} 🇦🇹</span>
+          </li>
+          <li class="flex items-center">
+            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
+            <span class="ml-2">{{ $t('Perfekt zum Tricks lernen – 1,80 m lang und 25 cm hoch.') }}</span>
+          </li>
+          <li class="flex items-center">
+            <CheckBadgeIcon class="w-6 text-primary-500"></CheckBadgeIcon>
+            <span class="ml-2">{{ $t('Stabile Metallkonstruktion – kein Wackeln, kein Verrutschen') }}</span>
+          </li>
+        </ul>
+
+        <!-- Order Button -->
+        <div @click="showOrderModalFunc"
+             class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
+          <shopping-cart-icon class="w-6"></shopping-cart-icon>
+          {{ $t('Jetzt vorbestellen') }}
+        </div>
+      </div>
+
+      <!-- Customization Option -->
+      <div class="mt-8 flex flex-col items-center justify-center gap-6">
+        <h3 class="text-xl font-bold text-textbright mb-2">{{ $t('Mach sie zu deiner eigenen Ledge!') }}</h3>
+        <p class="text-textsemibright text-lg max-w-2xl mx-auto">
+          {{
+            $t('Du willst eine andere Größe oder eine individuelle Höhe? Kein Problem! Wir fertigen die PocketLedge genau nach deinen Wünschen an.')
+          }}
+        </p>
+        <a @click="showContactModal=true" class="gradient-button gradient-button-outline">
+          {{ $t('Jetzt individuelle Anfrage senden') }}
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <div class="bg-tertiary-200">
+    <section id="faq" class="container mx-auto px-4 py-16 max-w-screen-xl">
+      <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Häufig gestellte Fragen (FAQ)') }}</h2>
+
+      <div class="max-w-2xl mx-auto space-y-6">
+
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="font-bold text-primary-500">{{ $t('Wie lange dauert der Aufbau wirklich?') }}</h3>
+          <p class="text-textdark mt-2">
+            {{
+              $t('Der Aufbau dauert tatsächlich nur 1 Minute! Dank unseres cleveren Designs kannst du PocketLedge blitzschnell einsatzbereit machen.')
+            }}
+            <br><br><span class="flex items-center gap-2">{{ $t('Der Beweis? Schau dir hier unser Video an') }} <div
+              class="outline-button dark w-fit" @click="showModal=true"><PlayPauseIcon
+              class="w-6"></PlayPauseIcon></div></span></p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="font-bold text-primary-500">{{ $t('Wie schwer ist PocketLedge?') }}</h3>
+          <p class="text-textdark mt-2">
+            {{
+              $t('PocketLedge ist zwar super stabil und rutschfest, trotzdem perfekt transportabel. Die ganze Ledge wiegt nicht mehr als ein Kasten Bier. ')
+            }}</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="font-bold text-primary-500">{{ $t('Wie stabil ist PocketLedge?') }}</h3>
+          <p class="text-textdark mt-2">
+            {{
+              $t('PocketLedge besteht aus hochwertigem Stahl und dank der rutschfesten Füße gibt es kein Wackeln. Wenn doch mal was kaputt geht, einfach einschicken und wir reparieren entweder auf Gewährleistung oder gegen eine kleine Gebühr.')
+            }}</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="font-bold text-primary-500">{{ $t('Passt PocketLedge wirklich in eine Eurobox?') }}</h3>
+          <p class="text-textdark mt-2">
+            {{ $t('Ja! Das Design ist so optimiert, dass PocketLedge perfekt in eine Eurobox (60x40x30 cm) passt.') }}
+            <br><br><span class="flex items-center gap-2">{{
+              $t('Wir bieten aber auch anderer Formate an, sprich uns dazu einfach an')
+            }} <div class="outline-button dark w-fit" @click="showContactModal=true"><chat-bubble-oval-left-ellipsis-icon
+                class="w-6"></chat-bubble-oval-left-ellipsis-icon></div></span></p>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+<!--  <div class="bg-primarycontrast-500 w-full">-->
+<!--    <section class="container mx-auto px-4 py-12 max-w-screen-xl text-center">-->
+<!--      <h2 class="text-3xl font-extrabold text-textbright mb-12">-->
+<!--        {{ $t('Die Vorteile') }}</h2>-->
+<!--      <div class="grid md:grid-cols-3 gap-8">-->
+<!--        <div class="bg-tertiary-200 rounded-lg shadow p-6">-->
+<!--          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Modulares Design') }}</h2>-->
+<!--          <p>-->
+<!--            {{ $t('Überall dabei, passt in jeden Kofferraum und sogar auf manche Fahrräder.') }}-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div class="bg-tertiary-200 rounded-lg shadow p-6">-->
+<!--          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Sekundenschneller Aufbau') }}</h2>-->
+<!--          <p>-->
+<!--            {{ $t('Kein Werkzeug, kein Gefummel, einfach ausklappen und in 1 Minute skaten.') }}-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div class="bg-tertiary-200 rounded-lg shadow p-6">-->
+<!--          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Stabile Metallkonstruktion') }}</h2>-->
+<!--          <p>-->
+<!--            {{ $t('Die solide Bauweise aus Stahl sorgt für Stabilität, kein Wackeln, kein Verrutschen.') }}-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--  </div>-->
+
+<!--  <div class="bg-tertiary-200">-->
+<!--    <section id="testimonials" class="container mx-auto px-4 py-16 max-w-screen-xl">-->
+<!--      <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Was unsere Kunden sagen') }}</h2>-->
+<!--      <div class="grid md:grid-cols-3 gap-8">-->
+
+<!--        <div class="bg-white rounded-lg shadow p-6 text-center">-->
+<!--          <p class="text-textdark italic">-->
+<!--            {{ $t('"PocketLedge ist ein Gamechanger! Super stabil und perfekt für jede Session!') }}</p>-->
+<!--          <p class="mt-4 font-bold text-primary-500">{{ $t('- Max aus Berlin') }}</p>-->
+<!--        </div>-->
+
+<!--        <div class="bg-white rounded-lg shadow p-6 text-center">-->
+<!--          <p class="text-textdark italic">-->
+<!--            {{ $t('"Ich liebe meine Pocketledge, so schnell aufgebaut und passt locker in mein Lastenrad."') }}</p>-->
+<!--          <p class="mt-4 font-bold text-primary-500">{{ $t('- Lisa aus Wien') }}</p>-->
+<!--        </div>-->
+
+<!--        <div class="bg-white rounded-lg shadow p-6 text-center">-->
+<!--          <p class="text-textdark italic">-->
+<!--            {{-->
+<!--              $t('"Der Landi isch volle bärig, aber gibt halt keine Ledge. Jetzt bring ich einfach meine Eigene mit"')-->
+<!--            }}</p>-->
+<!--          <p class="mt-4 font-bold text-primary-500">{{ $t('- Chris aus Innsbruck') }}</p>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </section>-->
+<!--  </div>-->
 
   <!-- Video Modal -->
   <ModalComponent 
