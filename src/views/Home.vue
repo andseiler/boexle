@@ -33,10 +33,14 @@
         </div>
         <!--          {{ $t('Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm) und wiegt so viel wie ne Bierkiste')}}-->
       </div>
-      <div class="hidden sm:block">
-        <div @click="showOrderModalFunc" class="gradient-button mb-8">
+      <div class="hidden sm:block flex flex-col items-center justify-center">
+        <div @click="showOrderModalFunc" class="gradient-button mb-8 mx-auto w-fit">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
           <span>{{ $t('Jetzt vorbestellen') }}</span>
+        </div>
+        <div @click="showContactModal=true" class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
+          <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
+          <span>{{ $t('Anfrage für dein Custom-Obstacle') }}</span>
         </div>
       </div>
 
@@ -53,10 +57,14 @@
         <span class=" font-bolder text-xl gloria-hallelujah-regular">-{{ rebate }} €</span>
         <span class="text-xs italic font-normal">{{ totalAvailable - preOrderCount }} {{ $t('verfügbar') }}</span>
       </div>
-      <div class="inline-block sm:hidden">
-        <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8">
+      <div class="inline-block sm:hidden flex flex-col items-center">
+        <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8 w-fit mx-auto">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
           <span>{{ $t('Jetzt vorbestellen') }}</span>
+        </div>
+        <div @click="showContactModal=true" class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
+          <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
+          <span>{{ $t('Anfrage für dein Custom-Obstacle') }}</span>
         </div>
       </div>
       <h2 class="text-center text-textbright text-2xl font-bold ">
@@ -561,6 +569,7 @@ import {
   CheckBadgeIcon,
   VideoCameraIcon,
   PlayPauseIcon,
+    WrenchScrewdriverIcon
 } from '@heroicons/vue/24/outline'
 import useCartStore from "../store/cartStore.ts";
 //@ts-ignore

@@ -1,6 +1,6 @@
 import { computed, ref } from "vue";
 
-const preOrderCountRef = ref(13);
+const preOrderCountRef = ref(17);
 const totalAvailableRef = ref(30);
 const rebateRef = ref(50);
 const priceRef = ref(320);
