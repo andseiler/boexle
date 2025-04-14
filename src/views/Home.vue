@@ -48,14 +48,22 @@
   </section>
   <div class="bg-primarycontrast-500 w-full">
     <section id="features" class="container mx-auto px-4 py-12 max-w-screen-xl text-center relative">
-      <div class="absolute top-[-3.5rem] right-2 sm:right-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white
-                    flex md:hidden
+      <div class="absolute top-[-3rem] right-2 sm:right-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white
+                    hidden xs:flex md:hidden
                     rotate-12 font-bold rounded-full shadow-lg
                     flex text-center flex-col
                     items-center justify-center z-20 h-28 w-28">
         <span class="gloria-hallelujah-regular text-base">{{ $t('Early Bird') }}</span>
         <span class=" font-bolder text-xl gloria-hallelujah-regular">-{{ rebate }} €</span>
         <span class="text-xs italic font-normal">{{ totalAvailable - preOrderCount }} {{ $t('verfügbar') }}</span>
+      </div>
+      <div class="absolute top-[-2.5rem] right-1 sm:right-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white
+                    flex xs:hidden
+                    rotate-12 font-bold rounded-full shadow-lg
+                    flex text-center flex-col
+                    items-center justify-center z-20 h-24 w-24">
+        <span class="gloria-hallelujah-regular text-base">{{ $t('Early Bird') }}</span>
+        <span class=" font-bolder text-xl gloria-hallelujah-regular">-{{ rebate }} €</span>
       </div>
       <div class="inline-block sm:hidden flex flex-col items-center">
         <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8 w-fit mx-auto">
