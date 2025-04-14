@@ -103,6 +103,14 @@
           <a @click="showContactModal = true" class="outline-button">
             <chat-bubble-oval-left-ellipsis-icon class="w-6"></chat-bubble-oval-left-ellipsis-icon>
             <span class="hidden sm:inline">{{ $t('Kontakt') }}</span></a>
+          <a href="https://www.instagram.com/pocket_ledge/" target="_blank" rel="noopener noreferrer"
+                  class="outline-button group">
+            <div class="relative w-6 h-6">
+              <img src="/images/instagram-icon-white.svg" alt="Instagram" class="w-6 h-6 absolute transition-opacity duration-0 group-hover:opacity-0" />
+              <img src="/images/instagram-icon-green.svg" alt="Instagram" class="w-6 h-6 absolute transition-opacity duration-0 opacity-0 group-hover:opacity-100" />
+            </div>
+            <span class="hidden sm:inline">Instagram</span>
+          </a>
           <button @click="toggleLanguage"
                   class="outline-button">
             {{ locale === 'en' ? 'DE' : 'EN' }}

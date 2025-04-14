@@ -9,12 +9,19 @@
     <div class="contact-card">
       <TelegramChat @close="emit('close')"></TelegramChat>
       <div class="flex items-center w-full gap-2 my-4 text-textdark">
-        <div class="border-b border-textdark flex-1 pb-4 mb-2"></div>
-        <div>oder</div>
-        <div class="border-b border-textdark flex-1 pb-4 mb-2"></div>
+        <div class="border-b border-textdark flex-1 pb-4 mb-4"></div>
+        <div>{{ $t('oder') }}</div>
+        <div class="border-b border-textdark flex-1 pb-4 mb-4"></div>
       </div>
       <div class="form-group">
-        <label for="" class="form-label">{{ $t('Per Email') }}</label>
+        <label for="" class="form-label">{{ $t('auf Instagram') }}</label>
+        <a class="flex-1 relative cursor-pointer" href="https://www.instagram.com/pocket_ledge" target="_blank">
+          <span class="absolute right-4 top-4 text-textdark cursor-pointer hover:text-primary-500"><ArrowTopRightOnSquareIcon class="w-6"></ArrowTopRightOnSquareIcon></span>
+          <input type="text" readonly value="https://www.instagram.com/pocket_ledge" ref="emailInput" class="form-input w-full cursor-pointer">
+        </a>
+      </div>
+      <div class="form-group">
+        <label for="" class="form-label">{{ $t('per Email') }}</label>
         <div class="flex-1 relative">
           <span class="absolute right-4 top-4 text-textdark cursor-pointer hover:text-primary-500" @click="copyEmailToClipboard"><ClipboardDocumentCheckIcon class="w-6"></ClipboardDocumentCheckIcon></span>
           <input @click="selectEmail" type="text" :value="emailAddress" ref="emailInput" readonly class="form-input w-full">
@@ -31,7 +38,7 @@
 
 <script setup lang="ts">
 import TelegramChat from "./TelegramChat.vue";
-import {ClipboardDocumentCheckIcon} from "@heroicons/vue/24/outline";
+import {ClipboardDocumentCheckIcon, ArrowTopRightOnSquareIcon} from "@heroicons/vue/24/outline";
 import {computed, ref} from "vue";
 const emailInput = ref(null);
 const emailAddress = computed(()=>'mail@pocketledge.de')
