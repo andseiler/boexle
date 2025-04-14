@@ -105,6 +105,10 @@
 }
 
 @theme {
+    --breakpoint-xs: 26rem;
+}
+
+@theme {
     --color-textdark: #2f3235;
     --color-textbright: #fff;
     --color-textsemibright: #c5c7cb;

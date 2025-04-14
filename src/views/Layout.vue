@@ -87,8 +87,8 @@
         <div class="text-4xl sm:text-3xl font-bold text-primary-500 flex flex-col justify-center cursor-pointer"
              @click.prevent="scrollToSection('home')">
           <!--          <img class="h-20" src="/images/pocketledge-logo-v2-green.svg" alt="">-->
-          <span class="gloria-hallelujah-regular py-4 inline sm:hidden">PL</span>
-          <span class="gloria-hallelujah-regular py-4 hidden sm:inline">POCKETLEDGE</span>
+          <span class="gloria-hallelujah-regular py-4 inline lg:hidden">PL</span>
+          <span class="gloria-hallelujah-regular py-4 hidden lg:inline">POCKETLEDGE</span>
         </div>
         <nav class="flex gap-2">
           <a @click.prevent="scrollToSection('price')"
@@ -100,14 +100,14 @@
              class="outline-button">
             <photo-icon class="w-6"></photo-icon>
             <span class="hidden sm:inline">{{ $t('Galerie') }}</span></a>
-          <a @click="showContactModal = true" class="outline-button">
+          <div class=" hidden xs:inline"><a @click="showContactModal = true" class="outline-button">
             <chat-bubble-oval-left-ellipsis-icon class="w-6"></chat-bubble-oval-left-ellipsis-icon>
-            <span class="hidden sm:inline">{{ $t('Kontakt') }}</span></a>
+            <span class="hidden sm:inline">{{ $t('Kontakt') }}</span></a></div>
           <a href="https://www.instagram.com/pocket_ledge/" target="_blank" rel="noopener noreferrer"
                   class="outline-button group">
-            <div class="relative w-6 h-6">
-              <img src="/images/instagram-icon-white.svg" alt="Instagram" class="w-6 h-6 absolute transition-opacity duration-0 group-hover:opacity-0" />
-              <img src="/images/instagram-icon-green.svg" alt="Instagram" class="w-6 h-6 absolute transition-opacity duration-0 opacity-0 group-hover:opacity-100" />
+            <div class="relative w-6 h-6 flex items-center justify-center">
+              <img src="/images/instagram-icon-white.svg" alt="Instagram" class="w-5.5 h-5.5 absolute transition-opacity duration-0 group-hover:opacity-0" />
+              <img src="/images/instagram-icon-green.svg" alt="Instagram" class="w-5.5 h-5.5 absolute transition-opacity duration-0 opacity-0 group-hover:opacity-100" />
             </div>
             <span class="hidden sm:inline">Instagram</span>
           </a>
