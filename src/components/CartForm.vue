@@ -3,7 +3,7 @@
     <!-- Falls der Warenkorb leer ist -->
     <div v-if="!cartItem">
       <h1 class="contact-header">
-        {{ $t('Dein Warenkorb')}}
+        {{ $t('Dein Warenkorb') }}
       </h1>
       <div class="contact-card">
         <p class="text-2xl text-center mb-4">{{ $t('Dein Warenkorb ist leer') }}</p>
@@ -24,18 +24,23 @@
       <div class="contact-card">
         <div class="grid grid-cols-3 gap-4 w-full mb-6">
           <div class="h-auto row-span-2">
-            <v-lazy-image src="/images/final/skaten-43.jpeg" src-placeholder="/images/loading.gif" alt=""></v-lazy-image>
+            <v-lazy-image src="/images/final/skaten-43.jpeg" src-placeholder="/images/loading.gif"
+                          alt=""></v-lazy-image>
           </div>
           <div class="flex flex-col gloria-hallelujah-regular" :class="[cartItem.color.textClass]">
-            <div class=" text-2xl text-left" >
+            <div class=" text-2xl text-left">
               POCKETLEDGE
             </div>
             <div>
-              in {{$t(cartItem.color.val)}}
+              in {{ $t(cartItem.color.val) }}
             </div>
           </div>
 
-          <div class="flex justify-end"><div class="w-10 h-10 items-center justify-center outline-button dark font-bold" @click="clearCart"><TrashIcon class="font-bold"></TrashIcon></div></div>
+          <div class="flex justify-end">
+            <div class="w-10 h-10 items-center justify-center outline-button dark font-bold" @click="clearCart">
+              <TrashIcon class="font-bold"></TrashIcon>
+            </div>
+          </div>
           <div class="font-bold flex flex-col items-start justify-end">
             <span>{{ formatCurrency(subtotal) }}</span>
             <span class="font-normal text-xs">{{ $t('Davon MwSt: ') }}{{ formatCurrency(vatAmount) }}</span>
@@ -54,7 +59,9 @@
               :class="['form-input', { error: validate && !customerName }]"
               :placeholder="$t('Dein Name')"
           />
-          <span v-if="validate && !customerName" class="text-red-500 text-sm pl-1">{{ $t('Name ist ein Pflichtfeld') }}</span>
+          <span v-if="validate && !customerName" class="text-red-500 text-sm pl-1">{{
+              $t('Name ist ein Pflichtfeld')
+            }}</span>
         </div>
         <div class="form-group w-full mb-4">
           <label for="email" class="form-label block text-primary-500 font-bold mb-1">{{ $t('E-Mail:') }}</label>
@@ -65,7 +72,8 @@
               :class="['form-input', { error: validate && !validEmail }]"
               :placeholder="$t('Deine E-Mail')"
           />
-          <span v-if="validate && !validEmail" class="text-red-500 text-sm pl-1">{{ $t('Bitte eine gültige E-Mail-Adresse eingeben') }}</span>
+          <span v-if="validate && !validEmail"
+                class="text-red-500 text-sm pl-1">{{ $t('Bitte eine gültige E-Mail-Adresse eingeben') }}</span>
         </div>
         <div class="form-group w-full mb-4">
           <label for="address" class="form-label block text-primary-500 font-bold mb-1">{{ $t('Adresse:') }}</label>
@@ -126,14 +134,16 @@
         <!-- Hinweis zur Bestätigung -->
         <div class="w-full flex flex-col gap-4 mt-1">
           <p class="text-md text-textdark font-bold">
-            {{ $t('Die Ledges werden im Mai 2025 versendet. Den genauen Liefertermin bekommst du nach der Vorbestellung per Email.') }}
+            {{
+              $t('Die Ledges werden im Mai 2025 versendet. Den genauen Liefertermin bekommst du nach der Vorbestellung per Email.')
+            }}
           </p>
         </div>
 
         <!-- Bestellbutton & Fehleranzeige -->
         <div class="w-full mt-6 flex flex-col gap-2">
           <button @click="checkout" class="gradient-button w-full py-3 text-lg items-center">
-            <CreditCardIcon class="w-6 h-6 mr-2" />
+            <CreditCardIcon class="w-6 h-6 mr-2"/>
             {{ $t('Vorbestellung absenden') }}
           </button>
           <p v-if="responseMessage" class="font-bold mt-2"
@@ -161,10 +171,13 @@ const emit = defineEmits(['order', 'close'])
 // Reaktive Variable für den Warenkorb (aus sessionStorage)
 const cartStore = useCartStore();
 const cartItem = cartStore.cartItem;
-const clearCart = ()=>{cartStore.reset(); emit('close')}
+const clearCart = () => {
+  cartStore.reset();
+  emit('close')
+}
 const quantity = computed(() => cartStore.cartItem.value.quantity)
-const updateQuantity = (newQuantity: number)=>{
-  if(newQuantity <= 0){
+const updateQuantity = (newQuantity: number) => {
+  if (newQuantity <= 0) {
     return;
   }
 
@@ -173,7 +186,7 @@ const updateQuantity = (newQuantity: number)=>{
 }
 
 // Get price from the store
-const { rebate, price } = usePreOrderStore();
+const {rebate, price} = usePreOrderStore();
 
 // Ensure rebate is treated as a number
 const discountedPrice = price.value - Number(rebate.value);
@@ -219,7 +232,7 @@ const isError = ref(false);
 
 import {onMounted} from "vue";
 
-onMounted(()=>{
+onMounted(() => {
   sendVisitorInfo("CartForm Viewed");
 })
 
@@ -243,7 +256,7 @@ const sendVisitorInfo = async (title: string) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ message: visitorInfo })
+      body: JSON.stringify({message: visitorInfo})
     });
   } catch (error) {
     console.error('Failed to send visitor info:', error);
@@ -251,6 +264,12 @@ const sendVisitorInfo = async (title: string) => {
 };
 
 const checkout = async () => {
+//@ts-ignore
+  gtag('event', 'conversion', {
+    'send_to': 'AW-16905583254/v0eDCJuno7kaEJb1mv0-',
+    'transaction_id': '',
+    'event_callback': callback
+  });
   if (!customerName.value || !customerEmail.value || !validQuantity.value || !validEmail.value) {
     validate.value = true;
     responseMessage.value = i18n.global.t("Bitte fülle alle Pflichtfelder korrekt aus.");
@@ -286,10 +305,10 @@ Auftragsbestätigung erfolgt per E-Mail mit den Zahlungshinweisen.`;
       customerComment.value = "";
       validate.value = false;
       isError.value = false;
-      setTimeout(async ()=>{
+      setTimeout(async () => {
         await cartStore.reset();
         emit('close');
-      },3000)
+      }, 3000)
 
     } else {
       responseMessage.value = i18n.global.t("Fehler beim Senden der Bestellung!");
