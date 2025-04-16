@@ -263,12 +263,26 @@ const sendVisitorInfo = async (title: string) => {
   }
 };
 
+// function gtag_report_conversion(url) {
+//   var callback = function () {
+//     if (typeof (url) != 'undefined') {
+//       window.location = url;
+//     }
+//   };
+//   gtag('event', 'conversion', {
+//     'send_to': 'AW-16905583254/v0eDCJuno7kaEJb1mv0-',
+//     'transaction_id': '',
+//     'event_callback': callback
+//   });
+//   return false;
+// }
+
 const checkout = async () => {
 //@ts-ignore
   gtag('event', 'conversion', {
     'send_to': 'AW-16905583254/v0eDCJuno7kaEJb1mv0-',
     'transaction_id': '',
-    'event_callback': callback
+    'event_callback': function(){}
   });
   if (!customerName.value || !customerEmail.value || !validQuantity.value || !validEmail.value) {
     validate.value = true;
