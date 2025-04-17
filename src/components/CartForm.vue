@@ -91,6 +91,7 @@
             <option value="at">{{ $t('Österreich') }}</option>
             <option value="de">{{ $t('Deutschland') }}</option>
             <option value="ch">{{ $t('Schweiz') }}</option>
+            <option value="other">{{ $t('Andere EU Länder') }}</option>
           </select>
         </div>
 
@@ -216,7 +217,8 @@ const shippingCost = computed(() => {
   if (deliveryMethod.value === 'pickup') return 0;
   if (customerCountry.value === 'at') return 18;
   if (customerCountry.value === 'de') return 20;
-  if (customerCountry.value === 'ch') return 40;
+  if (customerCountry.value === 'ch') return 29;
+  if (customerCountry.value === 'other') return 29;
   return 0;
 });
 
