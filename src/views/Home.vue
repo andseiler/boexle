@@ -27,7 +27,8 @@
       <div class="text-xl sm:text-2xl mb-4 sm:mb-8 text-textbright text-center custom-text-shadow max-w-[33rem]">
         <div class="flex flex-col gap-2">
           <div>{{ $t('Auf- und Abbau in') }} <strong class="text-primary-500">{{ $t('1 Minute') }}</strong></div>
-          <div>{{ $t('Passt in eine') }} <strong class="text-primary-500">{{ $t('Eurobox') }}</strong> (60x40x30 cm)</div>
+          <div>{{ $t('Passt in eine') }} <strong class="text-primary-500">{{ $t('Eurobox') }}</strong> (60x40x30 cm)
+          </div>
           <!--          <div>Kein Wackeln, <strong class="text-primary-500">kein Verrutschen</strong></div>-->
           <!--          <div>Wiegt so viel wie ein <strong class="text-primary-500">Bierkasten</strong></div>-->
         </div>
@@ -36,9 +37,12 @@
       <div class="hidden sm:block flex flex-col items-center justify-center">
         <div @click="showOrderModalFunc" class="gradient-button mb-8 mx-auto w-fit">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span><span class="text-sm italic">{{ $t('Keine Versandkosten (EU)') }}</span></span>
+          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span><span class="text-sm italic">{{
+              $t('Keine Versandkosten (EU)')
+            }}</span></span>
         </div>
-        <div @click="showCustomObstacleModalFunc" class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
+        <div @click="showCustomObstacleModalFunc"
+             class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
           <span>{{ $t('Anfrage für dein Custom-Obstacle') }}</span>
         </div>
@@ -68,34 +72,51 @@
       <div class="inline-block sm:hidden flex flex-col items-center">
         <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8 w-fit mx-auto">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span><span class="text-sm italic">{{ $t('Keine Versandkosten (EU)') }}</span></span>
+          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span><span class="text-sm italic">{{
+              $t('Keine Versandkosten (EU)')
+            }}</span></span>
         </div>
-        <div @click="showCustomObstacleModalFunc" class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
+        <div @click="showCustomObstacleModalFunc"
+             class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
           <span>{{ $t('Anfrage für dein Custom-Obstacle') }}</span>
         </div>
       </div>
-      <h2 class="text-center text-textbright text-2xl font-bold ">
-        {{ $t('Aufbau in nur 1 Minute!') }}
+      <h2 @click="showSetup" class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-8 md:mt-0">
+        <span>{{ $t('Aufbau in nur 1 Minute!') }}</span>
+        <div class="lg:hidden ">
+          <div
+              class="outline-button w-fit" @click="showSetup">
+            <PlayPauseIcon
+                class="w-6"></PlayPauseIcon>
+          </div>
+        </div>
       </h2>
       <p class="text-center text-textsemibright mb-8 mt-4">
         {{ $t('In nur 1 Minute eine 1,80 m lange Ledge mit 25 cm Höhe skaten, perfekt zum Tricks lernen!') }}</p>
       <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
 
         <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-full max-w-96">
-          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/transport-hori.jpeg', $t('Transportmodus'))">
-            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[0]">
-              <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group"
+               @click="openImageModal('/images/final/transport-hori.jpeg', $t('Transportmodus'))">
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded"
+                 v-show="!imageLoaded[0]">
+              <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                   viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                <path class="opacity-75" fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             </div>
             <img src="/images/final/transport-43.jpeg"
-                          alt="Transportmodus" class="w-full h-full object-cover rounded" @load="imageLoaded[0] = true"
-                          :class="{'opacity-0': !imageLoaded[0], 'opacity-100 transition-opacity duration-300': imageLoaded[0]}"></img>
-            <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
-              <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6" />
+                 alt="Transportmodus" class="w-full h-full object-cover rounded" @load="imageLoaded[0] = true"
+                 :class="{'opacity-0': !imageLoaded[0], 'opacity-100 transition-opacity duration-300': imageLoaded[0]}"></img>
+            <div
+                class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
+              <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6"/>
               </svg>
             </div>
           </div>
@@ -108,19 +129,26 @@
         </div>
 
         <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-full max-w-96">
-          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/verriegeln-hori.jpeg', $t('Aufklappen & Verriegeln'))">
-            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[1]">
-              <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group"
+               @click="openImageModal('/images/final/verriegeln-hori.jpeg', $t('Aufklappen & Verriegeln'))">
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded"
+                 v-show="!imageLoaded[1]">
+              <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                   viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                <path class="opacity-75" fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             </div>
             <img src="/images/final/verriegeln-43.jpeg"
-                          alt="Setup" class="w-full h-full object-cover rounded" @load="imageLoaded[1] = true"
-                          :class="{'opacity-0': !imageLoaded[1], 'opacity-100 transition-opacity duration-300': imageLoaded[1]}"></img>
-            <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
-              <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6" />
+                 alt="Setup" class="w-full h-full object-cover rounded" @load="imageLoaded[1] = true"
+                 :class="{'opacity-0': !imageLoaded[1], 'opacity-100 transition-opacity duration-300': imageLoaded[1]}"></img>
+            <div
+                class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
+              <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6"/>
               </svg>
             </div>
           </div>
@@ -133,19 +161,26 @@
         </div>
 
         <div class="bg-tertiary-200 rounded-lg shadow p-6 flex flex-col items-center w-full max-w-96">
-          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group" @click="openImageModal('/images/final/skaten-hori.jpeg', $t('Skaten!'))">
-            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!imageLoaded[2]">
-              <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <div class="relative w-full aspect-[4/3] cursor-pointer hover:opacity-90 transition-opacity group"
+               @click="openImageModal('/images/final/skaten-hori.jpeg', $t('Skaten!'))">
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded"
+                 v-show="!imageLoaded[2]">
+              <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                   viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                <path class="opacity-75" fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             </div>
-            <img  src="/images/final/skaten-43.jpeg" alt="Skate"
-                          class="w-full h-full object-cover rounded" @load="imageLoaded[2] = true"
-                          :class="{'opacity-0': !imageLoaded[2], 'opacity-100 transition-opacity duration-300': imageLoaded[2]}"></img>
-            <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
-              <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6" />
+            <img src="/images/final/skaten-43.jpeg" alt="Skate"
+                 class="w-full h-full object-cover rounded" @load="imageLoaded[2] = true"
+                 :class="{'opacity-0': !imageLoaded[2], 'opacity-100 transition-opacity duration-300': imageLoaded[2]}"></img>
+            <div
+                class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
+              <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3h-6"/>
               </svg>
             </div>
           </div>
@@ -154,7 +189,7 @@
 
       </div>
       <div class="flex justify-center mt-12">
-        <div @click="showModal = true" class=" w-fit gradient-button gradient-button-outline ">
+        <div @click="showSetup" class=" w-fit gradient-button gradient-button-outline ">
           <PlayPauseIcon class="w-6"></PlayPauseIcon>
           <span>{{ $t('Aufbau in Aktion ansehen') }}</span>
         </div>
@@ -205,20 +240,26 @@
             class="w-full touch-pan-y select-none"
         >
           <swiper-slide>
-            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-nosegrind-180.mp4')">
+            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer"
+                 @click="openVideoModal('bs-nosegrind-180.mp4')">
               <div class="relative">
-                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!videoLoaded[0]">
-                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded"
+                     v-show="!videoLoaded[0]">
+                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                       viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <path class="opacity-75" fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
                 </div>
-                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[0] = true" @error="videoError[0] = true" :class="{'opacity-0': !videoLoaded[0], 'opacity-100 transition-opacity duration-300': videoLoaded[0]}">
+                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[0] = true"
+                       @error="videoError[0] = true"
+                       :class="{'opacity-0': !videoLoaded[0], 'opacity-100 transition-opacity duration-300': videoLoaded[0]}">
                   <source src="/images/bs-nosegrind-180.mp4" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 flex items-center justify-center" v-show="videoLoaded[0]">
                   <div class="bg-primary-500 rounded-full p-3 opacity-80">
-                    <PlayPauseIcon class="w-8 h-8 text-white" />
+                    <PlayPauseIcon class="w-8 h-8 text-white"/>
                   </div>
                 </div>
               </div>
@@ -226,20 +267,26 @@
           </swiper-slide>
 
           <swiper-slide>
-            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('5050-bs-180.mp4')">
+            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer"
+                 @click="openVideoModal('5050-bs-180.mp4')">
               <div class="relative">
-                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!videoLoaded[1]">
-                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded"
+                     v-show="!videoLoaded[1]">
+                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                       viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <path class="opacity-75" fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
                 </div>
-                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[1] = true" @error="videoError[1] = true" :class="{'opacity-0': !videoLoaded[1], 'opacity-100 transition-opacity duration-300': videoLoaded[1]}">
+                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[1] = true"
+                       @error="videoError[1] = true"
+                       :class="{'opacity-0': !videoLoaded[1], 'opacity-100 transition-opacity duration-300': videoLoaded[1]}">
                   <source src="/images/5050-bs-180.mp4" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 flex items-center justify-center" v-show="videoLoaded[1]">
                   <div class="bg-primary-500 rounded-full p-3 opacity-80">
-                    <PlayPauseIcon class="w-8 h-8 text-white" />
+                    <PlayPauseIcon class="w-8 h-8 text-white"/>
                   </div>
                 </div>
               </div>
@@ -247,20 +294,26 @@
           </swiper-slide>
 
           <swiper-slide>
-            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('fakie-fs-5050.mp4')">
+            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer"
+                 @click="openVideoModal('fakie-fs-5050.mp4')">
               <div class="relative">
-                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!videoLoaded[2]">
-                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded"
+                     v-show="!videoLoaded[2]">
+                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                       viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <path class="opacity-75" fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
                 </div>
-                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[2] = true" @error="videoError[2] = true" :class="{'opacity-0': !videoLoaded[2], 'opacity-100 transition-opacity duration-300': videoLoaded[2]}">
+                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[2] = true"
+                       @error="videoError[2] = true"
+                       :class="{'opacity-0': !videoLoaded[2], 'opacity-100 transition-opacity duration-300': videoLoaded[2]}">
                   <source src="/images/fakie-fs-5050.mp4" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 flex items-center justify-center" v-show="videoLoaded[2]">
                   <div class="bg-primary-500 rounded-full p-3 opacity-80">
-                    <PlayPauseIcon class="w-8 h-8 text-white" />
+                    <PlayPauseIcon class="w-8 h-8 text-white"/>
                   </div>
                 </div>
               </div>
@@ -269,20 +322,26 @@
 
           <!-- Add the two new videos -->
           <swiper-slide>
-            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-5050.mp4')">
+            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer"
+                 @click="openVideoModal('bs-5050.mp4')">
               <div class="relative">
-                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!videoLoaded[3]">
-                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded"
+                     v-show="!videoLoaded[3]">
+                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                       viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <path class="opacity-75" fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
                 </div>
-                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[3] = true" @error="videoError[3] = true" :class="{'opacity-0': !videoLoaded[3], 'opacity-100 transition-opacity duration-300': videoLoaded[3]}">
+                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[3] = true"
+                       @error="videoError[3] = true"
+                       :class="{'opacity-0': !videoLoaded[3], 'opacity-100 transition-opacity duration-300': videoLoaded[3]}">
                   <source src="/images/bs-5050.mp4" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 flex items-center justify-center" v-show="videoLoaded[3]">
                   <div class="bg-primary-500 rounded-full p-3 opacity-80">
-                    <PlayPauseIcon class="w-8 h-8 text-white" />
+                    <PlayPauseIcon class="w-8 h-8 text-white"/>
                   </div>
                 </div>
               </div>
@@ -290,20 +349,26 @@
           </swiper-slide>
 
           <swiper-slide>
-            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer" @click="openVideoModal('bs-tailslide.mp4')">
+            <div class="bg-white rounded-lg p-6 text-center relative cursor-pointer"
+                 @click="openVideoModal('bs-tailslide.mp4')">
               <div class="relative">
-                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded" v-show="!videoLoaded[4]">
-                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded"
+                     v-show="!videoLoaded[4]">
+                  <svg class="w-12 h-12 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                       viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <path class="opacity-75" fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
                 </div>
-                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[4] = true" @error="videoError[4] = true" :class="{'opacity-0': !videoLoaded[4], 'opacity-100 transition-opacity duration-300': videoLoaded[4]}">
+                <video class="w-full h-auto rounded" muted loop autoplay @loadeddata="videoLoaded[4] = true"
+                       @error="videoError[4] = true"
+                       :class="{'opacity-0': !videoLoaded[4], 'opacity-100 transition-opacity duration-300': videoLoaded[4]}">
                   <source src="/images/bs-tailslide.mp4" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 flex items-center justify-center" v-show="videoLoaded[4]">
                   <div class="bg-primary-500 rounded-full p-3 opacity-80">
-                    <PlayPauseIcon class="w-8 h-8 text-white" />
+                    <PlayPauseIcon class="w-8 h-8 text-white"/>
                   </div>
                 </div>
               </div>
@@ -312,8 +377,10 @@
         </swiper>
 
         <!-- Navigation arrows positioned absolutely outside the slides -->
-        <div class="swiper-button-prev !absolute !top-1/2 !transform !-translate-y-1/2 !text-primary-500 !opacity-70 hover:!opacity-100 transition-opacity duration-300 !left-0 z-10"></div>
-        <div class="swiper-button-next !absolute !top-1/2 !transform !-translate-y-1/2 !text-primary-500 !opacity-70 hover:!opacity-100 transition-opacity duration-300 !right-0 z-10"></div>
+        <div
+            class="swiper-button-prev !absolute !top-1/2 !transform !-translate-y-1/2 !text-primary-500 !opacity-70 hover:!opacity-100 transition-opacity duration-300 !left-0 z-10"></div>
+        <div
+            class="swiper-button-next !absolute !top-1/2 !transform !-translate-y-1/2 !text-primary-500 !opacity-70 hover:!opacity-100 transition-opacity duration-300 !right-0 z-10"></div>
       </div>
 
       <!-- External pagination -->
@@ -344,7 +411,8 @@
           class="max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center justify-center">
         <h3 class="ont-bold text-primary-500 mb-4 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
         <p class="text-4xl text-textdark mb-2 flex flex-col justify-center items-center">
-          <span class="relative">{{ formatCurrency(price) }} <span class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
+          <span class="relative">{{ formatCurrency(price) }} <span
+              class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
           <span class="text-primary-500 font-extrabold">{{ formatCurrency(discountedPrice) }}</span>
         </p>
         <p class="text-sm mb-6 text-textdark">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
@@ -413,7 +481,7 @@
               $t('Der Aufbau dauert tatsächlich nur 1 Minute! Dank unseres cleveren Designs kannst du PocketLedge blitzschnell einsatzbereit machen.')
             }}
             <br><br><span class="flex items-center gap-2">{{ $t('Der Beweis? Schau dir hier unser Video an') }} <div
-              class="outline-button dark w-fit" @click="showModal=true"><PlayPauseIcon
+              class="outline-button dark w-fit" @click="showSetup"><PlayPauseIcon
               class="w-6"></PlayPauseIcon></div></span></p>
         </div>
 
@@ -447,76 +515,76 @@
     </section>
   </div>
 
-<!--  <div class="bg-primarycontrast-500 w-full">-->
-<!--    <section class="container mx-auto px-4 py-12 max-w-screen-xl text-center">-->
-<!--      <h2 class="text-3xl font-extrabold text-textbright mb-12">-->
-<!--        {{ $t('Die Vorteile') }}</h2>-->
-<!--      <div class="grid md:grid-cols-3 gap-8">-->
-<!--        <div class="bg-tertiary-200 rounded-lg shadow p-6">-->
-<!--          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Modulares Design') }}</h2>-->
-<!--          <p>-->
-<!--            {{ $t('Überall dabei, passt in jeden Kofferraum und sogar auf manche Fahrräder.') }}-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="bg-tertiary-200 rounded-lg shadow p-6">-->
-<!--          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Sekundenschneller Aufbau') }}</h2>-->
-<!--          <p>-->
-<!--            {{ $t('Kein Werkzeug, kein Gefummel, einfach ausklappen und in 1 Minute skaten.') }}-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="bg-tertiary-200 rounded-lg shadow p-6">-->
-<!--          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Stabile Metallkonstruktion') }}</h2>-->
-<!--          <p>-->
-<!--            {{ $t('Die solide Bauweise aus Stahl sorgt für Stabilität, kein Wackeln, kein Verrutschen.') }}-->
-<!--          </p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </section>-->
-<!--  </div>-->
+  <!--  <div class="bg-primarycontrast-500 w-full">-->
+  <!--    <section class="container mx-auto px-4 py-12 max-w-screen-xl text-center">-->
+  <!--      <h2 class="text-3xl font-extrabold text-textbright mb-12">-->
+  <!--        {{ $t('Die Vorteile') }}</h2>-->
+  <!--      <div class="grid md:grid-cols-3 gap-8">-->
+  <!--        <div class="bg-tertiary-200 rounded-lg shadow p-6">-->
+  <!--          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Modulares Design') }}</h2>-->
+  <!--          <p>-->
+  <!--            {{ $t('Überall dabei, passt in jeden Kofferraum und sogar auf manche Fahrräder.') }}-->
+  <!--          </p>-->
+  <!--        </div>-->
+  <!--        <div class="bg-tertiary-200 rounded-lg shadow p-6">-->
+  <!--          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Sekundenschneller Aufbau') }}</h2>-->
+  <!--          <p>-->
+  <!--            {{ $t('Kein Werkzeug, kein Gefummel, einfach ausklappen und in 1 Minute skaten.') }}-->
+  <!--          </p>-->
+  <!--        </div>-->
+  <!--        <div class="bg-tertiary-200 rounded-lg shadow p-6">-->
+  <!--          <h2 class="text-xl font-bold mb-2 text-primary-500">{{ $t('Stabile Metallkonstruktion') }}</h2>-->
+  <!--          <p>-->
+  <!--            {{ $t('Die solide Bauweise aus Stahl sorgt für Stabilität, kein Wackeln, kein Verrutschen.') }}-->
+  <!--          </p>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </section>-->
+  <!--  </div>-->
 
-<!--  <div class="bg-tertiary-200">-->
-<!--    <section id="testimonials" class="container mx-auto px-4 py-16 max-w-screen-xl">-->
-<!--      <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Was unsere Kunden sagen') }}</h2>-->
-<!--      <div class="grid md:grid-cols-3 gap-8">-->
+  <!--  <div class="bg-tertiary-200">-->
+  <!--    <section id="testimonials" class="container mx-auto px-4 py-16 max-w-screen-xl">-->
+  <!--      <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Was unsere Kunden sagen') }}</h2>-->
+  <!--      <div class="grid md:grid-cols-3 gap-8">-->
 
-<!--        <div class="bg-white rounded-lg shadow p-6 text-center">-->
-<!--          <p class="text-textdark italic">-->
-<!--            {{ $t('"PocketLedge ist ein Gamechanger! Super stabil und perfekt für jede Session!') }}</p>-->
-<!--          <p class="mt-4 font-bold text-primary-500">{{ $t('- Max aus Berlin') }}</p>-->
-<!--        </div>-->
+  <!--        <div class="bg-white rounded-lg shadow p-6 text-center">-->
+  <!--          <p class="text-textdark italic">-->
+  <!--            {{ $t('"PocketLedge ist ein Gamechanger! Super stabil und perfekt für jede Session!') }}</p>-->
+  <!--          <p class="mt-4 font-bold text-primary-500">{{ $t('- Max aus Berlin') }}</p>-->
+  <!--        </div>-->
 
-<!--        <div class="bg-white rounded-lg shadow p-6 text-center">-->
-<!--          <p class="text-textdark italic">-->
-<!--            {{ $t('"Ich liebe meine Pocketledge, so schnell aufgebaut und passt locker in mein Lastenrad."') }}</p>-->
-<!--          <p class="mt-4 font-bold text-primary-500">{{ $t('- Lisa aus Wien') }}</p>-->
-<!--        </div>-->
+  <!--        <div class="bg-white rounded-lg shadow p-6 text-center">-->
+  <!--          <p class="text-textdark italic">-->
+  <!--            {{ $t('"Ich liebe meine Pocketledge, so schnell aufgebaut und passt locker in mein Lastenrad."') }}</p>-->
+  <!--          <p class="mt-4 font-bold text-primary-500">{{ $t('- Lisa aus Wien') }}</p>-->
+  <!--        </div>-->
 
-<!--        <div class="bg-white rounded-lg shadow p-6 text-center">-->
-<!--          <p class="text-textdark italic">-->
-<!--            {{-->
-<!--              $t('"Der Landi isch volle bärig, aber gibt halt keine Ledge. Jetzt bring ich einfach meine Eigene mit"')-->
-<!--            }}</p>-->
-<!--          <p class="mt-4 font-bold text-primary-500">{{ $t('- Chris aus Innsbruck') }}</p>-->
-<!--        </div>-->
+  <!--        <div class="bg-white rounded-lg shadow p-6 text-center">-->
+  <!--          <p class="text-textdark italic">-->
+  <!--            {{-->
+  <!--              $t('"Der Landi isch volle bärig, aber gibt halt keine Ledge. Jetzt bring ich einfach meine Eigene mit"')-->
+  <!--            }}</p>-->
+  <!--          <p class="mt-4 font-bold text-primary-500">{{ $t('- Chris aus Innsbruck') }}</p>-->
+  <!--        </div>-->
 
-<!--      </div>-->
-<!--    </section>-->
-<!--  </div>-->
+  <!--      </div>-->
+  <!--    </section>-->
+  <!--  </div>-->
 
   <!-- Video Modal -->
-  <ModalComponent 
-    :is-visible="showVideoModal" 
-    :title="$t('Video')" 
-    :is-video-mode="true"
-    @close="showVideoModal = false"
+  <ModalComponent
+      :is-visible="showVideoModal"
+      :title="$t('Video')"
+      :is-video-mode="true"
+      @close="showVideoModal = false"
   >
     <div class="p-4">
       <div class="relative pt-[56.25%]"> <!-- 16:9 aspect ratio -->
-        <video 
-          class="absolute inset-0 w-full h-full" 
-          controls 
-          autoplay
-          :src="`/images/${currentVideo}`">
+        <video
+            class="absolute inset-0 w-full h-full"
+            controls
+            autoplay
+            :src="`/images/${currentVideo}`">
           {{ $t('Dein Browser unterstützt keine Videos.') }}
         </video>
       </div>
@@ -524,36 +592,38 @@
   </ModalComponent>
 
   <!-- Image Modal -->
-  <ModalComponent 
-    :is-visible="showImageModal" 
-    :title="$t(currentImageTitle)"
-    :is-image-mode="true"
-    @close="closeImageModal"
+  <ModalComponent
+      :is-visible="showImageModal"
+      :title="$t(currentImageTitle)"
+      :is-image-mode="true"
+      @close="closeImageModal"
   >
     <div class="p-4 flex items-center justify-center bg-black relative">
-      <button 
-        v-if="currentImageIndex > 0" 
-        @click="showPreviousImage" 
-        class="absolute left-8 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
+      <button
+          v-if="currentImageIndex > 0"
+          @click="showPreviousImage"
+          class="absolute left-8 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
       >
-        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
       </button>
-      
+
       <img
           :src="currentImage"
-        :alt="$t(currentImageTitle)"
-        class="max-w-full max-h-[80vh] object-contain min-h-[200px]"
+          :alt="$t(currentImageTitle)"
+          class="max-w-full max-h-[80vh] object-contain min-h-[200px]"
       />
-      
-      <button 
-        v-if="currentImageIndex < setupImages.length - 1" 
-        @click="showNextImage" 
-        class="absolute right-8 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
+
+      <button
+          v-if="currentImageIndex < setupImages.length - 1"
+          @click="showNextImage"
+          class="absolute right-8 bg-primary-500 rounded-full p-3 opacity-70 hover:opacity-100 transition-opacity z-10"
       >
-        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
         </svg>
       </button>
     </div>
@@ -567,8 +637,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 //@ts-ignore
 import 'swiper/css/navigation';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+import {Swiper, SwiperSlide} from 'swiper/vue';
+import {Pagination, Autoplay, Navigation} from 'swiper/modules';
 import {computed, onMounted, onUnmounted, ref} from "vue";
 import {
   ShoppingCartIcon,
@@ -576,7 +646,7 @@ import {
   CheckBadgeIcon,
   VideoCameraIcon,
   PlayPauseIcon,
-    WrenchScrewdriverIcon
+  WrenchScrewdriverIcon
 } from '@heroicons/vue/24/outline'
 import useCartStore from "../store/cartStore.ts";
 //@ts-ignore
@@ -644,6 +714,11 @@ const setupImages = [
   }
 ];
 
+async function showSetup() {
+  showModal.value = true;
+  await sendVisitorInfo("Setup watched")
+}
+
 const showOrderModalFunc = () => {
   if (cartItem.value) {
     showCartModal.value = true;
@@ -675,7 +750,7 @@ const openImageModal = (image: string, title: string) => {
   if (index !== -1) {
     currentImageIndex.value = index;
   }
-  
+
   currentImage.value = image;
   currentImageTitle.value = title;
   showImageModal.value = true;
@@ -685,8 +760,8 @@ const showNextImage = () => {
   if (currentImageIndex.value < setupImages.length - 1) {
     currentImageIndex.value++;
     const nextImage = setupImages[currentImageIndex.value];
-    currentImage.value = nextImage?.src??'';
-    currentImageTitle.value = nextImage?.title??'';
+    currentImage.value = nextImage?.src ?? '';
+    currentImageTitle.value = nextImage?.title ?? '';
   }
 }
 
@@ -694,8 +769,8 @@ const showPreviousImage = () => {
   if (currentImageIndex.value > 0) {
     currentImageIndex.value--;
     const prevImage = setupImages[currentImageIndex.value];
-    currentImage.value = prevImage?.src??'';
-    currentImageTitle.value = prevImage?.title??'';
+    currentImage.value = prevImage?.src ?? '';
+    currentImageTitle.value = prevImage?.title ?? '';
   }
 }
 
@@ -704,7 +779,34 @@ const closeImageModal = () => {
 }
 
 const formatCurrency = (amount: number) => {
-  return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(amount);
+  return new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}).format(amount);
+};
+
+const sendVisitorInfo = async (title: string) => {
+  try {
+    const userAgent = navigator.userAgent;
+    const language = navigator.language;
+    const screenSize = `${window.screen.width}x${window.screen.height}`;
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const referrer = document.referrer;
+
+    const visitorInfo = `🔍 ${title}:\n` +
+        `📱 Device: ${userAgent}\n` +
+        `🌐 Language: ${language}\n` +
+        `📺 Screen: ${screenSize}\n` +
+        `🕒 Timezone: ${timeZone}\n` +
+        `↩️ Referrer: ${referrer || 'Direct visit'}`;
+
+    await fetch('/.netlify/functions/sendTelegramMessage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({message: visitorInfo})
+    });
+  } catch (error) {
+    console.error('Failed to send visitor info:', error);
+  }
 };
 </script>
 
@@ -764,7 +866,7 @@ const formatCurrency = (amount: number) => {
     width: 30px;
     height: 30px;
   }
-  
+
   :deep(.swiper-button-prev:after),
   :deep(.swiper-button-next:after) {
     font-size: 14px;
