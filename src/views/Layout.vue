@@ -60,10 +60,10 @@
           </svg>
         </button>
 
-        <v-lazy-image           :src="currentImage"
+        <img           :src="currentImage"
                                 :alt="$t(currentImageTitle)"
                                 class="max-w-full max-h-[80vh] ">
-        </v-lazy-image>
+        </img>
 <!--        <img -->
 
 <!--        />-->

@@ -32,8 +32,8 @@
         </div>
         <div class="grid grid-cols-3 gap-4 w-full mb-6">
           <div class="h-auto row-span-2">
-            <v-lazy-image src="/images/final/skaten-43.jpeg"
-                          alt=""></v-lazy-image>
+            <img src="/images/final/skaten-43.jpeg"
+                          alt=""></img>
           </div>
           <div class="flex flex-col gloria-hallelujah-regular" :class="[cartItem.color.textClass]">
             <div class=" text-lg xs:text-lg sm:text-2xl text-left">

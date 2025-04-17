@@ -25,7 +25,7 @@
             class="w-full aspect-[4/3]"
         >
           <SwiperSlide v-for="(img, index) in images" :key="index">
-            <v-lazy-image :src="img" class=" w-full" />
+            <img :src="img" class=" w-full" />
           </SwiperSlide>
         </Swiper>
         <button
