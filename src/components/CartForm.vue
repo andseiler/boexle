@@ -122,7 +122,7 @@
         <div class="form-group w-full mb-4" v-if="deliveryMethod === 'delivery'">
           <p class="form-label">{{ $t('Versandkosten:') }}</p>
 <!--          <p class="text-textdark text-xl">{{ formatCurrency(shippingCost) }}</p>-->
-          <p class="text-textdark text-xl">EU wide free shipping</p>
+          <p class="text-textdark text-xl">{{ $t('Keine Versandkosten innerhalb der EU') }}</p>
         </div>
         <div class="form-group w-full mb-4">
           <p class="form-label">{{ $t('Gesamtsumme:') }}</p>
