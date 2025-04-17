@@ -36,7 +36,7 @@
       <div class="hidden sm:block flex flex-col items-center justify-center">
         <div @click="showOrderModalFunc" class="gradient-button mb-8 mx-auto w-fit">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span>{{ $t('Jetzt bestellen') }}</span>
+          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span><span class="text-sm italic">{{ $t('Keine Versandkosten (EU)') }}</span></span>
         </div>
         <div @click="showCustomObstacleModalFunc" class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
@@ -68,7 +68,7 @@
       <div class="inline-block sm:hidden flex flex-col items-center">
         <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8 w-fit mx-auto">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span>{{ $t('Jetzt bestellen') }}</span>
+          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span><span class="text-sm italic">{{ $t('Keine Versandkosten (EU)') }}</span></span>
         </div>
         <div @click="showCustomObstacleModalFunc" class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
@@ -348,7 +348,7 @@
           <span class="text-primary-500 font-extrabold">{{ formatCurrency(discountedPrice) }}</span>
         </p>
         <p class="text-sm mb-6 text-textdark">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
-        <p class="text-textdark mb-6">{{ $t('Handgefertigt in Österreich – sofort einsatzbereit!') }}</p>
+        <p class="text-textdark italic font-bold text-xl mb-6">{{ $t('Keine Versandkosten innerhalb der EU') }}</p>
 
         <ul class="text-textdark text-left space-y-3 mb-6">
           <li class="flex items-center">
