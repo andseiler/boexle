@@ -90,7 +90,7 @@
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             </div>
-            <v-lazy-image src="/images/final/transport-43.jpeg" src-placeholder="/images/loading.gif"
+            <v-lazy-image src="/images/final/transport-43.jpeg"
                           alt="Transportmodus" class="w-full h-full object-cover rounded" @load="imageLoaded[0] = true"
                           :class="{'opacity-0': !imageLoaded[0], 'opacity-100 transition-opacity duration-300': imageLoaded[0]}"></v-lazy-image>
             <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
@@ -115,7 +115,7 @@
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             </div>
-            <v-lazy-image src="/images/final/verriegeln-43.jpeg" src-placeholder="/images/loading.gif"
+            <v-lazy-image src="/images/final/verriegeln-43.jpeg"
                           alt="Setup" class="w-full h-full object-cover rounded" @load="imageLoaded[1] = true"
                           :class="{'opacity-0': !imageLoaded[1], 'opacity-100 transition-opacity duration-300': imageLoaded[1]}"></v-lazy-image>
             <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
@@ -140,7 +140,7 @@
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             </div>
-            <v-lazy-image src-placeholder="/images/loading.gif" src="/images/final/skaten-43.jpeg" alt="Skate"
+            <v-lazy-image  src="/images/final/skaten-43.jpeg" alt="Skate"
                           class="w-full h-full object-cover rounded" @load="imageLoaded[2] = true"
                           :class="{'opacity-0': !imageLoaded[2], 'opacity-100 transition-opacity duration-300': imageLoaded[2]}"></v-lazy-image>
             <div class="absolute bottom-2 right-2 bg-primary-500 rounded-full p-2 opacity-0 group-hover:opacity-80 transition-opacity">
@@ -543,7 +543,6 @@
       
       <v-lazy-image
           :src="currentImage"
-          src-placeholder="/images/loading.gif"
         :alt="$t(currentImageTitle)"
         class="max-w-full max-h-[80vh] object-contain min-h-[200px]"
       />

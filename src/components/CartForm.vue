@@ -1,5 +1,5 @@
 <template>
-  <div class="order-checkout-page container mx-auto p-4 bg-primarycontrast-500 pb-8">
+  <div class="order-checkout-page mx-auto w-full p-4 bg-primarycontrast-500 pb-8">
     <!-- Falls der Warenkorb leer ist -->
     <div v-if="!cartItem">
       <h1 class="contact-header">
@@ -22,22 +22,30 @@
         {{ $t('Dein Warenkorb') }}
       </h1>
       <div class="contact-card">
+        <div class="flex xs:hidden justify-between w-full mb-4 ">
+          <div class="flex justify-end items-end">
+            <QuantityInput :model-value="quantity" @update:model-value="updateQuantity"></QuantityInput>
+          </div>
+          <div class="w-10 h-10 items-center justify-center outline-button dark font-bold" @click="clearCart">
+            <TrashIcon class="font-bold"></TrashIcon>
+          </div>
+        </div>
         <div class="grid grid-cols-3 gap-4 w-full mb-6">
           <div class="h-auto row-span-2">
-            <v-lazy-image src="/images/final/skaten-43.jpeg" src-placeholder="/images/loading.gif"
+            <v-lazy-image src="/images/final/skaten-43.jpeg"
                           alt=""></v-lazy-image>
           </div>
           <div class="flex flex-col gloria-hallelujah-regular" :class="[cartItem.color.textClass]">
-            <div class=" text-2xl text-left">
+            <div class=" text-lg xs:text-lg sm:text-2xl text-left">
               POCKETLEDGE
             </div>
             <div>
               in {{ $t(cartItem.color.val) }}
             </div>
           </div>
-
-          <div class="flex justify-end">
-            <div class="w-10 h-10 items-center justify-center outline-button dark font-bold" @click="clearCart">
+          <div class="block xs:hidden"></div>
+          <div class="hidden xs:flex justify-end">
+            <div class=" w-10 h-10 items-center justify-center outline-button dark font-bold" @click="clearCart">
               <TrashIcon class="font-bold"></TrashIcon>
             </div>
           </div>
@@ -45,7 +53,7 @@
             <span>{{ formatCurrency(subtotal) }}</span>
             <span class="font-normal text-xs">{{ $t('Davon MwSt: ') }}{{ formatCurrency(vatAmount) }}</span>
           </div>
-          <div class="flex justify-end items-end">
+          <div class="hidden xs:flex justify-end items-end">
             <QuantityInput :model-value="quantity" @update:model-value="updateQuantity"></QuantityInput>
           </div>
         </div>

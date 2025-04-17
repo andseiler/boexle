@@ -61,7 +61,6 @@
         </button>
 
         <v-lazy-image           :src="currentImage"
-                                src-placeholder="/images/loading.gif"
                                 :alt="$t(currentImageTitle)"
                                 class="max-w-full max-h-[80vh] ">
         </v-lazy-image>

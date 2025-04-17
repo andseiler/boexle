@@ -1,6 +1,6 @@
 <!-- CartComponent.vue -->
 <template>
-  <div class="cart-component container mx-auto p-4 bg-primarycontrast-500 pb-8">
+  <div class="cart-component mx-auto w-full p-4 bg-primarycontrast-500 pb-8">
     <h1 class="contact-header text-3xl font-extrabold text-textbright mb-8 text-center">
       {{ $t('Jetzt bestellen') }}
     </h1>
@@ -25,7 +25,7 @@
             class="w-full aspect-[4/3]"
         >
           <SwiperSlide v-for="(img, index) in images" :key="index">
-            <v-lazy-image :src="img" src-placeholder="/images/loading.gif" class=" w-full" />
+            <v-lazy-image :src="img" class=" w-full" />
           </SwiperSlide>
         </Swiper>
         <button
@@ -53,7 +53,7 @@
       <!-- Hier eine schöne Farbauswahl, schwarz ist default -->
       <div class="form-group w-full mb-4">
         <p class="form-label">{{ $t('Farbe:') }}</p>
-        <div class="flex gap-4">
+        <div class="flex flex-wrap gap-4">
           <label v-for="(item, index) in colors" :key="index" class="flex items-center">
             <div class="cursor-pointer flex gap-1 py-1 px-2 rounded-xl h-10 w-10 hover:scale-105 shadow ease-in-out duration-300"
                  @click="selectedColor = item"
