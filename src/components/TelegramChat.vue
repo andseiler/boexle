@@ -42,7 +42,7 @@ const sendMessage = async () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ message: email.value + ' - ' + message.value })
+      body: JSON.stringify({ message: 'Bestellung: na ja fast, ne Nachricht halt:' + email.value + ' - ' + message.value })
     });
 
     if (response.ok) {
