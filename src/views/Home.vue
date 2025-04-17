@@ -12,7 +12,7 @@
       rotate-12 text-white text-sm font-bold rounded-full shadow-lg 
       flex text-center flex-col gap-2
       items-center justify-center z-20 h-36 w-36 lg:h-48 lg:w-48">
-        <span class="gloria-hallelujah-regular text-xl lg:text-3xl">{{ $t('Early Bird') }}</span>
+        <span class="gloria-hallelujah-regular text-xl lg:text-3xl">{{ $t('Im April') }}</span>
         <span class=" font-bolder text-4xl lg:text-5xl gloria-hallelujah-regular">-{{ rebate }} €</span>
         <span class="text-sm italic font-normal"><span class="hidden lg:inline">{{
             $t('Nur noch')
@@ -36,7 +36,7 @@
       <div class="hidden sm:block flex flex-col items-center justify-center">
         <div @click="showOrderModalFunc" class="gradient-button mb-8 mx-auto w-fit">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span>{{ $t('Jetzt vorbestellen') }}</span>
+          <span>{{ $t('Jetzt bestellen') }}</span>
         </div>
         <div @click="showCustomObstacleModalFunc" class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
@@ -53,7 +53,7 @@
                     rotate-12 font-bold rounded-full shadow-lg
                     flex text-center flex-col
                     items-center justify-center z-20 h-28 w-28">
-        <span class="gloria-hallelujah-regular text-base">{{ $t('Early Bird') }}</span>
+        <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>
         <span class=" font-bolder text-xl gloria-hallelujah-regular">-{{ rebate }} €</span>
         <span class="text-xs italic font-normal">{{ totalAvailable - preOrderCount }} {{ $t('verfügbar') }}</span>
       </div>
@@ -62,13 +62,13 @@
                     rotate-12 font-bold rounded-full shadow-lg
                     flex text-center flex-col
                     items-center justify-center z-20 h-24 w-24">
-        <span class="gloria-hallelujah-regular text-base">{{ $t('Early Bird') }}</span>
+        <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>
         <span class=" font-bolder text-xl gloria-hallelujah-regular">-{{ rebate }} €</span>
       </div>
       <div class="inline-block sm:hidden flex flex-col items-center">
         <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8 w-fit mx-auto">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span>{{ $t('Jetzt vorbestellen') }}</span>
+          <span>{{ $t('Jetzt bestellen') }}</span>
         </div>
         <div @click="showCustomObstacleModalFunc" class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
@@ -381,7 +381,7 @@
         <div @click="showOrderModalFunc"
              class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          {{ $t('Jetzt vorbestellen') }}
+          {{ $t('Jetzt bestellen') }}
         </div>
       </div>
 

@@ -10,7 +10,7 @@
         <div class="text-center">
           <button @click="goToShop"
                   class="gradient-button w-full py-3 text-lg">
-            {{ $t('Jetzt vorbestellen') }}
+            {{ $t('Jetzt bestellen') }}
           </button>
         </div>
       </div>
@@ -135,9 +135,7 @@
         <!-- Hinweis zur Bestätigung -->
         <div class="w-full flex flex-col gap-4 mt-1">
           <p class="text-md text-textdark font-bold">
-            {{
-              $t('Die Ledges werden im Mai 2025 versendet. Den genauen Liefertermin bekommst du nach der Vorbestellung per Email.')
-            }}
+            {{ $t('Deine Ledge wird innerhalb einer Woche nach Zahlungseingang versendet.') }}
           </p>
         </div>
 
@@ -145,7 +143,7 @@
         <div class="w-full mt-6 flex flex-col gap-2">
           <button @click="checkout" class="gradient-button w-full py-3 text-lg items-center">
             <CreditCardIcon class="w-6 h-6 mr-2"/>
-            {{ $t('Vorbestellung absenden') }}
+            {{ $t('Bestellung absenden') }}
           </button>
           <p v-if="responseMessage" class="font-bold mt-2"
              :class="{'text-red-500': isError, 'text-primary-500': !isError}">

@@ -2,7 +2,7 @@
 <template>
   <div class="cart-component container mx-auto p-4 bg-primarycontrast-500 pb-8">
     <h1 class="contact-header text-3xl font-extrabold text-textbright mb-8 text-center">
-      {{ $t('Jetzt vorbestellen') }}
+      {{ $t('Jetzt bestellen') }}
     </h1>
     <div class="contact-card max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center">
 
@@ -78,7 +78,7 @@
 
       <div class="w-full flex flex-col gap-4 pt-4 border-t">
         <p class="text-md text-textdark font-bold">
-          {{ $t('Die Ledges werden im Mai 2025 versendet. Den genauen Liefertermin bekommst du nach der Vorbestellung per Email.') }}
+          {{ $t('Deine Ledge wird innerhalb einer Woche nach Zahlungseingang versendet.') }}
         </p>
       </div>
 
@@ -91,7 +91,7 @@
         <!-- Hier ein Button "Direkt bezahlen" -->
         <button @click="directPay" class="gradient-button custom-color from-primary-500 to-primary-600 flex-1 py-3 text-lg flex items-center justify-center">
           <CreditCardIcon class="w-6 h-6 mr-2" />
-          {{ $t('Direkt vorbestellen') }}
+          {{ $t('Direkt bestellen') }}
         </button>
       </div>
     </div>
