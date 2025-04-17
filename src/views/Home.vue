@@ -69,7 +69,7 @@
         <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>
         <span class=" font-bolder text-xl gloria-hallelujah-regular">-{{ rebate }} €</span>
       </div>
-      <div class="inline-block sm:hidden flex flex-col items-center">
+      <div class="inline-block sm:hidden flex flex-col items-center mt-4">
         <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8 w-fit mx-auto">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
           <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span><span class="text-sm italic">{{
