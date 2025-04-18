@@ -141,6 +141,9 @@
         </div>
       </div>
     </footer>
+    
+    <!-- Live Chat Component -->
+    <TelegramLiveChat />
   </div>
 </template>
 
@@ -170,6 +173,7 @@ import useModalStore from '../store/modalStore';
 import { useRouter } from 'vue-router';
 //@ts-ignore
 import VLazyImage from "v-lazy-image";
+import TelegramLiveChat from "../components/TelegramLiveChat.vue";
 
 // Initialisiere Swiper Plugins
 SwiperCore.use([Pagination, Autoplay]);
