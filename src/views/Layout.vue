@@ -143,7 +143,7 @@
     </footer>
     
     <!-- Live Chat Component -->
-    <TelegramLiveChat />
+<!--    <TelegramLiveChat />-->
   </div>
 </template>
 
