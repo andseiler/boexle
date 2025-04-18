@@ -93,7 +93,7 @@
           <CreditCardIcon class="w-6 h-6 mr-2" />
           {{ $t('Direkt bestellen') }}
         </button>
-        <InstagramMessageButton></InstagramMessageButton>
+        <InstagramMessageButton :always-full="true"></InstagramMessageButton>
       </div>
     </div>
   </div>
