@@ -93,6 +93,7 @@
           <CreditCardIcon class="w-6 h-6 mr-2" />
           {{ $t('Direkt bestellen') }}
         </button>
+        <InstagramMessageButton></InstagramMessageButton>
       </div>
     </div>
   </div>
@@ -114,6 +115,7 @@ import {i18n} from "../main.ts";
 import usePreOrderStore from '../store/usePreOrderStore';
 //@ts-ignore
 import VLazyImage from "v-lazy-image";
+import InstagramMessageButton from "./InstagramMessageButton.vue";
 
 const cartStore = useCartStore();
 const { preOrderCount, totalAvailable, rebate, price } = usePreOrderStore();
