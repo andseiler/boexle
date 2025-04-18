@@ -11,7 +11,7 @@
     <div class="relative w-6 h-6 flex items-center justify-center mr-2">
       <img src="/images/instagram-icon-white.svg" alt="Instagram" class="w-6 h-6" />
     </div>
-    <span>{{$t('DM @pocket_ledge')}}</span>
+    <span>{{$t('Drop me a DM - @pocket_ledge')}}</span>
   </a>
 </template>
 
