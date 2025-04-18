@@ -142,8 +142,7 @@
       </div>
     </footer>
     
-    <!-- Live Chat Component -->
-<!--    <TelegramLiveChat />-->
+    <InstagramMessageButton />
   </div>
 </template>
 
@@ -173,6 +172,7 @@ import useModalStore from '../store/modalStore';
 import { useRouter } from 'vue-router';
 //@ts-ignore
 import VLazyImage from "v-lazy-image";
+import InstagramMessageButton from "../components/InstagramMessageButton.vue";
 // import TelegramLiveChat from "../components/TelegramLiveChat.vue";
 
 // Initialisiere Swiper Plugins
