@@ -31,7 +31,7 @@
       <div ref="messagesContainer" class="messages-container p-4 overflow-y-auto">
         <!-- Welcome message -->
         <div v-if="!hasStartedChat" class="system-message mb-4 text-center">
-          <p>{{ $t('Willkommen! Wie können wir dir helfen?') }}</p>
+          <p>{{ $t('Hey, ich bin Andi, der Erfinder der PocketLedge. Hast du Fragen?') }}</p>
         </div>
 
         <!-- Message thread -->
@@ -208,7 +208,7 @@ const fetchMessages = async () => {
   if (!chatId.value) return;
   
   try {
-    const response = await fetch(`/.netlify/functions/getTelegramMessages?chatId=${chatId.value}`);
+    const response = await fetch(`/.netlify/functions/telegram?chatId=${chatId.value}`);
     
     if (!response.ok) {
       console.error('Failed to fetch messages:', await response.text());
@@ -219,19 +219,20 @@ const fetchMessages = async () => {
     
     // Find messages that aren't in our local state yet
     if (data.messages && Array.isArray(data.messages)) {
-      const newMessages = data.messages.filter(
-        serverMsg => !messages.value.some(localMsg => 
-          localMsg.id === serverMsg.id && localMsg.direction === serverMsg.direction
-        )
+      // Get all incoming messages (from Telegram to website)
+      const newIncomingMessages = data.messages.filter(
+        serverMsg => 
+          serverMsg.direction === 'incoming' && 
+          !messages.value.some(localMsg => localMsg.id === serverMsg.id)
       );
       
-      if (newMessages.length > 0) {
-        // Show typing indicator briefly
+      if (newIncomingMessages.length > 0) {
+        // Show typing indicator briefly before showing new messages
         isTyping.value = true;
         setTimeout(() => {
           isTyping.value = false;
           // Add new messages
-          messages.value = [...messages.value, ...newMessages];
+          messages.value = [...messages.value, ...newIncomingMessages];
           // Scroll down
           nextTick(scrollToBottom);
         }, 1200);
