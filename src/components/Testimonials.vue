@@ -47,7 +47,7 @@
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-10zm-14 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.999v10h-9.999z"/>
                 </svg>
                 <p class="text-textbright italic">
-                  Alter, deine Ledge ist so geil. Ich hab grad meine ersten FS Noseslide daran gestanden!! Voll gehyped
+                  Dude, your ledge is so sick. I just landed my first FS Nodeslide ever!! Totally hyped
                 </p>
               </div>
               <div class="flex items-center justify-center flex-col">
