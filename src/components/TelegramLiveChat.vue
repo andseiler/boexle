@@ -119,17 +119,8 @@ const toggleChat = () => {
   if (isExpanded.value) {
     nextTick(() => {
       scrollToBottom();
-      if (!chatId.value) {
-        initializeChat();
-      }
     });
   }
-};
-
-// Initialize chat and generate a session ID
-const initializeChat = () => {
-  chatId.value = 'user_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-  startPolling();
 };
 
 // Format timestamp for display
@@ -183,6 +174,18 @@ const sendMessage = async () => {
         chatId: chatId.value
       }),
     });
+
+    const telegramResp = await response.json();
+    if (telegramResp.ok) {
+      // Telegram tells you which chat it used:
+      const realChatId = telegramResp.result.chat.id.toString();
+      // override your local chatId
+      chatId.value = realChatId;
+      hasStartedChat.value = true;
+      startPolling();
+    } else {
+      console.error('Telegram error', telegramResp);
+    }
     
     if (!response.ok) {
       console.error('Failed to send message:', await response.text());
