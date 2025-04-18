@@ -9,10 +9,13 @@
       to-orange-500 text-white"
   >
     <div class="relative w-6 h-6 flex items-center justify-center">
-      <img src="/images/instagram-icon-white.svg" alt="Instagram" class="w-6 h-6" />
+      <img src="/images/instagram-icon-white.svg" alt="Instagram" class="w-6 h-6"/>
     </div>
-    <span class="ml-2" v-if="alwaysFull">{{$t('Drop me a DM - @pocket_ledge')}}</span>
-    <span class="ml-2 hidden lg:inline" v-else>{{$t('Drop me a DM - @pocket_ledge')}}</span>
+    <span class="ml-2" v-if="alwaysFull">{{ $t('Drop me a DM - @pocket_ledge') }}</span>
+    <template v-else>
+      <span class="lg:hidden">{{ $t('DM') }}</span>
+      <span class="ml-2 hidden lg:inline">{{ $t('Drop me a DM - @pocket_ledge') }}</span>
+    </template>
   </a>
 </template>
 
@@ -20,7 +23,7 @@
 
 //@ts-ignore
 const props = defineProps({
-  alwaysFull : Boolean
+  alwaysFull: Boolean
 })
 
 const sendVisitorInfo = async (title: string) => {
@@ -43,7 +46,7 @@ const sendVisitorInfo = async (title: string) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ message: visitorInfo })
+      body: JSON.stringify({message: visitorInfo})
     });
   } catch (error) {
     console.error('Failed to send visitor info:', error);
