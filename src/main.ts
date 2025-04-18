@@ -7,8 +7,17 @@ import deKeys from './translations/keys-de.json';
 import enKeys from './translations/keys-en.json';
 import router from './router/router';
 
+const browserLanguage = navigator.language.split('-')[0];
+
+// Supported locales for your app
+const supportedLocales = ['en', 'de'];
+
+// If the browser language is supported, use it; otherwise, default to 'de'
+const initialLocale = supportedLocales.includes(browserLanguage) ? browserLanguage : 'en';
+
+
 export const i18n = createI18n({
-    locale: 'en',
+    locale: initialLocale,
     fallbackLocale: 'en',
     messages: {
         en: {...enKeys},
