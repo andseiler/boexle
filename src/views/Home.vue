@@ -199,6 +199,9 @@
 
   <div class="bg-tertiary-200">
     <section id="testimonials" class="container mx-auto px-4 py-16 max-w-screen-xl">
+
+      <testimonials></testimonials>
+
       <h2 class="text-center text-primary-500 text-2xl font-bold mb-8">{{ $t('Noch ein paar Clips') }}</h2>
 
       <!-- Create a relative container with padding for the arrows -->
@@ -656,6 +659,7 @@ import usePreOrderStore from '../store/usePreOrderStore';
 import ModalComponent from '../components/ModalComponent.vue';
 //@ts-ignore
 import VLazyImage from "v-lazy-image";
+import Testimonials from "../components/Testimonials.vue";
 
 const {cartItem} = useCartStore();
 
