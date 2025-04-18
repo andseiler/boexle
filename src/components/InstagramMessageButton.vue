@@ -24,6 +24,7 @@ function openInNewTab(url: string) {
 }
 // No script needed for this simplified version
 function launchInstagramDM() {
+  sendVisitorInfo('Insta Button Clicked:')
   const username='pocket_ledge';
   const webUrl     = `https://ig.me/m/${username}`;
   const iosScheme  = `instagram://direct?username=${username}`;
@@ -46,4 +47,31 @@ function launchInstagramDM() {
   // If the app actually opens, the page will be hidden/unloaded, so cancel the fallback
   window.addEventListener('pagehide', () => clearTimeout(fallback));
 }
+
+const sendVisitorInfo = async (title: string) => {
+  try {
+    const userAgent = navigator.userAgent;
+    const language = navigator.language;
+    const screenSize = `${window.screen.width}x${window.screen.height}`;
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const referrer = document.referrer;
+
+    const visitorInfo = `🔍 ${title}:\n` +
+        `📱 Device: ${userAgent}\n` +
+        `🌐 Language: ${language}\n` +
+        `📺 Screen: ${screenSize}\n` +
+        `🕒 Timezone: ${timeZone}\n` +
+        `↩️ Referrer: ${referrer || 'Direct visit'}`;
+
+    await fetch('/.netlify/functions/sendTelegramMessage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message: visitorInfo })
+    });
+  } catch (error) {
+    console.error('Failed to send visitor info:', error);
+  }
+};
 </script>
