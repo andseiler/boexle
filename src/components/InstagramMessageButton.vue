@@ -8,7 +8,7 @@
     <div class="relative w-6 h-6 flex items-center justify-center mr-2">
       <img src="/images/instagram-icon-white.svg" alt="Instagram" class="w-6 h-6" />
     </div>
-    <span class="font-medium">{{$t('Schreib mir eine DM')}}</span>
+    <span>{{$t('Schreib mir eine DM')}}</span>
   </div>
 </template>
 
@@ -34,7 +34,7 @@ function launchInstagramDM() {
   // Start a timer that will redirect to webUrl after ~1.5s
   const fallback = setTimeout(() => {
     openInNewTab(webUrl);
-  }, 1500);
+  }, 3000);
 
   // Try the custom scheme first
   if (/Android/.test(navigator.userAgent)) {
