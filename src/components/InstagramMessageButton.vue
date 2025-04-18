@@ -8,10 +8,10 @@
       class="justify-center cursor-pointer flex items-center gradient-button custom-color from-purple-500 via-pink-500
       to-orange-500 text-white"
   >
-    <div class="relative w-6 h-6 flex items-center justify-center mr-2">
+    <div class="relative w-6 h-6 flex items-center justify-center">
       <img src="/images/instagram-icon-white.svg" alt="Instagram" class="w-6 h-6" />
     </div>
-    <span>{{$t('Drop me a DM - @pocket_ledge')}}</span>
+    <span class="ml-2 hidden lg:inline">{{$t('Drop me a DM - @pocket_ledge')}}</span>
   </a>
 </template>
 
