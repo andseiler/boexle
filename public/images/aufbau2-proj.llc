@@ -1,0 +1,11 @@
+{
+  version: 1,
+  mediaFileName: 'aufbau2.mp4',
+  cutSegments: [
+    {
+      start: 3.9526595744680852,
+      end: 44.56623670212766,
+      name: '',
+    },
+  ],
+}
