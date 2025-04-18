@@ -13,10 +13,8 @@
       flex text-center flex-col gap-2
       items-center justify-center z-20 h-36 w-36 lg:h-48 lg:w-48">
         <span class="gloria-hallelujah-regular text-xl lg:text-3xl">{{ $t('Im April') }}</span>
-        <span class=" font-bolder text-4xl lg:text-5xl gloria-hallelujah-regular">-{{ rebate }} €</span>
-        <span class="text-sm italic font-normal"><span class="hidden lg:inline">{{
-            $t('Nur noch')
-          }}</span> {{ totalAvailable - preOrderCount }} {{ $t('verfügbar') }}</span>
+        <span class=" font-bolder text-4xl lg:text-5xl gloria-hallelujah-regular">{{ price - rebate }} €</span>
+        <span class="text-sm italic font-normal">{{$t('0 € Versand')}}</span>
       </div>
     </video-background>
     <div class="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
@@ -58,8 +56,8 @@
                     flex text-center flex-col
                     items-center justify-center z-20 h-28 w-28">
         <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>
-        <span class=" font-bolder text-xl gloria-hallelujah-regular">-{{ rebate }} €</span>
-        <span class="text-xs italic font-normal">{{ totalAvailable - preOrderCount }} {{ $t('verfügbar') }}</span>
+        <span class=" font-bolder text-xl gloria-hallelujah-regular">{{ price - rebate }} €</span>
+        <span class="text-xs italic font-normal">{{$t('0 € Versand')}}</span>
       </div>
       <div class="absolute top-[-2.5rem] right-1 sm:right-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white
                     flex xs:hidden
@@ -67,7 +65,7 @@
                     flex text-center flex-col
                     items-center justify-center z-20 h-24 w-24">
         <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>
-        <span class=" font-bolder text-xl gloria-hallelujah-regular">-{{ rebate }} €</span>
+        <span class=" font-bolder text-xl gloria-hallelujah-regular">{{ price - rebate }} €</span>
       </div>
       <div class="inline-block sm:hidden flex flex-col items-center mt-4">
         <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8 w-fit mx-auto">
@@ -664,7 +662,7 @@ import Testimonials from "../components/Testimonials.vue";
 const {cartItem} = useCartStore();
 
 const {showModal, showContactModal, showOrderModal, showCartModal, showCustomObstacleModalFunc} = useModalStore();
-const {preOrderCount, totalAvailable, price, rebate} = usePreOrderStore();
+const {price, rebate} = usePreOrderStore();
 const isScrolled = ref(false);
 const showHeader = ref(true);
 const lastScrollPosition = ref(0);
