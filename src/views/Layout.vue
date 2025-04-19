@@ -172,10 +172,7 @@ import useCartStore from "../store/cartStore.ts";
 import VideoBackground from 'vue-responsive-video-background-player'
 import useModalStore from '../store/modalStore';
 import { useRouter } from 'vue-router';
-//@ts-ignore
-import VLazyImage from "v-lazy-image";
 import InstagramMessageButton from "../components/InstagramMessageButton.vue";
-// import TelegramLiveChat from "../components/TelegramLiveChat.vue";
 
 // Initialisiere Swiper Plugins
 SwiperCore.use([Pagination, Autoplay]);

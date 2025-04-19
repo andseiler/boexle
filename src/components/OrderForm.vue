@@ -113,8 +113,6 @@ import type {CartItem} from "../store/cartStore.js";
 import QuantityInput from "./QuantityInput.vue";
 import {i18n} from "../main.ts";
 import usePreOrderStore from '../store/usePreOrderStore';
-//@ts-ignore
-import VLazyImage from "v-lazy-image";
 import InstagramMessageButton from "./InstagramMessageButton.vue";
 
 const cartStore = useCartStore();

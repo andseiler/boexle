@@ -85,9 +85,9 @@
       </h2>
       <p class="text-textbright mb-12 mt-4">
         {{
-          $t('Ich bin Andi und skate seit 25 Jahren. Im Winter skaten wir in einem Parkhaus um die Ecke und letztes Jahr kam ich auf die Idee dafür eine portable Ledge zu bauen. Nach mittlerweile 5 Versionen, ist die Ledge nun ausgereift und ich hoffe ich kann auch anderen Skatern damit eine Freude machen.')
+          $t('why1')
         }}
-        <br><br>{{ $t('Das im Video oben bin übrigens ich. Ich freu mich auf eure Nachrichten.') }}
+        <br><br>{{ $t('why2') }}
       </p>
       <h2 @click="showSetup" class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-8 md:mt-0">
         <span>{{ $t('Aufbau in nur 1 Minute!') }}</span>
@@ -664,8 +664,6 @@ import VideoBackground from 'vue-responsive-video-background-player'
 import useModalStore from '../store/modalStore';
 import usePreOrderStore from '../store/usePreOrderStore';
 import ModalComponent from '../components/ModalComponent.vue';
-//@ts-ignore
-import VLazyImage from "v-lazy-image";
 import Testimonials from "../components/Testimonials.vue";
 
 const {cartItem} = useCartStore();

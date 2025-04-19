@@ -171,8 +171,6 @@ import {CreditCardIcon, TrashIcon} from "@heroicons/vue/24/outline";
 import QuantityInput from "./QuantityInput.vue";
 import {i18n} from "../main.ts";
 import usePreOrderStore from "../store/usePreOrderStore";
-//@ts-ignore
-import VLazyImage from "v-lazy-image";
 
 const emit = defineEmits(['order', 'close'])
 

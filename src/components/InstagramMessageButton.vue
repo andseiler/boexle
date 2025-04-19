@@ -20,8 +20,7 @@
 <script setup lang="ts">
 import {defineProps} from "vue";
 
-//@ts-ignore
-const props = defineProps({
+defineProps({
   alwaysFull: Boolean
 })
 </script>
