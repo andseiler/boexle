@@ -1,5 +1,4 @@
 <template>
-
   <a
       href="https://ig.me/m/pocket_ledge"
       target="_blank"
@@ -19,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+import {defineProps} from "vue";
 
 //@ts-ignore
 const props = defineProps({

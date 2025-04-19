@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import TelegramChat from "./TelegramChat.vue";
 import {ClipboardDocumentCheckIcon, ArrowTopRightOnSquareIcon} from "@heroicons/vue/24/outline";
-import {computed, ref} from "vue";
+import {computed, ref, defineProps} from "vue";
 const emailInput = ref(null);
 const emailAddress = computed(()=>'mail@pocketledge.de')
 const copySuccess = ref(false);
