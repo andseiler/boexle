@@ -45,10 +45,8 @@
         <span class="relative">{{ formatCurrency(price) }} <span class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
         <span class="text-primary-500 font-extrabold">{{ formatCurrency(discountedPrice) }}</span>
       </p>
-      <p class="text-sm text-textdark mb-4">{{ $t('(inkl. gesetzlicher MwSt)')}} {{ $t('+ Versand') }}</p>
+      <p class="text-sm text-textdark mb-4">{{ $t('(inkl. gesetzlicher MwSt)')}}</p>
 <!--      <p class="text-base font-bold text-textdark mb-6 text-center">{{ $t('Bestelle jetzt, nur noch') }} {{ totalAvailable - preOrderCount }} {{ $t('Stück zum reduzierten Preis verfügbar') }}</p>-->
-      <p class="text-base font-bold text-textdark mb-6 text-center">{{ $t('Bestelle jetzt,') }} <span class="text-primary-500">{{ $t('nur noch') }} {{ totalAvailable - preOrderCount }} {{ $t('Stück') }}</span>
-        {{ $t('zum reduzierten Preis verfügbar') }}</p>
 
       <!-- Hier eine schöne Farbauswahl, schwarz ist default -->
       <div class="form-group w-full mb-4">
@@ -84,14 +82,14 @@
 
       <!-- Hier ein Button "in den Warenkorb" -->
       <div class="w-full mt-6 flex flex-col gap-4">
-        <button @click="addToCart" class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 flex-1 py-3 text-lg flex items-center justify-center">
-          <ShoppingCartIcon class="w-6 h-6 mr-2" />
-          {{ $t('In den Warenkorb') }}
-        </button>
+<!--        <button @click="addToCart" class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 flex-1 py-3 text-lg flex items-center justify-center">-->
+<!--          <ShoppingCartIcon class="w-6 h-6 mr-2" />-->
+<!--          {{ $t('In den Warenkorb') }}-->
+<!--        </button>-->
         <!-- Hier ein Button "Direkt bezahlen" -->
         <button @click="directPay" class="gradient-button custom-color from-primary-500 to-primary-600 flex-1 py-3 text-lg flex items-center justify-center">
-          <CreditCardIcon class="w-6 h-6 mr-2" />
-          {{ $t('Direkt bestellen') }}
+          <ArrowRightCircleIcon class="w-6 h-6 mr-2" />
+          {{ $t('Adressdaten eingeben') }}
         </button>
         <InstagramMessageButton :always-full="true"></InstagramMessageButton>
       </div>
@@ -106,7 +104,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 //@ts-ignore
 import 'swiper/css/pagination';
-import { ShoppingCartIcon, CreditCardIcon} from '@heroicons/vue/24/outline';
+import { ArrowRightCircleIcon} from '@heroicons/vue/24/outline';
 import { CheckIcon} from '@heroicons/vue/24/solid';
 import useCartStore from "../store/cartStore.js";
 import type {CartItem} from "../store/cartStore.js";
@@ -116,7 +114,7 @@ import usePreOrderStore from '../store/usePreOrderStore';
 import InstagramMessageButton from "./InstagramMessageButton.vue";
 
 const cartStore = useCartStore();
-const { preOrderCount, totalAvailable, rebate, price } = usePreOrderStore();
+const { rebate, price } = usePreOrderStore();
 
 // Calculate discounted price
 const discountedPrice = computed(() => price.value - rebate.value); // Rabattierte Preis
