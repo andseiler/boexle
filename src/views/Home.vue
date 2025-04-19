@@ -84,9 +84,7 @@
         <span>{{ $t('Warum?') }}</span>
       </h2>
       <p class="text-textbright mb-12 mt-4">
-        {{
-          $t('why1')
-        }}
+        {{$t('why1') }}
         <br><br>{{ $t('why2') }}
       </p>
       <h2 @click="showSetup" class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-8 md:mt-0">

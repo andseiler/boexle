@@ -9,10 +9,10 @@
     <div class="relative w-6 h-6 flex items-center justify-center">
       <img src="/images/instagram-icon-white.svg" alt="Instagram" class="w-6 h-6"/>
     </div>
-    <span class="ml-2" v-if="alwaysFull">{{ $t('Drop me a DM - @pocket_ledge') }}</span>
+    <span class="ml-2" v-if="alwaysFull">{{ $t('Drop me a DM') }} - @pocket_ledge</span>
     <template v-else>
       <span class="lg:hidden">{{ $t('DM') }}</span>
-      <span class="ml-2 hidden lg:inline">{{ $t('Drop me a DM - @pocket_ledge') }}</span>
+      <span class="ml-2 hidden lg:inline">{{ $t('Drop me a DM') }} - @pocket_ledge</span>
     </template>
   </a>
 </template>
