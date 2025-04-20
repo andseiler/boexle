@@ -14,7 +14,7 @@
       items-center justify-center z-20 h-36 w-36 lg:h-48 lg:w-48">
         <span class="gloria-hallelujah-regular text-xl lg:text-3xl">{{ $t('Im April') }}</span>
         <span class=" font-bolder text-4xl lg:text-5xl gloria-hallelujah-regular">{{ price - rebate }} €</span>
-        <span class="text-sm italic font-normal">{{$t('0 € Versand')}}</span>
+        <span class="text-sm italic font-normal">{{ $t('0 € Versand') }}</span>
       </div>
     </video-background>
     <div class="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
@@ -57,7 +57,7 @@
                     items-center justify-center z-20 h-28 w-28">
         <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>
         <span class=" font-bolder text-xl gloria-hallelujah-regular">{{ price - rebate }} €</span>
-        <span class="text-xs italic font-normal">{{$t('0 € Versand')}}</span>
+        <span class="text-xs italic font-normal">{{ $t('0 € Versand') }}</span>
       </div>
       <div class="absolute top-[-2.5rem] right-1 sm:right-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white
                     flex xs:hidden
@@ -80,14 +80,27 @@
           <span>{{ $t('Anfrage für dein Custom-Obstacle') }}</span>
         </div>
       </div>
-      <h2 @click="showSetup" class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-8 md:mt-0">
-        <span>{{ $t('Warum?') }}</span>
+      <h2 @click="showSetup"
+          class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-8 md:mt-0">
+        <span>{{ $t('Warum kostet die Box was sie kostet') }}</span>
       </h2>
-      <p class="text-textbright mb-12 mt-4">
-        {{$t('why1') }}
-        <br><br>{{ $t('why2') }}
-      </p>
-      <h2 @click="showSetup" class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-8 md:mt-0">
+      <div class="text-textbright mb-12 mt-4 text-center">
+        {{
+          $t('Ich bin Andi und skate seit 25 Jahren. Im Winter skaten wir in einem Parkhaus um die Ecke und letztes Jahr kam ich auf die Idee dafür eine portable Ledge zu bauen.')
+        }}
+        <br><br>
+        {{ $t('Ich bin ein Ein-Personen-Unternehmen - Ich entwickle. designe, baue und verpacke jede Ledge selbst. Here eine kleine Übersicht was eine Box kostet:') }}
+        <br><br>
+        <ul>
+          <li><strong>~ 150 €</strong> {{ $t('Materialkosten') }}</li>
+          <li><strong>2-3 h</strong> {{ $t('Arbeitszeit pro Box') }}</li>
+          <li>~ <strong>30 €</strong> {{ $t('Versand und Verpackungsmaterial') }}</li>
+          <li><strong>{{$t('Steuern')}}</strong> {{ $t('(ich bin in Österreich registriert)') }}</li>
+        </ul>
+        <br>{{ $t('Wenn du bei mir eine Box kaufst, unterstützt du einen kleinen Betrieb, keine Massenproduktion. Ich gestalte meine Preise fair und werde das auch so beibehalten.') }}
+      </div>
+      <h2 @click="showSetup"
+          class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-8 md:mt-0">
         <span>{{ $t('Aufbau in nur 1 Minute!') }}</span>
         <div class="lg:hidden ">
           <div
