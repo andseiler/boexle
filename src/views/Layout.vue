@@ -315,7 +315,6 @@ const sendVisitorInfo = async (title: string) => {
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
-  sendVisitorInfo('New Visitor');
 });
 
 onUnmounted(() => window.removeEventListener("scroll", handleScroll));
