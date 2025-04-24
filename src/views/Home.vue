@@ -67,21 +67,34 @@
         <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>
         <span class=" font-bolder text-xl gloria-hallelujah-regular">{{ price - rebate }} €</span>
       </div>
-      <div class="inline-block sm:hidden flex flex-col items-center mt-4">
+      <div class="hidden sm:flex justify-center items-center w-full">
+        <div @click="showContactModal=true"
+            class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8 w-fit">
+          <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
+          <span>{{ $t('Selbst bauen? Jetzt Pläne bestellen') }}</span>
+        </div>
+      </div>
+      <div class="inline-block sm:hidden flex flex-col items-center mt-4 xs:mt-0">
         <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8 w-fit mx-auto">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
           <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span><span class="text-sm italic">{{
               $t('Keine Versandkosten (EU)')
             }}</span></span>
         </div>
+        <div @click="showContactModal=true"
+            class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
+          <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
+          <span>{{ $t('Selbst bauen? Jetzt Pläne bestellen') }}</span>
+        </div>
         <div @click="showCustomObstacleModalFunc"
-             class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
+             class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-4">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
           <span>{{ $t('Anfrage für dein Custom-Obstacle') }}</span>
         </div>
       </div>
+
       <h2 @click="showSetup"
-          class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-8 md:mt-0">
+          class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-4 md:mt-0">
         <span>{{ $t('Warum kostet die Box was sie kostet') }}</span>
       </h2>
       <div class="text-textbright mb-12 mt-4 text-center">

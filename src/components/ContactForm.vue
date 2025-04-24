@@ -15,9 +15,9 @@
       </div>
       <div class="form-group">
         <label for="" class="form-label">{{ $t('auf Instagram') }}</label>
-        <a class="flex-1 relative cursor-pointer" href="https://www.instagram.com/pocket_ledge" target="_blank">
+        <a class="flex-1 relative cursor-pointer" href="https://ig.me/m/pocket_ledge" target="_blank">
           <span class="absolute right-4 top-4 text-textdark cursor-pointer hover:text-primary-500"><ArrowTopRightOnSquareIcon class="w-6"></ArrowTopRightOnSquareIcon></span>
-          <input type="text" readonly value="https://www.instagram.com/pocket_ledge" ref="emailInput" class="form-input w-full cursor-pointer">
+          <input type="text" readonly value="@pocket_ledge" ref="emailInput" class="form-input w-full cursor-pointer">
         </a>
       </div>
       <div class="form-group">
