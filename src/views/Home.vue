@@ -68,7 +68,7 @@
         <span class=" font-bolder text-xl gloria-hallelujah-regular">{{ price - rebate }} €</span>
       </div>
       <div class="hidden sm:flex justify-center items-center w-full">
-        <div @click="showContactModal=true"
+        <div @click="showOrderPlanModalFunc"
             class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8 w-fit">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
           <span>{{ $t('Selbst bauen? Jetzt Pläne bestellen') }}</span>
@@ -81,7 +81,7 @@
               $t('Keine Versandkosten (EU)')
             }}</span></span>
         </div>
-        <div @click="showContactModal=true"
+        <div @click="showOrderPlanModalFunc"
             class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
           <span>{{ $t('Selbst bauen? Jetzt Pläne bestellen') }}</span>
@@ -692,7 +692,7 @@ import Testimonials from "../components/Testimonials.vue";
 
 const {cartItem} = useCartStore();
 
-const {showModal, showContactModal, showOrderModal, showCartModal, showCustomObstacleModalFunc} = useModalStore();
+const {showModal, showContactModal, showOrderModal, showCartModal, showCustomObstacleModalFunc, showOrderPlanModalFunc} = useModalStore();
 const {price, rebate} = usePreOrderStore();
 const isScrolled = ref(false);
 const showHeader = ref(true);

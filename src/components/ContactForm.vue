@@ -52,7 +52,7 @@ const props = defineProps({
 })
 
 onMounted(()=>{
-  sendVisitorInfo("ContactForm Viewed");
+  sendVisitorInfo(props.subtitle?props.subtitle:"ContactForm Viewed");
 })
 
 const sendVisitorInfo = async (title: string) => {

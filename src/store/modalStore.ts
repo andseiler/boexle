@@ -19,5 +19,10 @@ export default function useModalStore() {
         customObstacleSubtitle.value = i18n.global.t('Du willst ein individuelles Obstacle? Rail, Ledge oder was ganz anderes – kein Problem! Schreib einfach eine kurze Nachricht, wir besprechen was du dir vorstellst und du bekommst ein unverbindliches Angebot.');
     }
 
-    return {showModal, showContactModal, showOrderModal, showCartModal, showCustomObstacleModalFunc, customObstacleSubtitle};
+    function showOrderPlanModalFunc(){
+        showContactModal.value = true;
+        customObstacleSubtitle.value=i18n.global.t('Du willst dir deine eigene Box bauen? Schreib mir eine kurze Nachricht und ich melde mich mit allen Details bei dir.')
+    }
+
+    return {showModal, showContactModal, showOrderModal, showCartModal, showCustomObstacleModalFunc,showOrderPlanModalFunc, customObstacleSubtitle};
 }
