@@ -688,7 +688,6 @@ import VideoBackground from 'vue-responsive-video-background-player'
 import useModalStore from '../store/modalStore';
 import usePreOrderStore from '../store/usePreOrderStore';
 import ModalComponent from '../components/ModalComponent.vue';
-import Testimonials from "../components/Testimonials.vue";
 
 const {cartItem} = useCartStore();
 
