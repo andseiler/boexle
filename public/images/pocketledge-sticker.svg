@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="297mm"
+   height="105mm"
+   viewBox="0 0 297 105"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   sodipodi:docname="pocketledge-sticker.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#092e43"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0574425"
+     inkscape:cx="573.08082"
+     inkscape:cy="233.10961"
+     inkscape:window-width="2256"
+     inkscape:window-height="1429"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:33.8667px;font-family:'Gloria Hallelujah';-inkscape-font-specification:'Gloria Hallelujah';fill:#9ecb2e;stroke:#9ecb2e;stroke-width:1;fill-opacity:1"
+       x="8.1595936"
+       y="40.708645"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-size:33.8667px;stroke-width:1;fill:#9ecb2e;fill-opacity:1"
+         x="8.1595936"
+         y="40.708645">POCKETLEDGE.DE</tspan></text>
+  </g>
+</svg>
