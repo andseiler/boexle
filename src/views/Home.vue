@@ -106,7 +106,7 @@
         <br><br>
         <ul>
           <li><strong>~ 150 €</strong> {{ $t('Materialkosten') }}</li>
-          <li><strong>2-3 h</strong> {{ $t('Arbeitszeit pro Box') }}</li>
+          <li><strong>4-5 h</strong> {{ $t('Arbeitszeit pro Box') }}</li>
           <li>~ <strong>30 €</strong> {{ $t('Versand und Verpackungsmaterial') }}</li>
           <li><strong>{{$t('Steuern')}}</strong> {{ $t('(ich bin in Österreich registriert)') }}</li>
         </ul>
