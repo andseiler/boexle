@@ -93,15 +93,14 @@
               :placeholder="$t('Deine Adresse (optional)')"
           ></textarea>
         </div>
-<!--        <div class="form-group w-full mb-4">-->
-<!--          <label for="country" class="form-label">{{ $t('Land:') }}</label>-->
-<!--          <select id="country" v-model="customerCountry" class="form-input w-full text-textdark">-->
-<!--            <option value="at">{{ $t('Österreich') }}</option>-->
-<!--            <option value="de">{{ $t('Deutschland') }}</option>-->
-<!--            <option value="ch">{{ $t('Schweiz') }}</option>-->
-<!--            <option value="other">{{ $t('Andere EU Länder') }}</option>-->
-<!--          </select>-->
-<!--        </div>-->
+        <div class="form-group w-full mb-4">
+          <label for="country" class="form-label">{{ $t('Land:') }}</label>
+          <select id="country" v-model="customerCountry" class="form-input w-full text-textdark">
+            <option value="at">{{ $t('Österreich') }}</option>
+            <option value="de">{{ $t('Deutschland') }}</option>
+            <option value="other">{{ $t('Andere EU Länder') }}</option>
+          </select>
+        </div>
 
         <!-- Versandart Auswahl -->
         <div class="form-group w-full mb-4">
@@ -121,8 +120,8 @@
         <!-- Bestellinformationen -->
         <div class="form-group w-full mb-4" v-if="deliveryMethod === 'delivery'">
           <p class="form-label">{{ $t('Versandkosten:') }}</p>
-<!--          <p class="text-textdark text-xl">{{ formatCurrency(shippingCost) }}</p>-->
-          <p class="text-textdark text-xl">{{ $t('Keine Versandkosten innerhalb der EU') }}</p>
+          <p class="text-textdark text-xl">{{ formatCurrency(shippingCost) }}</p>
+<!--          <p class="text-textdark text-xl">{{ $t('Keine Versandkosten innerhalb der EU') }}</p>-->
         </div>
         <div class="form-group w-full mb-4">
           <p class="form-label">{{ $t('Gesamtsumme:') }}</p>
@@ -219,11 +218,10 @@ const validEmail = computed(() => {
 const validQuantity = computed(() => Number.isInteger(quantity.value) && quantity.value > 0);
 
 const shippingCost = computed(() => {
-  // if (deliveryMethod.value === 'pickup') return 0;
-  // if (customerCountry.value === 'at') return 18;
-  // if (customerCountry.value === 'de') return 20;
-  // if (customerCountry.value === 'ch') return 29;
-  // if (customerCountry.value === 'other') return 29;
+  if (deliveryMethod.value === 'pickup') return 0;
+  if (customerCountry.value === 'at') return 25;
+  if (customerCountry.value === 'de') return 25;
+  if (customerCountry.value === 'other') return 35;
   return 0;
 });
 

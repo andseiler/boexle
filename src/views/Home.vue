@@ -6,16 +6,16 @@
         overlay="rgba(50, 30, 10, 0.4)"
         poster="images/hp-teaser.png"
     >
-      <div class="absolute top-4 right-4 bg-gradient-to-r
-      from-primary-500 to-primary-600
-      hidden md:flex
-      rotate-12 text-white text-sm font-bold rounded-full shadow-lg 
-      flex text-center flex-col gap-2
-      items-center justify-center z-20 h-36 w-36 lg:h-48 lg:w-48">
-        <span class="gloria-hallelujah-regular text-xl lg:text-3xl">{{ $t('Im April') }}</span>
-        <span class=" font-bolder text-4xl lg:text-5xl gloria-hallelujah-regular">{{ price - rebate }} €</span>
-        <span class="text-sm italic font-normal">{{ $t('0 € Versand') }}</span>
-      </div>
+<!--      <div class="absolute top-4 right-4 bg-gradient-to-r-->
+<!--      from-primary-500 to-primary-600-->
+<!--      hidden md:flex-->
+<!--      rotate-12 text-white text-sm font-bold rounded-full shadow-lg-->
+<!--      flex text-center flex-col gap-2-->
+<!--      items-center justify-center z-20 h-36 w-36 lg:h-48 lg:w-48">-->
+<!--        <span class="gloria-hallelujah-regular text-xl lg:text-3xl">{{ $t('Im April') }}</span>-->
+<!--        <span class=" font-bolder text-4xl lg:text-5xl gloria-hallelujah-regular">{{ price - rebate }} €</span>-->
+<!--        <span class="text-sm italic font-normal">{{ $t('0 € Versand') }}</span>-->
+<!--      </div>-->
     </video-background>
     <div class="absolute inset-0 flex flex-col items-center justify-center px-4 z-20">
       <h1 class="fade-in text-5xl sm:text-6xl font-extrabold mb-2 sm:mb-8 text-textbright">
@@ -35,9 +35,11 @@
       <div class="hidden sm:block flex flex-col items-center justify-center">
         <div @click="showOrderModalFunc" class="gradient-button mb-8 mx-auto w-fit">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span><span class="text-sm italic">{{
-              $t('Keine Versandkosten (EU)')
-            }}</span></span>
+          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span>
+<!--            <span class="text-sm italic">{{-->
+<!--              $t('Keine Versandkosten (EU)')-->
+<!--            }}</span>-->
+          </span>
         </div>
         <div @click="showCustomObstacleModalFunc"
              class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
@@ -50,42 +52,44 @@
   </section>
   <div class="bg-primarycontrast-500 w-full">
     <section id="features" class="container mx-auto px-4 py-12 max-w-screen-xl text-center relative">
-      <div class="absolute top-[-3rem] right-2 sm:right-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white
-                    hidden xs:flex md:hidden
-                    rotate-12 font-bold rounded-full shadow-lg
-                    flex text-center flex-col
-                    items-center justify-center z-20 h-28 w-28">
-        <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>
-        <span class=" font-bolder text-xl gloria-hallelujah-regular">{{ price - rebate }} €</span>
-        <span class="text-xs italic font-normal">{{ $t('0 € Versand') }}</span>
-      </div>
-      <div class="absolute top-[-2.5rem] right-1 sm:right-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white
-                    flex xs:hidden
-                    rotate-12 font-bold rounded-full shadow-lg
-                    flex text-center flex-col
-                    items-center justify-center z-20 h-24 w-24">
-        <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>
-        <span class=" font-bolder text-xl gloria-hallelujah-regular">{{ price - rebate }} €</span>
-      </div>
+<!--      <div class="absolute top-[-3rem] right-2 sm:right-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white-->
+<!--                    hidden xs:flex md:hidden-->
+<!--                    rotate-12 font-bold rounded-full shadow-lg-->
+<!--                    flex text-center flex-col-->
+<!--                    items-center justify-center z-20 h-28 w-28">-->
+<!--        <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>-->
+<!--        <span class=" font-bolder text-xl gloria-hallelujah-regular">{{ price - rebate }} €</span>-->
+<!--        <span class="text-xs italic font-normal">{{ $t('0 € Versand') }}</span>-->
+<!--      </div>-->
+<!--      <div class="absolute top-[-2.5rem] right-1 sm:right-8 bg-gradient-to-r from-primary-500 to-primary-600 text-white-->
+<!--                    flex xs:hidden-->
+<!--                    rotate-12 font-bold rounded-full shadow-lg-->
+<!--                    flex text-center flex-col-->
+<!--                    items-center justify-center z-20 h-24 w-24">-->
+<!--        <span class="gloria-hallelujah-regular text-base">{{ $t('Im April') }}</span>-->
+<!--        <span class=" font-bolder text-xl gloria-hallelujah-regular">{{ price - rebate }} €</span>-->
+<!--      </div>-->
       <div class="hidden sm:flex justify-center items-center w-full">
-        <div @click="showOrderPlanModalFunc"
-            class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8 w-fit">
-          <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
-          <span>{{ $t('Selbst bauen? Jetzt Pläne bestellen') }}</span>
-        </div>
+<!--        <div @click="showOrderPlanModalFunc"-->
+<!--            class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8 w-fit">-->
+<!--          <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>-->
+<!--          <span>{{ $t('Selbst bauen? Jetzt Pläne bestellen') }}</span>-->
+<!--        </div>-->
       </div>
       <div class="inline-block sm:hidden flex flex-col items-center mt-4 xs:mt-0">
-        <div @click="showOrderModalFunc" class="w-fit gradient-button gradient-button-outline mb-8 w-fit mx-auto">
+        <div @click="showOrderModalFunc" class="w-fit gradient-button mb-8 w-fit mx-auto">
           <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span><span class="text-sm italic">{{
-              $t('Keine Versandkosten (EU)')
-            }}</span></span>
+          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span>
+<!--            <span class="text-sm italic">{{-->
+<!--              $t('Keine Versandkosten (EU)')-->
+<!--            }}</span>-->
+          </span>
         </div>
-        <div @click="showOrderPlanModalFunc"
-            class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
-          <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
-          <span>{{ $t('Selbst bauen? Jetzt Pläne bestellen') }}</span>
-        </div>
+<!--        <div @click="showOrderPlanModalFunc"-->
+<!--            class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">-->
+<!--          <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>-->
+<!--          <span>{{ $t('Selbst bauen? Jetzt Pläne bestellen') }}</span>-->
+<!--        </div>-->
         <div @click="showCustomObstacleModalFunc"
              class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-4">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
@@ -107,7 +111,6 @@
         <ul>
           <li><strong>~ 150 €</strong> {{ $t('Materialkosten') }}</li>
           <li><strong>4-5 h</strong> {{ $t('Arbeitszeit pro Box') }}</li>
-          <li>~ <strong>30 €</strong> {{ $t('Versand und Verpackungsmaterial') }}</li>
           <li><strong>{{$t('Steuern')}}</strong> {{ $t('(ich bin in Österreich registriert)') }}</li>
         </ul>
         <br>{{ $t('Wenn du bei mir eine Box kaufst, unterstützt du einen kleinen Betrieb, keine Massenproduktion. Ich gestalte meine Preise fair und werde das auch so beibehalten.') }}
