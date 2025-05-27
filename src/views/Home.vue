@@ -694,7 +694,7 @@ import ModalComponent from '../components/ModalComponent.vue';
 
 const {cartItem} = useCartStore();
 
-const {showModal, showContactModal, showOrderModal, showCartModal, showCustomObstacleModalFunc, showOrderPlanModalFunc} = useModalStore();
+const {showModal, showContactModal, showOrderModal, showCartModal, showCustomObstacleModalFunc} = useModalStore();
 const {price, rebate} = usePreOrderStore();
 const isScrolled = ref(false);
 const showHeader = ref(true);
