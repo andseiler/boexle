@@ -33,18 +33,18 @@
         <!--          {{ $t('Extrem stabil, in 1 Minute auf- und abgebaut, passt perfekt in eine Eurobox (60x40x30 cm) und wiegt so viel wie ne Bierkiste')}}-->
       </div>
       <div class="hidden sm:block flex flex-col items-center justify-center">
-        <div @click="showOrderModalFunc" class="gradient-button mb-8 mx-auto w-fit">
-          <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span>
+<!--        <div @click="showOrderModalFunc" class="gradient-button mb-8 mx-auto w-fit">-->
+<!--          <shopping-cart-icon class="w-6"></shopping-cart-icon>-->
+<!--          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span>-->
 <!--            <span class="text-sm italic">{{-->
 <!--              $t('Keine Versandkosten (EU)')-->
 <!--            }}</span>-->
-          </span>
-        </div>
-        <div @click="showCustomObstacleModalFunc"
-             class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">
+<!--          </span>-->
+<!--        </div>-->
+        <div @click="showContactModal=true"
+             class="gradient-button mb-8">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
-          <span>{{ $t('Anfrage für dein Custom-Obstacle') }}</span>
+          <span>{{ $t('Jetzt kontaktieren') }}</span>
         </div>
       </div>
 
@@ -77,43 +77,24 @@
 <!--        </div>-->
       </div>
       <div class="inline-block sm:hidden flex flex-col items-center mt-4 xs:mt-0">
-        <div @click="showOrderModalFunc" class="w-fit gradient-button mb-8 w-fit mx-auto">
-          <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span>
+<!--        <div @click="showOrderModalFunc" class="w-fit gradient-button mb-8 w-fit mx-auto">-->
+<!--          <shopping-cart-icon class="w-6"></shopping-cart-icon>-->
+<!--          <span class="flex flex-col items-center"><span>{{ $t('Jetzt bestellen') }}</span>-->
 <!--            <span class="text-sm italic">{{-->
 <!--              $t('Keine Versandkosten (EU)')-->
 <!--            }}</span>-->
-          </span>
-        </div>
+<!--          </span>-->
+<!--        </div>-->
 <!--        <div @click="showOrderPlanModalFunc"-->
 <!--            class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-8">-->
 <!--          <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>-->
 <!--          <span>{{ $t('Selbst bauen? Jetzt Pläne bestellen') }}</span>-->
 <!--        </div>-->
-        <div @click="showCustomObstacleModalFunc"
+        <div @click="showContactModal=true"
              class="gradient-button gradient-button-outline custom-color from-primarycontrast-500 to-primarycontrast-600 mb-4">
           <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
-          <span>{{ $t('Anfrage für dein Custom-Obstacle') }}</span>
+          <span>{{ $t('Jetzt kontaktieren') }}</span>
         </div>
-      </div>
-
-      <h2 @click="showSetup"
-          class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-4 md:mt-0">
-        <span>{{ $t('Warum kostet die Box was sie kostet') }}</span>
-      </h2>
-      <div class="text-textbright mb-12 mt-4 text-center">
-        {{
-          $t('Ich bin Andi und skate seit 25 Jahren. Im Winter skaten wir in einem Parkhaus um die Ecke und letztes Jahr kam ich auf die Idee dafür eine portable Ledge zu bauen.')
-        }}
-        <br><br>
-        {{ $t('Ich bin ein Ein-Personen-Unternehmen - Ich entwickle. designe, baue und verpacke jede Ledge selbst. Here eine kleine Übersicht was eine Box kostet:') }}
-        <br><br>
-        <ul>
-          <li><strong>~ 150 €</strong> {{ $t('Materialkosten') }}</li>
-          <li><strong>4-5 h</strong> {{ $t('Arbeitszeit pro Box') }}</li>
-          <li><strong>{{$t('Steuern')}}</strong> {{ $t('(ich bin in Österreich registriert)') }}</li>
-        </ul>
-        <br>{{ $t('Wenn du bei mir eine Box kaufst, unterstützt du einen kleinen Betrieb, keine Massenproduktion. Ich gestalte meine Preise fair und werde das auch so beibehalten.') }}
       </div>
       <h2 @click="showSetup"
           class="text-center text-textbright text-2xl font-bold flex flex-col w-full items-center justify-center gap-4 mt-8 md:mt-0">
@@ -448,12 +429,9 @@
           class="max-w-lg mx-auto bg-tertiary-200 rounded-lg shadow-lg p-8 flex flex-col items-center justify-center">
         <h3 class="ont-bold text-primary-500 mb-4 gloria-hallelujah-regular text-4xl">POCKETLEDGE</h3>
         <p class="text-4xl text-textdark mb-2 flex flex-col justify-center items-center">
-          <span class="relative">{{ formatCurrency(price) }} <span
-              class="absolute left-0 right-0 top-1/2 border-b border-4"></span></span>
-          <span class="text-primary-500 font-extrabold">{{ formatCurrency(discountedPrice) }}</span>
+          <span class="font-extrabold">{{ formatCurrency(discountedPrice) }}</span>
         </p>
         <p class="text-sm mb-6 text-textdark">{{ $t('(inkl. gesetzlicher MwSt)') }}</p>
-        <p class="text-textdark italic font-bold text-xl mb-6">{{ $t('Keine Versandkosten innerhalb der EU') }}</p>
 
         <ul class="text-textdark text-left space-y-3 mb-6">
           <li class="flex items-center">
@@ -483,10 +461,10 @@
         </ul>
 
         <!-- Order Button -->
-        <div @click="showOrderModalFunc"
+        <div @click="showContactModal=true"
              class="gradient-button custom-color from-primarycontrast-500 to-primarycontrast-600">
-          <shopping-cart-icon class="w-6"></shopping-cart-icon>
-          {{ $t('Jetzt bestellen') }}
+          <wrench-screwdriver-icon class="w-6"></wrench-screwdriver-icon>
+          {{ $t('Jetzt kontaktieren') }}
         </div>
       </div>
 
@@ -678,23 +656,22 @@ import {Swiper, SwiperSlide} from 'swiper/vue';
 import {Pagination, Autoplay, Navigation} from 'swiper/modules';
 import {computed, onMounted, onUnmounted, ref} from "vue";
 import {
-  ShoppingCartIcon,
+
   ChatBubbleOvalLeftEllipsisIcon,
   CheckBadgeIcon,
   VideoCameraIcon,
   PlayPauseIcon,
   WrenchScrewdriverIcon
 } from '@heroicons/vue/24/outline'
-import useCartStore from "../store/cartStore.ts";
 //@ts-ignore
 import VideoBackground from 'vue-responsive-video-background-player'
 import useModalStore from '../store/modalStore';
 import usePreOrderStore from '../store/usePreOrderStore';
 import ModalComponent from '../components/ModalComponent.vue';
 
-const {cartItem} = useCartStore();
+// const {cartItem} = useCartStore();
 
-const {showModal, showContactModal, showOrderModal, showCartModal, showCustomObstacleModalFunc} = useModalStore();
+const {showModal, showContactModal, } = useModalStore();
 const {price, rebate} = usePreOrderStore();
 const isScrolled = ref(false);
 const showHeader = ref(true);
@@ -754,13 +731,13 @@ async function showSetup() {
   await sendVisitorInfo("Setup watched")
 }
 
-const showOrderModalFunc = () => {
-  if (cartItem.value) {
-    showCartModal.value = true;
-  } else {
-    showOrderModal.value = true;
-  }
-}
+// const showOrderModalFunc = () => {
+//   if (cartItem.value) {
+//     showCartModal.value = true;
+//   } else {
+//     showOrderModal.value = true;
+//   }
+// }
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50;

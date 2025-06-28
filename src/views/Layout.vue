@@ -114,15 +114,15 @@
                   class="outline-button">
             {{ locale === 'en' ? 'DE' : 'EN' }}
           </button>
-          <div class="relative">
-            <div v-if="cartItem" class="absolute top-[-0.5rem] right-[-0.5rem] text-textdark z-10 rounded-full w-5 h-5 bg-primary-500 flex items-center justify-center font-bold">
-              {{cartItem.quantity}}
-            </div>
-            <a @click="showCartModal = true"
-               class="outline-button">
-              <shopping-cart-icon class="w-6"></shopping-cart-icon>
-            </a>
-          </div>
+<!--          <div class="relative">-->
+<!--            <div v-if="cartItem" class="absolute top-[-0.5rem] right-[-0.5rem] text-textdark z-10 rounded-full w-5 h-5 bg-primary-500 flex items-center justify-center font-bold">-->
+<!--              {{cartItem.quantity}}-->
+<!--            </div>-->
+<!--            <a @click="showCartModal = true"-->
+<!--               class="outline-button">-->
+<!--              <shopping-cart-icon class="w-6"></shopping-cart-icon>-->
+<!--            </a>-->
+<!--          </div>-->
 
         </nav>
       </div>
@@ -157,7 +157,7 @@ import SwiperCore from 'swiper';
 import {Autoplay, Pagination} from 'swiper/modules';
 import {onMounted, onUnmounted, ref} from "vue";
 import {
-  ShoppingCartIcon,
+
   CurrencyEuroIcon,
   PhotoIcon,
   ChatBubbleOvalLeftEllipsisIcon
@@ -167,7 +167,7 @@ import ContactForm from "../components/ContactForm.vue"
 import {useI18n} from "vue-i18n";
 import CartForm from "../components/CartForm.vue";
 import OrderForm  from "../components/OrderForm.vue";
-import useCartStore from "../store/cartStore.ts";
+// import useCartStore from "../store/cartStore.ts";
 //@ts-ignore
 import VideoBackground from 'vue-responsive-video-background-player'
 import useModalStore from '../store/modalStore';
@@ -177,7 +177,7 @@ import InstagramMessageButton from "../components/InstagramMessageButton.vue";
 // Initialisiere Swiper Plugins
 SwiperCore.use([Pagination, Autoplay]);
 
-const {cartItem} = useCartStore();
+// const {cartItem} = useCartStore();
 
 const { showModal, showContactModal, showOrderModal, showCartModal , customObstacleSubtitle} = useModalStore();
 const isScrolled = ref(false);

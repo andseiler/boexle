@@ -2,8 +2,8 @@ import { computed, ref } from "vue";
 
 const preOrderCountRef = ref(23);
 const totalAvailableRef = ref(30);
-const rebateRef = ref(19);
-const priceRef = ref(299);
+const rebateRef = ref(0);
+const priceRef = ref(350);
 
 export default function usePreOrderStore() {
   function incrementPreOrder() {
